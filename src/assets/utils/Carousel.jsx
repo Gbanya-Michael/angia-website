@@ -60,7 +60,7 @@ export default function Carousel({
             {React.Children.map(children, (_, index) => (
               <div
                 key={index}
-                className={`transition-all w-1.5 h-1.5 bg-black dark:bg-white rounded-full ${
+                className={`transition-all w-1.5 h-1.5 bg- bg-white rounded-full ${
                   current === index ? " p-1" : "opacity-50"
                 }`}
               />

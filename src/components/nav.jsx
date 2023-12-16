@@ -32,10 +32,12 @@ const nav = [
 
 export default function NavBar() {
   const [currentItem, setCurrentItem] = useState(null);
-  const [darkmode, setDarkMode] = useState(true);
+  const initialMode = localStorage.getItem("darkmode") === "true";
+  const [darkmode, setDarkMode] = useState(initialMode);
 
   //
   const location = useLocation();
+  //
   useEffect(() => {
     setCurrentItem(location.pathname);
   }, [location.pathname]);
@@ -46,6 +48,10 @@ export default function NavBar() {
     } else {
       document.documentElement.classList.remove("dark");
     }
+  }, [darkmode]);
+
+  useEffect(() => {
+    localStorage.setItem("darkmode", darkmode);
   }, [darkmode]);
 
   const handleDarkMode = () => {
