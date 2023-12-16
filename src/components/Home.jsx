@@ -175,7 +175,7 @@ export default function Home() {
                     </p>
 
                     <Link to="/contact-form">
-                      <div className=" mt-3 text-white border border-1 w-fit px-2 rounded-md text-sm bg-main2 hover:bg-bg1">
+                      <div className="mt-3 text-white border border-1 w-fit px-2 rounded-md text-sm bg-main2 hover:bg-bg1">
                         Get in touch
                       </div>
                     </Link>
@@ -184,7 +184,7 @@ export default function Home() {
               </ul>
             </div>
 
-            <div className="text-blue-600 hover:text-blue-700 underline mt-3">
+            <div className="md:text-center  text-blue-600 hover:text-blue-700 underline mt-3">
               <Link to="/services">See all services</Link>
             </div>
           </div>
@@ -202,13 +202,19 @@ export default function Home() {
                   />
                 </div>
               </div>
-              <div className="mt-5 md:mt-0 dark:text-white p-3 dark:p-0 bg-white  dark:bg-black rounded-sm shadow-md  col-span-2 order-1">
+              <div className="mt-5 md:mt-0 text-gray-600 dark:text-white p-3 dark:p-0 bg-white  dark:bg-black rounded-sm shadow-md  col-span-2 order-1">
                 <p className=" font-serif text-xl leading-6">
                   Know a business that would need ours services?
                 </p>
-                <p> Refer them to us and get paid.</p>
-                <p>
-                  Get paid <span>100,000 Naira</span> per referral.
+                <p className="text-lg">
+                  <Link className="text-blue-600 hover:text-blue-700">
+                    Refer
+                  </Link>
+                  <span> them to us and get paid.</span>
+                </p>
+                <p className="text-3xl my-3">
+                  Get paid <span className="text-4xl">100,000 Naira</span> per
+                  referral.
                 </p>
 
                 <div>
