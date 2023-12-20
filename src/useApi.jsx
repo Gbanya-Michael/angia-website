@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const API_KEY = "6b55743fc9a780482a0cbe0e493be43e";
+const API_KEY = import.meta.env.VITE_OPENWEATHER_API_KEY;
 
 export const locationInfo = () => {
   const [locationData, setLocationData] = useState({});

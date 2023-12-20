@@ -87,10 +87,13 @@ export default function Home() {
     <div className="dark:bg-black bg-gray-200">
       <NavBar />
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div>{city}</div>
-        <div>{currentWeather?.temp}</div>
-        <div>{currentWeather?.wind_speed}</div>
+      <div className=" md:flex  justify-between gap-5 mt-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div>Hello World</div>
+        <div className="my-5 md:my-0">
+          <div>{city}</div>
+          <div>{currentWeather?.temp}</div>
+          <div>{currentWeather?.wind_speed}</div>
+        </div>
       </div>
 
       <div
