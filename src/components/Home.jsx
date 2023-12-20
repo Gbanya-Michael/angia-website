@@ -5,6 +5,8 @@ import Carousel from "../assets/utils/Carousel";
 import { Design1, forbesStat1, earnBanner, seoChart } from "../useImage";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
+import { locationInfo, useWeather } from "../useApi";
+import "animate.css";
 
 //
 const homeSlides = [
@@ -58,9 +60,38 @@ const services = [
 //
 
 export default function Home() {
+  const { locationData } = locationInfo();
+  const country = locationData?.country;
+  const city = locationData?.city;
+  // console.log(location);
+
+  const { weatherData } = useWeather(locationData);
+  const currentWeather = weatherData?.current;
+  const handleReferal = () => {
+    if (country === "AU") {
+      return "A$500";
+    }
+    if (country === "NG") {
+      return "₦100,000 ";
+    }
+    if (country === "GB") {
+      return "£200";
+    }
+    if (country === "PH") {
+      return "₱10,000";
+    }
+    return "10%";
+  };
+  const referralCost = handleReferal();
   return (
     <div className="dark:bg-black bg-gray-200">
       <NavBar />
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div>{city}</div>
+        <div>{currentWeather?.temp}</div>
+        <div>{currentWeather?.wind_speed}</div>
+      </div>
 
       <div
         className={`bg-cover bg-center md:h-[400px] brightness-90 my-5 md:my-16  md:flex gap-2 justify-between items-center `}
@@ -90,7 +121,7 @@ export default function Home() {
 
             <div className="md:w-2/3  leading-3">
               <div className="bg-black/60 py-3 px-3">
-                <h1 className="text-white/90  font-extrabold text-sm md:text-xl">
+                <h1 className="text-white/90 font-serif  font-extrabold text-xl md:text-2xl">
                   Unlock The Power Of The Internet
                 </h1>
                 <div>
@@ -110,7 +141,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="bg-black/60 pt-3 pb-4 px-3 mt-6 ">
-                <h1 className="text-white/90  font-extrabold text-sm md:text-xl">
+                <h1 className="text-white/90 font-serif  font-extrabold text-xl md:text-2xl">
                   Earn Money with Us
                 </h1>
                 <p className=" text-white/70 text-sm">
@@ -148,16 +179,16 @@ export default function Home() {
             </Carousel>
           </div>
 
-          <div className="my-10">
+          <div className=" mt-20">
             <div>
-              <h1 className="text-center font-semibold text-xl text-gray-800 dark:text-white/80 ">
+              <h1 className="my-5 text-center font-semibold text-xl font-serif  md:text-3xl text-gray-800 dark:text-white/80 ">
                 Services
               </h1>
               <ul className="md:flex flex-wrap justify-between gap-5 mt-5">
                 {services.map((service) => (
                   <li
                     key={service.id}
-                    className=" mt-5 mx-auto px-3 h-50 max-w-96 md:w-96 py-5 border border-1  border-gray-300 bg-white/80 dark:bg-black dark:border-white/80 rounded-sm shadow-md"
+                    className="mx-auto px-3 h-50 max-w-96 md:w-96 py-5 border border-1  border-gray-300 bg-white/80 dark:bg-black dark:border-white/80 rounded-sm shadow-md"
                   >
                     <div className="flex gap-5 py-1 ">
                       <div className="flex flex-col gap-2">
@@ -184,52 +215,63 @@ export default function Home() {
               </ul>
             </div>
 
-            <div className="md:text-center  text-blue-600 hover:text-blue-700 underline mt-3">
+            <div className="md:text-center text-xl lg:text-start text-blue-600 hover:text-blue-700 underline mt-3">
               <Link to="/services">See all services</Link>
             </div>
           </div>
-          <div className="">
-            <h1 className="my-5 text-center font-semibold text-xl text-gray-800 dark:text-white/80 ">
-              Make Extra Income
-            </h1>
-            <div className="mb-10 md:grid md:grid-cols-3 gap-5">
-              <div className=" bg-white  dark:bg-black rounded-sm shadow-md  w-full  col-span-1 order-3 ">
-                <div className=" w-68 h-72 py-3 md:px-3">
-                  <img
-                    src={earnBanner}
-                    alt={earnBanner}
-                    className="h-full w-full object-contain"
-                  />
+          <div className=" md:mt-20">
+            <div>
+              <h1 className="my-5 text-center font-semibold text-xl font-serif  md:text-3xl text-gray-800 dark:text-white/80 ">
+                Make Extra Income
+              </h1>
+              <div className="mb-10 md:grid md:grid-cols-3 gap-5">
+                <div className=" bg-white  dark:bg-black rounded-sm shadow-md  w-full  col-span-1 order-3 ">
+                  <div className=" w-68 h-72 py-3 md:px-3">
+                    <img
+                      src={earnBanner}
+                      alt={earnBanner}
+                      className="h-full w-full object-contain"
+                    />
+                  </div>
                 </div>
-              </div>
-              <div className="mt-5 md:mt-0 text-gray-600 dark:text-white p-3 dark:p-0 bg-white  dark:bg-black rounded-sm shadow-md  col-span-2 order-1">
-                <p className=" font-serif text-xl leading-6">
-                  Know a business that would need ours services?
-                </p>
-                <p className="text-lg">
-                  <Link className="text-blue-600 hover:text-blue-700">
-                    Refer
-                  </Link>
-                  <span> them to us and get paid.</span>
-                </p>
-                <p className="text-3xl my-3">
-                  Get paid <span className="text-4xl">100,000 Naira</span> per
-                  referral.
-                </p>
-
-                <div>
-                  <p> How does it work?</p>
-                  You know someone that owns a business with zero or poor online
-                  presence, all you need to do is click the
-                  <q>Reffer a client</q> button, fill in the required fields and
-                  sumbit. You can also look for businesses on social media and
-                  refer them to us with the neccessary information
-                  <p>That is it. Your part is done !</p>
-                  <p>
-                    Our team will receive the provided information and send a
-                    proposal to the client. Once successful, and we get paid, we
-                    pay you first before any expenses !
+                <div className="mt-5 md:mt-0 font-serif text-gray-500  dark:text-white/80 p-3 dark:p-0 bg-white  dark:bg-black rounded-sm shadow-md  col-span-2 order-1">
+                  <p className="  text-xl md:text-xl leading-5 ">
+                    Know a business or someone that would need our services?
                   </p>
+                  <p className="text-xl">
+                    <Link className="text-blue-500 hover:text-blue-700">
+                      Refer
+                    </Link>
+                    <span> them to us and get paid.</span>
+                  </p>
+                  <div className="flex items-center gap-2 text-xl md:text-2xl  my-3 text-gray-800 dark:text-white/90 ">
+                    <p>Get paid</p>
+                    <p className="text-2xl text-green-500 animate__animated animate__tada animate__infinite ">
+                      {referralCost}
+                    </p>
+                    <span> per referral.</span>
+                  </div>
+                  <div className="text-lg">
+                    <p className="text-xl md:text-xl leading-5">
+                      How does it work?
+                    </p>
+                    You know someone that owns a business with zero or poor
+                    online presence, all you need to do is click the
+                    <q>Refer Now</q> button, fill in the required fields and
+                    sumbit. You can also look for businesses on social media and
+                    refer them to us with the neccessary information
+                    <p>That is it. Your part is done !</p>
+                    <p>
+                      Our team will receive the provided information and send a
+                      proposal to the client. Once successful, and we get paid,
+                      we pay you first before any expenses !
+                    </p>
+                  </div>
+                  <Link>
+                    <div className="mt-3 text-white border border-1 w-fit px-2 rounded-md text-sm bg-main2 hover:bg-bg1">
+                      Refer Now
+                    </div>
+                  </Link>
                 </div>
               </div>
             </div>
