@@ -2,7 +2,15 @@ import React, { useEffect } from "react";
 import NavBar from "./nav";
 import Container from "../components/Container";
 import Carousel from "../assets/utils/Carousel";
-import { Design1, forbesStat1, earnBanner, seoChart } from "../useImage";
+import {
+  Design1,
+  forbesStat1,
+  earnBanner,
+  seoChart,
+  globe,
+  globe2,
+  globe3,
+} from "../useImage";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
 import { locationInfo, useWeather } from "../useApi";
@@ -345,8 +353,8 @@ export default function Home() {
                 <div className=" bg-white  dark:bg-black rounded-sm shadow-md  w-full  col-span-1 order-3 ">
                   <div className=" w-68 h-72 py-3 md:px-3">
                     <img
-                      src={earnBanner}
-                      alt={earnBanner}
+                      src={globe}
+                      alt={globe}
                       className="h-full w-full object-contain"
                     />
                   </div>
