@@ -10,6 +10,11 @@ export default {
         main3: "#2C517E",
         bg1: "#442F93",
         bg2: "#021333",
+        logo1: "#2D40E9",
+        logo2: "#962398",
+      },
+      fontFamily: {
+        logoFont: ["New Rocker", "serif"],
       },
     },
   },

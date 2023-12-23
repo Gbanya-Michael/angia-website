@@ -1,2 +1,66 @@
 Logo font: New Rocker
 K= Niccone
+
+
+{dt: 1703142675, sunrise: 1703110555, sunset: 1703151094, temp: 29.57, feels_like: 35.87, …}
+clouds
+: 
+75
+dew_point
+: 
+25.32
+dt
+: 
+1703142675
+feels_like
+: 
+35.87
+humidity
+: 
+78
+pressure
+: 
+1011
+sunrise
+: 
+1703110555
+sunset
+: 
+1703151094
+temp
+: 
+29.57
+uvi
+: 
+2.73
+visibility
+: 
+10000
+weather
+: 
+[{…}]
+wind_deg
+: 
+130
+wind_speed
+: 
+2.06
+
+# weather
+: 
+Array(1)
+0
+: 
+description
+: 
+"broken clouds"
+icon
+: 
+"04d"
+id
+: 
+803
+main
+: 
+"Clouds"
+

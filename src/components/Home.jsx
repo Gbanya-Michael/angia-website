@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import NavBar from "./nav";
 import Container from "../components/Container";
 import Carousel from "../assets/utils/Carousel";
@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import Footer from "./Footer";
 import { locationInfo, useWeather } from "../useApi";
 import "animate.css";
-
+import DateTimeDisplay from "../assets/utils/DateTime";
 //
 const homeSlides = [
   {
@@ -61,12 +61,16 @@ const services = [
 
 export default function Home() {
   const { locationData } = locationInfo();
+
   const country = locationData?.country;
   const city = locationData?.city;
-  // console.log(location);
+  // console.log(locationData);
 
   const { weatherData } = useWeather(locationData);
   const currentWeather = weatherData?.current;
+  // console.log(currentWeather);
+  const weather = currentWeather?.weather[0];
+
   const handleReferal = () => {
     if (country === "AU") {
       return "A$500";
@@ -75,24 +79,131 @@ export default function Home() {
       return "₦100,000 ";
     }
     if (country === "GB") {
-      return "£200";
+      return "£300";
     }
     if (country === "PH") {
       return "₱10,000";
     }
-    return "10%";
+    return "15%";
   };
   const referralCost = handleReferal();
   return (
     <div className="dark:bg-black bg-gray-200">
       <NavBar />
 
-      <div className=" md:flex  justify-between gap-5 mt-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div>Hello World</div>
-        <div className="my-5 md:my-0">
-          <div>{city}</div>
-          <div>{currentWeather?.temp}</div>
-          <div>{currentWeather?.wind_speed}</div>
+      <div className="mt-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="bg-white dark:bg-black border shadow-lg rounded-md dark:border-white text-gray-600 dark:text-white/80 md:flex  justify-between gap-5 p-3">
+          <div className="md:w-3/4  ">
+            <h1 className="text-3xl leading-8">
+              <span className=" font-logoFont text-logo2 font-bold">
+                Kinetic
+              </span>{" "}
+              <span className="font-logoFont  text-logo1 font-bold ">
+                Kraft
+              </span>
+              <span className="mr-2">,</span>
+              the best software developers
+              {country && (
+                <span className="ml-2">in {locationData.country_name}.</span>
+              )}
+            </h1>
+            <div className="text-lg md:text-2xl leading-6 mt-3">
+              <p>
+                We use modern technologies to create seamless, appealing and
+                interractive web apps to solve complex problems for you and your
+                customers.
+              </p>
+
+              <p className="mt-3">
+                Your website is like the cover page of a book. We make sure
+                visitors stay glued once they visit your webiste to enjoy your
+                online presence and services. We work with businesses and
+                enterpreneurs all around world.
+              </p>
+            </div>
+          </div>
+          <div className="  my-5 md:my-0 md:w-64">
+            <div>
+              {country && (
+                <h1 className="flex justify-center gap-2 text-logo1 dark:text-white font-bold text-3xl">
+                  <p>{city},</p>
+                  <p>{locationData.country}</p>
+                </h1>
+              )}
+
+              <div className=" flex justify-center">
+                <DateTimeDisplay showDate={true} showTime={true} />
+              </div>
+            </div>
+            {currentWeather && (
+              <div>
+                <div className="flex justify-between mt-3 h-24">
+                  <div className="text-start ">
+                    <div className="text-6xl">
+                      <span>{Math.floor(currentWeather?.temp)}</span>
+                      <span>&#176;C</span>
+                    </div>
+                  </div>
+                  <div>
+                    <h1 className="text-center text-xl">{weather?.main}</h1>
+
+                    <div className=" w-16 h-16 rounded-full bg-black/30 ">
+                      <img
+                        src={`https://openweathermap.org/img/wn/${weather?.icon}.png`}
+                        alt={weather?.description}
+                        className="w-full object-contain "
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className=" w-full mt-2 ">
+                  <ul className="flex justify-between gap-2">
+                    <li className="flex w-1/2 items-center justify-center p-1 gap-1  text-white bg-gray-400 dark:bg-white/20 rounded-md">
+                      <i className="fas fa-temperature-full " />
+                      <div className=" ml-1  text-sm">
+                        <p>Feels like</p>
+                        <p>
+                          {Math.ceil(currentWeather?.feels_like)}{" "}
+                          <span>&#176;C</span>
+                        </p>
+                      </div>
+                    </li>
+                    <li className="flex w-1/2 items-center justify-center p-1 gap-1  text-white bg-gray-400 dark:bg-white/20 rounded-md">
+                      <i className="fas fa-droplet " />
+                      <div className=" ml-1 text-sm">
+                        <p>Humidity</p>
+                        <p>
+                          {Math.ceil(currentWeather?.humidity)}
+                          <span>%</span>
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                  <ul className=" mt-3 flex justify-between gap-2">
+                    <li className="flex w-1/2 items-center justify-center p-1 gap-1  text-white bg-gray-400 dark:bg-white/20 rounded-md">
+                      <i className="fas fa-wind " />
+                      <div className=" ml-1 text-sm">
+                        <p>Wind</p>
+                        <p>
+                          {currentWeather?.wind_speed} <span> m/s</span>
+                        </p>
+                      </div>
+                    </li>
+                    <li className="flex w-1/2 items-center justify-center p-1 gap-1  text-white bg-gray-400 dark:bg-white/20 rounded-md">
+                      <i className="fas fa-gauge" />
+                      <div className=" ml-1 text-sm">
+                        <p>Pressure</p>
+                        <p>
+                          {Math.ceil(currentWeather?.pressure)}
+                          <span> hpa</span>
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
@@ -148,8 +259,11 @@ export default function Home() {
                   Earn Money with Us
                 </h1>
                 <p className=" text-white/70 text-sm">
-                  Ready to take your business to the next level? Our digital
-                  marketing services can help. From boosting your search
+                  Unlock opportunities with us! Refer a client and earn{" "}
+                  <span className=" text-green-500 ">{referralCost}</span> per
+                  referral—because your connections deserve the best services,
+                  just like you deserve the rewards. No commitment. Just get
+                  paid anytime you refer a client successfully.
                 </p>
                 <div className="mt-3 w-fit border dark:bg-main1 bg-bg1 hover:bg-main1/70 hover:text-white/80 text-white p-2 rounded-md">
                   <Link>Refer a client</Link>
@@ -191,7 +305,7 @@ export default function Home() {
                 {services.map((service) => (
                   <li
                     key={service.id}
-                    className="mx-auto px-3 h-50 max-w-96 md:w-96 py-5 border border-1  border-gray-300 bg-white/80 dark:bg-black dark:border-white/80 rounded-sm shadow-md"
+                    className="mx-auto mt-5 px-3 h-50 max-w-96 md:w-96 py-5 border border-1  border-gray-300 bg-white/80 dark:bg-black dark:border-white/80 rounded-sm shadow-md"
                   >
                     <div className="flex gap-5 py-1 ">
                       <div className="flex flex-col gap-2">
