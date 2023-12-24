@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import NavBar from "./nav";
 import Container from "../components/Container";
 import Carousel from "../assets/utils/Carousel";
@@ -99,8 +99,8 @@ export default function Home() {
     <div className="dark:bg-black bg-gray-200">
       <NavBar />
 
-      <div className="mt-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="bg-white dark:bg-black border shadow-lg rounded-md dark:border-white text-gray-600 dark:text-white/80 md:flex  justify-between gap-5 p-3">
+      <div className="pt-28 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="bg-white/50 dark:bg-black border shadow-lg rounded-md dark:border-white text-gray-600 dark:text-white/80 md:flex  justify-between gap-5 p-3">
           <div className="md:w-3/4  ">
             <h1 className="text-3xl leading-8">
               <span className=" font-logoFont text-logo2 font-bold">
@@ -313,7 +313,7 @@ export default function Home() {
                 {services.map((service) => (
                   <li
                     key={service.id}
-                    className="mx-auto mt-5 px-3 h-50 max-w-96 md:w-96 py-5 border border-1  border-gray-300 bg-white/80 dark:bg-black dark:border-white/80 rounded-sm shadow-md"
+                    className="mx-auto mt-5 px-3 h-50 max-w-96 md:w-96 py-5 border border-1  border-gray-300 bg-white/80 dark:bg-black dark:border-white/50 rounded-sm shadow-md"
                   >
                     <div className="flex gap-5 py-1 ">
                       <div className="flex flex-col gap-2">
