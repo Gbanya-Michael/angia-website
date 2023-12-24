@@ -351,13 +351,16 @@ export default function Home() {
               </h1>
               <div className="mb-10 md:grid md:grid-cols-3 gap-5">
                 <div className=" bg-white  dark:bg-black rounded-sm shadow-md  w-full  col-span-1 order-3 ">
-                  <div className=" w-68 h-72 py-3 md:px-3">
+                  <div className=" w-68 h-60 py-3 md:px-3">
                     <img
-                      src={globe}
+                      src={globe2}
                       alt={globe}
                       className="h-full w-full object-contain"
                     />
                   </div>
+                  <p className="p-3  text-gray-500 dark:text-white">
+                    We will work with wherever you are. We have a global reach
+                  </p>
                 </div>
                 <div className="mt-5 md:mt-0 font-serif text-gray-500  dark:text-white/80 p-3 dark:p-0 bg-white  dark:bg-black rounded-sm shadow-md  col-span-2 order-1">
                   <p className="  text-xl md:text-xl leading-5 ">
@@ -377,14 +380,16 @@ export default function Home() {
                     <span> per referral.</span>
                   </div>
                   <div className="text-lg">
-                    <p className="text-xl md:text-xl leading-5">
+                    <p className="text-xl md:text-2xl leading-5">
                       How does it work?
                     </p>
-                    You know someone that owns a business with zero or poor
-                    online presence, all you need to do is click the
-                    <q>Refer Now</q> button, fill in the required fields and
-                    sumbit. You can also look for businesses on social media and
-                    refer them to us with the neccessary information
+                    <p>
+                      You know someone that owns a business with zero or poor
+                      online presence, all you need to do is click the
+                      <q>Refer Now</q> button, fill in the required fields and
+                      sumbit. You can also look for businesses on social media
+                      and refer them to us with the neccessary information
+                    </p>
                     <p>That is it. Your part is done !</p>
                     <p>
                       Our team will receive the provided information and send a
