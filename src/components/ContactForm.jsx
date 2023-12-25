@@ -1,6 +1,6 @@
 import React from "react";
 import Container from "./Container";
-export default function Referral() {
+export default function ContactFomr() {
   return (
     <>
       <div className="dark:bg-black bg-gray-200 relative">
