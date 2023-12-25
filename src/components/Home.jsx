@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import NavBar from "./nav";
 import Container from "../components/Container";
 import Carousel from "../assets/utils/Carousel";
@@ -16,6 +16,8 @@ import Footer from "./Footer";
 import { locationInfo, useWeather } from "../useApi";
 import "animate.css";
 import DateTimeDisplay from "../assets/utils/DateTime";
+import ContactForm from "./ContactForm";
+
 //
 const homeSlides = [
   {
@@ -68,6 +70,8 @@ const services = [
 //
 
 export default function Home() {
+  //
+
   const { locationData } = locationInfo();
 
   const country = locationData?.country;
@@ -98,7 +102,7 @@ export default function Home() {
   return (
     <div className="dark:bg-black bg-gray-200">
       <NavBar />
-
+      <ContactForm onOpenForm={handleOpenForm} />
       <div className="pt-28 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="bg-white/50 dark:bg-black border shadow-lg rounded-md dark:border-white text-gray-600 dark:text-white/80 md:flex  justify-between gap-5 p-3">
           <div className="md:w-3/4  ">
@@ -273,9 +277,13 @@ export default function Home() {
                   just like you deserve the rewards. No commitment. Just get
                   paid anytime you refer a client successfully.
                 </p>
-                <div className="mt-3 w-fit border dark:bg-main1 bg-bg1 hover:bg-main1/70 hover:text-white/80 text-white p-2 rounded-md">
-                  <Link>Refer a client</Link>
-                </div>
+
+                <button
+                  onClick={handleOpenForm}
+                  className="mt-3 w-fit border dark:bg-main1 bg-bg1 hover:bg-main1/70 hover:text-white/80 text-white p-2 rounded-md"
+                >
+                  Refer a client
+                </button>
               </div>
             </div>
           </div>
