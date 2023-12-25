@@ -274,7 +274,7 @@ export default function Home() {
                   paid anytime you refer a client successfully.
                 </p>
                 <div className="mt-3 w-fit border dark:bg-main1 bg-bg1 hover:bg-main1/70 hover:text-white/80 text-white p-2 rounded-md">
-                  <Link>Refer a client</Link>
+                  <Link to="/referal">Refer a client</Link>
                 </div>
               </div>
             </div>
