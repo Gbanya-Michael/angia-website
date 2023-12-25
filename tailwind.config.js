@@ -15,6 +15,7 @@ export default {
       },
       fontFamily: {
         logoFont: ["New Rocker", "serif"],
+        secondaryFont: ["Playfair Display SC", "serif"],
       },
     },
   },
