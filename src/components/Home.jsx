@@ -17,6 +17,7 @@ import {
   mist,
   thunder,
   defaultBg,
+  fog,
 } from "../useImage";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
@@ -113,7 +114,11 @@ export default function Home() {
     }
     if (weather && weather.main === "Thunder storm") {
       return thunder;
-    } else defaultBg;
+    }
+    if (weather && weather.main === "Fog") {
+      return fog;
+    }
+    return defaultBg;
   };
 
   const handleReferal = () => {
@@ -139,7 +144,7 @@ export default function Home() {
       <ContactFormModal />
 
       <div className="pt-28 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="bg-white/50 dark:bg-black border shadow-lg rounded-md dark:border-white text-gray-600 dark:text-white/80 md:flex  justify-between gap-5 p-3">
+        <div className="bg-white/50 dark:bg-black md:border shadow-lg rounded-md dark:border-white text-gray-600 dark:text-white/80 md:flex  justify-between gap-5 p-3">
           <div className="md:w-3/4 grid grid-cols-1 place-content-center  ">
             <h1 className="text-3xl leading-8">
               <span className=" font-logoFont text-logo2 font-bold">
@@ -183,13 +188,14 @@ export default function Home() {
                 <DateTimeDisplay showDate={true} showTime={true} />
               </div>
             </div>
-            <div
-              className={`bg-cover bg-center h-fit p-3 mt-2 rounded-md `}
-              style={{
-                backgroundImage: `url(${weatherBG()})`,
-              }}
-            >
-              {currentWeather && (
+
+            {currentWeather && (
+              <div
+                className={`bg-cover bg-center h-fit p-3 mt-2 rounded-md `}
+                style={{
+                  backgroundImage: `url(${weatherBG()})`,
+                }}
+              >
                 <div>
                   <div className="flex justify-between text-white  mt-3 h-24">
                     <div className="text-start ">
@@ -256,8 +262,8 @@ export default function Home() {
                     </ul>
                   </div>
                 </div>
-              )}
-            </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -12,6 +12,7 @@ import snow from "./assets/images/snow.gif";
 import mist from "./assets/images/mist.gif";
 import thunder from "./assets/images/thunder.gif";
 import defaultBg from "./assets/images/defaultbg.gif";
+import fog from "./assets/images/fog.gif";
 
 export {
   Design1,
@@ -28,4 +29,5 @@ export {
   snow,
   thunder,
   defaultBg,
+  fog,
 };

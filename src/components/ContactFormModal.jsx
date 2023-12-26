@@ -10,9 +10,9 @@ export default function ContactFormModal() {
   return (
     <>
       {isFormOpen ? (
-        <div className="pt-24 md:pt-32 bg-black/80 w-screen  absolute z-40 bottom-0 top-0 left-0 right-0">
+        <div className="pt-20 bg-black/80 w-screen  absolute z-40 bottom-0 top-0 left-0 right-0">
           <Container>
-            <div className=" p-3 fixed md:p-5 right-0 left-0 bg-white w-[85%] mx-auto max-w-7xl ">
+            <div className=" p-3 absolute md:p-5 right-0 left-0 bg-white w-[85%] mx-auto max-w-7xl ">
               <button
                 onClick={closeForm}
                 className="ml-auto mb-5 ring-1 ring-black rounded-sm text-black flex justify-end flex-shrink-0 hover:bg-black/50 hover:text-white"
