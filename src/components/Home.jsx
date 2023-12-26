@@ -9,14 +9,22 @@ import {
   seoChart,
   globe,
   globe2,
-  globe3,
+  sun,
+  cloud,
+  rain,
+  clear,
+  snow,
+  mist,
+  thunder,
+  defaultBg,
 } from "../useImage";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
 import { locationInfo, useWeather } from "../useApi";
 import "animate.css";
 import DateTimeDisplay from "../assets/utils/DateTime";
-import ContactForm from "./ContactForm";
+import ContactFormModal from "./ContactFormModal";
+import { useForm } from "../contexts/FormContext";
 
 //
 const homeSlides = [
@@ -71,7 +79,7 @@ const services = [
 
 export default function Home() {
   //
-
+  const { openForm } = useForm();
   const { locationData } = locationInfo();
 
   const country = locationData?.country;
@@ -80,8 +88,33 @@ export default function Home() {
 
   const { weatherData } = useWeather(locationData);
   const currentWeather = weatherData?.current;
-  // console.log(currentWeather);
+
   const weather = currentWeather?.weather[0];
+  // console.log(weather);
+
+  const weatherBG = () => {
+    if (weather && weather.main === "Rain") {
+      return rain;
+    }
+    if (weather && weather.main === "Clouds") {
+      return cloud;
+    }
+    if (weather && weather.main === "Sun") {
+      return sun;
+    }
+    if (weather && weather.main === "Clear") {
+      return clear;
+    }
+    if (weather && weather.main === "Mist") {
+      return mist;
+    }
+    if (weather && weather.main === "Snow") {
+      return snow;
+    }
+    if (weather && weather.main === "Thunder storm") {
+      return thunder;
+    } else defaultBg;
+  };
 
   const handleReferal = () => {
     if (country === "AU") {
@@ -100,12 +133,14 @@ export default function Home() {
   };
   const referralCost = handleReferal();
   return (
-    <div className="dark:bg-black bg-gray-200">
+    <div className="dark:bg-black bg-gray-200 relative">
       <NavBar />
-      <ContactForm onOpenForm={handleOpenForm} />
+
+      <ContactFormModal />
+
       <div className="pt-28 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="bg-white/50 dark:bg-black border shadow-lg rounded-md dark:border-white text-gray-600 dark:text-white/80 md:flex  justify-between gap-5 p-3">
-          <div className="md:w-3/4  ">
+          <div className="md:w-3/4 grid grid-cols-1 place-content-center  ">
             <h1 className="text-3xl leading-8">
               <span className=" font-logoFont text-logo2 font-bold">
                 Kinetic
@@ -134,7 +169,8 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="  my-5 md:my-0 md:w-64">
+
+          <div className="p-3 my-5 md:my-0 md:w-64 ">
             <div>
               {country && (
                 <h1 className="flex justify-center gap-2 text-logo1 dark:text-white font-bold text-3xl">
@@ -147,74 +183,81 @@ export default function Home() {
                 <DateTimeDisplay showDate={true} showTime={true} />
               </div>
             </div>
-            {currentWeather && (
-              <div>
-                <div className="flex justify-between mt-3 h-24">
-                  <div className="text-start ">
-                    <div className="text-6xl">
-                      <span>{Math.floor(currentWeather?.temp)}</span>
-                      <span>&#176;C</span>
+            <div
+              className={`bg-cover bg-center h-fit p-3 mt-2 rounded-md `}
+              style={{
+                backgroundImage: `url(${weatherBG()})`,
+              }}
+            >
+              {currentWeather && (
+                <div>
+                  <div className="flex justify-between text-white  mt-3 h-24">
+                    <div className="text-start ">
+                      <div className="text-6xl">
+                        <span>{Math.floor(currentWeather?.temp)}</span>
+                        <span>&#176;C</span>
+                      </div>
                     </div>
-                  </div>
-                  <div>
-                    <h1 className="text-center text-xl">{weather?.main}</h1>
+                    <div>
+                      <h1 className="text-center text-xl">{weather?.main}</h1>
 
-                    <div className=" w-16 h-16 rounded-full bg-black/30 ">
-                      <img
-                        src={`https://openweathermap.org/img/wn/${weather?.icon}.png`}
-                        alt={weather?.description}
-                        className="w-full object-contain "
-                      />
+                      <div className=" w-16 h-16 rounded-full bg-black/30 ">
+                        <img
+                          src={`https://openweathermap.org/img/wn/${weather?.icon}.png`}
+                          alt={weather?.description}
+                          className="w-full object-contain "
+                        />
+                      </div>
                     </div>
                   </div>
+                  <div className=" w-full mt-2 ">
+                    <ul className="flex justify-between gap-2">
+                      <li className="flex w-1/2 items-center justify-center p-1 gap-1  text-white  bg-black/30 rounded-md">
+                        <i className="fas fa-temperature-full " />
+                        <div className=" ml-1  text-sm">
+                          <p>Feels like</p>
+                          <p>
+                            {Math.ceil(currentWeather?.feels_like)}{" "}
+                            <span>&#176;C</span>
+                          </p>
+                        </div>
+                      </li>
+                      <li className="flex w-1/2 items-center justify-center p-1 gap-1  text-white   bg-black/30 rounded-md">
+                        <i className="fas fa-droplet " />
+                        <div className=" ml-1 text-sm">
+                          <p>Humidity</p>
+                          <p>
+                            {Math.ceil(currentWeather?.humidity)}
+                            <span>%</span>
+                          </p>
+                        </div>
+                      </li>
+                    </ul>
+                    <ul className=" mt-3 flex justify-between gap-2">
+                      <li className="flex w-1/2 items-center justify-center p-1 gap-1  text-white  bg-black/30 rounded-md">
+                        <i className="fas fa-wind " />
+                        <div className=" ml-1 text-sm">
+                          <p>Wind</p>
+                          <p>
+                            {currentWeather?.wind_speed} <span> m/s</span>
+                          </p>
+                        </div>
+                      </li>
+                      <li className="flex w-1/2 items-center justify-center p-1 gap-1  text-white  bg-black/30 rounded-md">
+                        <i className="fas fa-gauge" />
+                        <div className=" ml-1 text-sm">
+                          <p>Pressure</p>
+                          <p>
+                            {Math.ceil(currentWeather?.pressure)}
+                            <span> hpa</span>
+                          </p>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-                <div className=" w-full mt-2 ">
-                  <ul className="flex justify-between gap-2">
-                    <li className="flex w-1/2 items-center justify-center p-1 gap-1  text-white bg-gray-400 dark:bg-white/20 rounded-md">
-                      <i className="fas fa-temperature-full " />
-                      <div className=" ml-1  text-sm">
-                        <p>Feels like</p>
-                        <p>
-                          {Math.ceil(currentWeather?.feels_like)}{" "}
-                          <span>&#176;C</span>
-                        </p>
-                      </div>
-                    </li>
-                    <li className="flex w-1/2 items-center justify-center p-1 gap-1  text-white bg-gray-400 dark:bg-white/20 rounded-md">
-                      <i className="fas fa-droplet " />
-                      <div className=" ml-1 text-sm">
-                        <p>Humidity</p>
-                        <p>
-                          {Math.ceil(currentWeather?.humidity)}
-                          <span>%</span>
-                        </p>
-                      </div>
-                    </li>
-                  </ul>
-                  <ul className=" mt-3 flex justify-between gap-2">
-                    <li className="flex w-1/2 items-center justify-center p-1 gap-1  text-white bg-gray-400 dark:bg-white/20 rounded-md">
-                      <i className="fas fa-wind " />
-                      <div className=" ml-1 text-sm">
-                        <p>Wind</p>
-                        <p>
-                          {currentWeather?.wind_speed} <span> m/s</span>
-                        </p>
-                      </div>
-                    </li>
-                    <li className="flex w-1/2 items-center justify-center p-1 gap-1  text-white bg-gray-400 dark:bg-white/20 rounded-md">
-                      <i className="fas fa-gauge" />
-                      <div className=" ml-1 text-sm">
-                        <p>Pressure</p>
-                        <p>
-                          {Math.ceil(currentWeather?.pressure)}
-                          <span> hpa</span>
-                        </p>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -261,9 +304,14 @@ export default function Home() {
                     will increase your productivity by eliminating long manual
                     processes.
                   </p>
-                  <div className="mt-3 w-fit border dark:bg-main1 bg-bg1 hover:bg-main1/70 hover:text-white/80 text-white p-2 rounded-md">
-                    <Link>Contact us</Link>
-                  </div>
+                  <button
+                    onClick={() => {
+                      openForm();
+                    }}
+                    className="mt-3 w-fit border dark:bg-main1 bg-bg1 hover:bg-main1/70 hover:text-white/80 text-white p-2 rounded-md"
+                  >
+                    Contact us
+                  </button>
                 </div>
               </div>
               <div className="bg-black/60 pt-3 pb-4 px-3 mt-6 ">
@@ -278,10 +326,7 @@ export default function Home() {
                   paid anytime you refer a client successfully.
                 </p>
 
-                <button
-                  onClick={handleOpenForm}
-                  className="mt-3 w-fit border dark:bg-main1 bg-bg1 hover:bg-main1/70 hover:text-white/80 text-white p-2 rounded-md"
-                >
+                <button className="mt-3 w-fit border dark:bg-main1 bg-bg1 hover:bg-main1/70 hover:text-white/80 text-white p-2 rounded-md">
                   Refer a client
                 </button>
               </div>
@@ -338,11 +383,12 @@ export default function Home() {
                       {service.description}
                     </p>
 
-                    <Link to="/contact-form">
-                      <div className="mt-3 text-white border border-1 w-fit px-2 rounded-md text-sm bg-main2 hover:bg-bg1">
-                        Get in touch
-                      </div>
-                    </Link>
+                    <button
+                      onClick={() => openForm()}
+                      className="mt-3 text-white border border-1 w-fit px-2 rounded-md text-sm bg-main2 hover:bg-bg1"
+                    >
+                      Get in touch
+                    </button>
                   </li>
                 ))}
               </ul>
