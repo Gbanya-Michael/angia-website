@@ -4,6 +4,7 @@ import NavBar from "./nav";
 import Container from "./Container";
 import Footer from "./Footer";
 import ContactFormModal from "../modals/ContactFormModal";
+import ReferalFormModal from "../modals/ReferalFormModal";
 import { useForm } from "../contexts/FormContext";
 
 //
@@ -36,13 +37,15 @@ const services = [
 
 export default function Services() {
   //
-  const { openForm } = useForm();
+  const { openForm, openReferalForm } = useForm();
+
   //
   return (
     <>
       <div className="dark:bg-black bg-gray-200 relative">
         <NavBar />
         <ContactFormModal />
+        <ReferalFormModal />
         <Container>
           <div className="py-20">
             <div className="lg:w-1/2 px-3 lg:mx-auto bg-white/50 my-5 shadow-lg dark:bg-black rounded-sm">
@@ -90,9 +93,12 @@ export default function Services() {
                 </ul>
               </div>
 
-              <div className="md:text-center text-xl lg:text-start text-blue-600 hover:text-blue-700 underline mt-3">
-                <Link to="/services">Refer a client</Link>
-              </div>
+              <button
+                onClick={openReferalForm}
+                className="md:text-center text-xl lg:text-start text-blue-600 hover:text-blue-700 underline mt-3"
+              >
+                Refer a client
+              </button>
             </div>
           </div>
         </Container>
