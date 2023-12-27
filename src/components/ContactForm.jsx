@@ -9,7 +9,7 @@ export default function ContactForm() {
             <div className="flex gap-1">
               <label
                 htmlFor="first-name"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-sm font-medium leading-6 text-gray-500 dark:text-white/90"
               >
                 First name
               </label>
@@ -30,7 +30,7 @@ export default function ContactForm() {
             <div className="flex gap-1">
               <label
                 htmlFor="last-name"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-sm font-medium leading-6 text-gray-500 dark:text-white/90"
               >
                 Last name
               </label>
@@ -55,7 +55,7 @@ export default function ContactForm() {
             <div className="flex gap-1">
               <label
                 htmlFor="phone-number"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-sm font-medium leading-6 text-gray-500 dark:text-white/90"
               >
                 Phone no.
               </label>
@@ -65,19 +65,19 @@ export default function ContactForm() {
             </div>
 
             <input
-              type="number"
-              name="prev-amount"
-              id="prev-amount"
-              className="block w-full mt-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              placeholder="Numbers only. ex: 2000, 100"
-              aria-describedby="email-optional"
+              type="tel"
+              name="phone-number"
+              id="phone-number"
+              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              placeholder="Ex. 090 6333 6333"
+              aria-describedby="phone-number"
             />
           </div>
           <div className="md:w-1/2 mt-5 md:mt-0">
             <div className="flex gap-1">
               <label
                 htmlFor="email"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-sm font-medium leading-6 text-gray-500 dark:text-white/90"
               >
                 Email
               </label>
@@ -102,7 +102,7 @@ export default function ContactForm() {
               <div className="flex gap-1">
                 <label
                   htmlFor="subject"
-                  className="block text-sm font-medium leading-6 text-gray-900"
+                  className="block text-sm font-medium leading-6 text-gray-500 dark:text-white/90"
                 >
                   Subject
                 </label>
@@ -123,7 +123,7 @@ export default function ContactForm() {
               <div className="flex gap-1">
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium leading-6 text-gray-900"
+                  className="block text-sm font-medium leading-6 text-gray-500 dark:text-white/90"
                 >
                   Message
                 </label>
@@ -152,7 +152,7 @@ export default function ContactForm() {
               <div className="flex gap-1">
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium leading-6 text-gray-900"
+                  className="block text-sm font-medium leading-6 text-gray-500 dark:text-white/90"
                 >
                   Referer's full name
                 </label>
@@ -170,7 +170,7 @@ export default function ContactForm() {
               <div className="flex gap-1">
                 <label
                   htmlFor="referer"
-                  className="block text-sm font-medium leading-6 text-gray-900"
+                  className="block text-sm font-medium leading-6 text-gray-500 dark:text-white/90"
                 >
                   Referer's email address
                 </label>
