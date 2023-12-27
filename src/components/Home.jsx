@@ -76,6 +76,13 @@ const services = [
      and connect to your webiste. This will 
      boost traffic and increase sales.`,
   },
+  {
+    id: "4",
+    title: "SSM Services",
+    description: `Low or zero social media presence? We will set up standard social media accounts
+     and connect to your webiste. This will 
+     boost traffic and increase sales.`,
+  },
 ];
 //
 
@@ -376,7 +383,7 @@ export default function Home() {
                 Services
               </h1>
               <ul className="md:flex flex-wrap justify-between gap-5 mt-5">
-                {services.map((service) => (
+                {services.slice(0, 3).map((service) => (
                   <li
                     key={service.id}
                     className="mx-auto mt-5 px-3 h-50 max-w-96 md:w-96 py-5 border border-1  border-gray-300 bg-white/80 dark:bg-black dark:border-white/50 rounded-sm shadow-md"
