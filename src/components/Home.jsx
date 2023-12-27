@@ -27,7 +27,7 @@ import DateTimeDisplay from "../assets/utils/DateTime";
 import ContactFormModal from "../modals/ContactFormModal";
 import { useForm } from "../contexts/FormContext";
 import ReferalFormModal from "../modals/ReferalFormModal";
-
+import { services } from "../data/useData";
 //
 const homeSlides = [
   {
