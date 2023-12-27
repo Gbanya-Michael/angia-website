@@ -9,7 +9,7 @@ export default function ReferalFormModal() {
   return (
     <>
       {isReferalFormOpen ? (
-        <div className="pt-28  bg-black/80 dark:bg-white/60 w-screen absolute  z-50 bottom-0 top-0 left-0 right-0">
+        <div className=" pt-52  bg-black/80 dark:bg-white/60 w-screen absolute  z-50 bottom-0 top-0 left-0 right-0">
           <Container>
             <div className=" p-3 absolute md:p-5 right-0 left-0 rounded-sm bg-white/90 dark:bg-black w-[85%] mx-auto max-w-7xl ">
               <button
