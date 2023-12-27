@@ -35,21 +35,21 @@ const homeSlides = [
     message:
       "Make money by referral. Work with us without obstructing your daily activities.",
     image: earnBanner,
-    href: "#",
+    href: "/contact",
   },
   {
     id: 2,
     message:
       "Websites increase online sales Websites increase online sales Websites increase",
     image: forbesStat1,
-    href: "#",
+    href: "/contact",
   },
   {
     id: 3,
     message:
       "Websites increase online sales Websites increase online sales Websites increase",
     image: seoChart,
-    href: "#",
+    href: "/contact",
   },
 ];
 
@@ -359,9 +359,12 @@ export default function Home() {
                     />
                   </div>
                   <p className="mt-2  text-sm">{slide.message}</p>
-                  <div className="my-2 text-blue-500 hover:text-blue-700">
-                    <Link to={slide.href}>Learn more</Link>
-                  </div>
+                  <Link
+                    to={slide.href}
+                    className="my-2 text-blue-500 hover:text-blue-700"
+                  >
+                    Learn more
+                  </Link>
                 </div>
               ))}
             </Carousel>
@@ -433,7 +436,7 @@ export default function Home() {
                   <p className="text-xl">
                     <span
                       onClick={openReferalForm}
-                      className="text-blue-500 hover:text-blue-700"
+                      className="text-blue-500 hover:text-blue-700 cursor-pointer"
                     >
                       Refer
                     </span>
