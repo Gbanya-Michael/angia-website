@@ -1,20 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import { XMarkIcon } from "@heroicons/react/20/solid";
 import Container from "./Container";
 import { useForm } from "../contexts/FormContext";
-import ContactForm from "./ContactForm";
+import ReferalForm from "./ReferalForm";
 //
 
-export default function ContactFormModal() {
-  const { isFormOpen, closeForm } = useForm();
+export default function ReferalFormModal() {
+  const { isReferalFormOpen, closeReferalForm } = useForm();
   return (
     <>
-      {isFormOpen ? (
+      {isReferalFormOpen ? (
         <div className="pt-28  bg-black/80  w-screen absolute  z-50 bottom-0 top-0 left-0 right-0">
           <Container>
             <div className=" p-3 absolute md:p-5 right-0 left-0 rounded-sm bg-white dark:bg-black w-[85%] mx-auto max-w-7xl ">
               <button
-                onClick={closeForm}
+                onClick={closeReferalForm}
                 className="ml-auto mb-5 ring-1 ring-black dark:ring-white rounded-sm text-black dark:text-white flex justify-end flex-shrink-0 hover:bg-black/50 dark:hover:bg-white hover:text-white dark:hover:text-black"
               >
                 <XMarkIcon className="  w-6 h-6" />
@@ -33,7 +33,7 @@ export default function ContactFormModal() {
                   required fields.
                 </p>
               </div>
-              <ContactForm />
+              <ReferalForm />
             </div>
           </Container>
         </div>

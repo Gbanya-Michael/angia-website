@@ -26,6 +26,7 @@ import "animate.css";
 import DateTimeDisplay from "../assets/utils/DateTime";
 import ContactFormModal from "./ContactFormModal";
 import { useForm } from "../contexts/FormContext";
+import ReferalFormModal from "./ReferalFormModal";
 
 //
 const homeSlides = [
@@ -80,7 +81,7 @@ const services = [
 
 export default function Home() {
   //
-  const { openForm } = useForm();
+  const { openForm, openReferalForm } = useForm();
   const { locationData } = locationInfo();
 
   const country = locationData?.country;
@@ -140,8 +141,8 @@ export default function Home() {
   return (
     <div className="dark:bg-black bg-gray-200 relative">
       <NavBar />
-
       <ContactFormModal />
+      <ReferalFormModal />
 
       <div className="pt-28 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="bg-white/50 dark:bg-black md:border shadow-lg rounded-md dark:border-white text-gray-600 dark:text-white/80 md:flex  justify-between gap-5 p-3">
@@ -332,7 +333,10 @@ export default function Home() {
                   paid anytime you refer a client successfully.
                 </p>
 
-                <button className="mt-3 w-fit border dark:bg-main1 bg-bg1 hover:bg-main1/70 hover:text-white/80 text-white p-2 rounded-md">
+                <button
+                  onClick={openReferalForm}
+                  className="mt-3 w-fit border dark:bg-main1 bg-bg1 hover:bg-main1/70 hover:text-white/80 text-white p-2 rounded-md"
+                >
                   Refer a client
                 </button>
               </div>
@@ -427,9 +431,12 @@ export default function Home() {
                     Know a business or someone that would need our services?
                   </p>
                   <p className="text-xl">
-                    <Link className="text-blue-500 hover:text-blue-700">
+                    <span
+                      onClick={openReferalForm}
+                      className="text-blue-500 hover:text-blue-700"
+                    >
                       Refer
-                    </Link>
+                    </span>
                     <span> them to us and get paid.</span>
                   </p>
                   <div className="flex items-center gap-2 text-xl md:text-2xl  my-3 text-gray-800 dark:text-white/90 ">
@@ -457,11 +464,13 @@ export default function Home() {
                       we pay you first before any expenses !
                     </p>
                   </div>
-                  <Link>
-                    <div className="mt-3 text-white border border-1 w-fit px-2 rounded-md text-sm bg-main2 hover:bg-bg1">
-                      Refer Now
-                    </div>
-                  </Link>
+
+                  <button
+                    onClick={openReferalForm}
+                    className="mt-3 text-white border border-1 w-fit px-2 rounded-md text-sm bg-main2 hover:bg-bg1"
+                  >
+                    Refer Now
+                  </button>
                 </div>
               </div>
             </div>
