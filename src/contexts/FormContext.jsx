@@ -1,4 +1,3 @@
-// Create a new file named FormContext.js
 import React, { createContext, useContext, useState } from "react";
 
 const FormContext = createContext();
@@ -18,6 +17,7 @@ export const FormProvider = ({ children }) => {
   const openReferalForm = () => {
     setIsReferalFormOpen(true);
   };
+
   const closeReferalForm = () => {
     setIsReferalFormOpen(false);
   };

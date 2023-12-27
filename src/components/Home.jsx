@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import NavBar from "./nav";
 import Container from "../components/Container";
 import Carousel from "../assets/utils/Carousel";
@@ -18,10 +18,10 @@ import {
   thunder,
   defaultBg,
   fog,
-} from "../useImage";
+} from "../hooks/useImage";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
-import { locationInfo, useWeather } from "../useApi";
+import { locationInfo, useWeather } from "../hooks/useApi";
 import "animate.css";
 import DateTimeDisplay from "../assets/utils/DateTime";
 import ContactFormModal from "./ContactFormModal";

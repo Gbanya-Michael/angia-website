@@ -1,7 +1,7 @@
 import React from "react";
 import NavBar from "./nav";
 import Container from "./Container";
-import { globe, globe2 } from "../useImage";
+import { globe } from "../hooks/useImage";
 import Footer from "./Footer";
 import { useForm } from "../contexts/FormContext";
 import ContactFormModal from "./ContactFormModal";

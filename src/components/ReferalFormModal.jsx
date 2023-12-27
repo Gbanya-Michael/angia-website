@@ -3,7 +3,6 @@ import { XMarkIcon } from "@heroicons/react/20/solid";
 import Container from "./Container";
 import { useForm } from "../contexts/FormContext";
 import ReferalForm from "./ReferalForm";
-//
 
 export default function ReferalFormModal() {
   const { isReferalFormOpen, closeReferalForm } = useForm();
