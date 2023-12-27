@@ -5,47 +5,7 @@ import { globe } from "../hooks/useImage";
 import Footer from "./Footer";
 import { useForm } from "../contexts/FormContext";
 import ContactFormModal from "../modals/ContactFormModal";
-
-//
-const abouts = [
-  {
-    id: "1",
-    title: "Our Mision",
-    description: ` We are a team of freelance software developers spread around the
-                world. We have dedicated team members situated in Europe, Asia,
-                Africa and Australia.`,
-  },
-  {
-    id: "2",
-    title: "Our Target",
-    description: `Dominate search engines with our 
-    powerful SEO optimization services. We make sure you are being found online
-    by powerful search engines like google.
-                    `,
-  },
-  {
-    id: "3",
-    title: "Our Community",
-    description: `Low or zero social media presence? We will set up standard social media accounts
-     and connect to your webiste. This will 
-     boost traffic and increase sales.`,
-  },
-  {
-    id: "4",
-    title: "Our team",
-    description: `Low or zero social media presence? We will set up standard social media accounts
-     and connect to your webiste. This will 
-     boost traffic and increase sales.`,
-  },
-  {
-    id: "5",
-    title: "A message from the founder.",
-    description: "",
-    message: `Low or zero social media presence? We will set up standard social media accounts
-     and connect to your webiste. This will 
-     boost traffic and increase sales.`,
-  },
-];
+import { abouts } from "../data/useData";
 
 export default function About() {
   //
