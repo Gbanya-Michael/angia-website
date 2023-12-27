@@ -4,9 +4,6 @@ import Container from "../components/Container";
 import Carousel from "../assets/utils/Carousel";
 import {
   Design1,
-  forbesStat1,
-  earnBanner,
-  seoChart,
   globe,
   globe2,
   sun,
