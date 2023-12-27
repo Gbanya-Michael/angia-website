@@ -27,33 +27,7 @@ import DateTimeDisplay from "../assets/utils/DateTime";
 import ContactFormModal from "../modals/ContactFormModal";
 import { useForm } from "../contexts/FormContext";
 import ReferalFormModal from "../modals/ReferalFormModal";
-import { services } from "../data/useData";
-//
-const homeSlides = [
-  {
-    id: 1,
-    message:
-      "Make money by referral. Work with us without obstructing your daily activities.",
-    image: earnBanner,
-    href: "/contact",
-  },
-  {
-    id: 2,
-    message:
-      "Websites increase online sales Websites increase online sales Websites increase",
-    image: forbesStat1,
-    href: "/contact",
-  },
-  {
-    id: 3,
-    message:
-      "Websites increase online sales Websites increase online sales Websites increase",
-    image: seoChart,
-    href: "/contact",
-  },
-];
-
-//
+import { services, homeSlides } from "../data/useData";
 
 export default function Home() {
   //

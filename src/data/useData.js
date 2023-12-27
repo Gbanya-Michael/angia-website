@@ -1,5 +1,22 @@
-//navigation options
+import {
+  Design1,
+  forbesStat1,
+  earnBanner,
+  seoChart,
+  globe,
+  globe2,
+  sun,
+  cloud,
+  rain,
+  clear,
+  snow,
+  mist,
+  thunder,
+  defaultBg,
+  fog,
+} from "../hooks/useImage";
 
+//navigation options
 export const nav = [
   {
     name: "Home",
@@ -15,6 +32,31 @@ export const nav = [
   },
   {
     name: "Contact",
+    href: "/contact",
+  },
+];
+
+//slider images
+export const homeSlides = [
+  {
+    id: 1,
+    message:
+      "Make money by referral. Work with us without obstructing your daily activities.",
+    image: earnBanner,
+    href: "/contact",
+  },
+  {
+    id: 2,
+    message:
+      "Websites increase online sales Websites increase online sales Websites increase",
+    image: forbesStat1,
+    href: "/contact",
+  },
+  {
+    id: 3,
+    message:
+      "Websites increase online sales Websites increase online sales Websites increase",
+    image: seoChart,
     href: "/contact",
   },
 ];
