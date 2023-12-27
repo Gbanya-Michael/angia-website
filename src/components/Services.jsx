@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import NavBar from "./nav";
 import Container from "./Container";
 import Footer from "./Footer";
+import ContactFormModal from "./ContactFormModal";
+import { useForm } from "../contexts/FormContext";
 
 //
 const services = [
@@ -33,10 +35,14 @@ const services = [
 //
 
 export default function Services() {
+  //
+  const { openForm } = useForm();
+  //
   return (
     <>
-      <div className="dark:bg-black bg-gray-200">
+      <div className="dark:bg-black bg-gray-200 relative">
         <NavBar />
+        <ContactFormModal />
         <Container>
           <div className="py-20">
             <div className="lg:w-1/2 px-3 lg:mx-auto bg-white/50 my-5 shadow-lg dark:bg-black rounded-sm">
@@ -73,11 +79,12 @@ export default function Services() {
                         {service.description}
                       </p>
 
-                      <Link to="/contact-form">
-                        <div className="mt-3 text-white border border-1 w-fit px-2 rounded-md text-sm bg-main2 hover:bg-bg1">
-                          Get in touch
-                        </div>
-                      </Link>
+                      <button
+                        onClick={openForm}
+                        className="mt-3 text-white border border-1 w-fit px-2 rounded-md text-sm bg-main2 hover:bg-bg1"
+                      >
+                        Get in touch
+                      </button>
                     </li>
                   ))}
                 </ul>

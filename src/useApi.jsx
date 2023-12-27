@@ -36,9 +36,9 @@ export const useWeather = (locationData) => {
 
         // Ensure non-empty values
         if (lat !== undefined && lon !== undefined) {
-          const res = await axios.get(
-            `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`
-          );
+          // const res = await axios.get(
+          //   `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`
+          // );
           const data = res?.data;
           setWeatherData(data);
         }

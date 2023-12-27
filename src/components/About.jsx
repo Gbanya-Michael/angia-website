@@ -1,9 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import NavBar from "./nav";
 import Container from "./Container";
 import { globe, globe2 } from "../useImage";
 import Footer from "./Footer";
+import { useForm } from "../contexts/FormContext";
+import ContactFormModal from "./ContactFormModal";
 
 //
 const abouts = [
@@ -47,9 +48,13 @@ const abouts = [
 ];
 
 export default function About() {
+  //
+  const { openForm } = useForm();
+  //
   return (
-    <div className="dark:bg-black bg-gray-200">
+    <div className="dark:bg-black bg-gray-200 relative">
       <NavBar />
+      <ContactFormModal />
       <Container>
         <div className="py-20">
           <div className="lg:w-1/2 px-3 lg:mx-auto bg-white/50 mt-10 shadow-lg dark:bg-black rounded-sm">
@@ -97,13 +102,15 @@ export default function About() {
               </li>
             ))}
           </ul>
-          <Link>
-            <div className="bg-white dark:bg-black  text-white  border-2 border-black dark:border-main2  dark:hover:border-main2/80 w-full text-center p-0.5 mt-10 rounded-md ">
-              <p className=" text-white text-lg w-full text-center p-1 rounded-md  bg-black hover:bg-black/80 dark:bg-main2 dark:hover:bg-main2/80">
-                Need a solution? We are happy to help. Click here!
-              </p>
-            </div>
-          </Link>
+
+          <div
+            onClick={openForm}
+            className="bg-white dark:bg-black  text-white  border-2 border-black dark:border-main2  dark:hover:border-main2/80 w-full text-center p-0.5 mt-10 rounded-md "
+          >
+            <p className=" text-white text-lg w-full text-center p-1 rounded-md  bg-black hover:bg-black/80 dark:bg-main2 dark:hover:bg-main2/80">
+              Need a solution? We are happy to help. Click here!
+            </p>
+          </div>
         </div>
       </Container>
       <Footer />

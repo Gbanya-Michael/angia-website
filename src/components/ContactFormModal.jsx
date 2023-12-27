@@ -10,7 +10,8 @@ export default function ContactFormModal() {
   return (
     <>
       {isFormOpen ? (
-        <div className="pt-20 bg-black/80 w-screen  absolute z-40 bottom-0 top-0 left-0 right-0">
+        // <div className="relative">
+        <div className="pt-20 bg-black/80 w-screen absolute  z-50 bottom-0 top-0 left-0 right-0">
           <Container>
             <div className=" p-3 absolute md:p-5 right-0 left-0 bg-white w-[85%] mx-auto max-w-7xl ">
               <button
@@ -37,7 +38,8 @@ export default function ContactFormModal() {
             </div>
           </Container>
         </div>
-      ) : null}
+      ) : // </div>
+      null}
     </>
   );
 }
