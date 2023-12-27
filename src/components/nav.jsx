@@ -2,31 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Disclosure, Switch } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-
+import { nav } from "../data/useData";
 //
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
-
-const nav = [
-  {
-    name: "Home",
-    href: "/",
-  },
-  {
-    name: "About",
-    href: "/about",
-  },
-  {
-    name: "Services",
-    href: "/services",
-  },
-  {
-    name: "Contact",
-    href: "/contact",
-  },
-];
 
 //
 
