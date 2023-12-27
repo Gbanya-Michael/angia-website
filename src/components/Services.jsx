@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import NavBar from "./nav";
 import Container from "./Container";
 import Footer from "./Footer";
-import ContactFormModal from "./ContactFormModal";
+import ContactFormModal from "../modals/ContactFormModal";
 import { useForm } from "../contexts/FormContext";
 
 //

@@ -4,7 +4,7 @@ import Container from "./Container";
 import { globe } from "../hooks/useImage";
 import Footer from "./Footer";
 import { useForm } from "../contexts/FormContext";
-import ContactFormModal from "./ContactFormModal";
+import ContactFormModal from "../modals/ContactFormModal";
 
 //
 const abouts = [

@@ -24,9 +24,9 @@ import Footer from "./Footer";
 import { locationInfo, useWeather } from "../hooks/useApi";
 import "animate.css";
 import DateTimeDisplay from "../assets/utils/DateTime";
-import ContactFormModal from "./ContactFormModal";
+import ContactFormModal from "../modals/ContactFormModal";
 import { useForm } from "../contexts/FormContext";
-import ReferalFormModal from "./ReferalFormModal";
+import ReferalFormModal from "../modals/ReferalFormModal";
 
 //
 const homeSlides = [

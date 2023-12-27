@@ -1,26 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 import { XMarkIcon } from "@heroicons/react/20/solid";
-import Container from "./Container";
+import Container from "../components/Container";
 import { useForm } from "../contexts/FormContext";
-import ContactForm from "./ContactForm";
-//
+import ReferalForm from "../components/ReferalForm";
 
-export default function ContactFormModal() {
-  const { isFormOpen, closeForm } = useForm();
+export default function ReferalFormModal() {
+  const { isReferalFormOpen, closeReferalForm } = useForm();
   return (
     <>
-      {isFormOpen ? (
-        <div className="pt-28  bg-black/80 dark:bg-white/60   w-screen absolute  z-50 bottom-0 top-0 left-0 right-0">
+      {isReferalFormOpen ? (
+        <div className=" pt-52  bg-black/80 dark:bg-white/60 w-screen absolute  z-50 bottom-0 top-0 left-0 right-0">
           <Container>
             <div className=" p-3 absolute md:p-5 right-0 left-0 rounded-sm bg-white/90 dark:bg-black w-[85%] mx-auto max-w-7xl ">
               <button
-                onClick={closeForm}
+                onClick={closeReferalForm}
                 className="ml-auto mb-5 ring-1 ring-black dark:ring-white rounded-sm text-black dark:text-white flex justify-end flex-shrink-0 hover:bg-black/50 dark:hover:bg-white hover:text-white dark:hover:text-black"
               >
                 <XMarkIcon className="  w-6 h-6" />
               </button>
               <div className="text-gray-800 dark:text-white text-center my-5 text-sm md:text-lg">
-                Contact Form
+                Referral Form
               </div>
               <div className="text-gray-600 dark:text-white/80 my-5 text-sm md:text-lg">
                 <p className="my-5">
@@ -33,7 +32,7 @@ export default function ContactFormModal() {
                   required fields.
                 </p>
               </div>
-              <ContactForm />
+              <ReferalForm />
             </div>
           </Container>
         </div>
