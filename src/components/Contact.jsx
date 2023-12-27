@@ -1,6 +1,8 @@
 import React from "react";
 import NavBar from "./nav";
 import Container from "./Container";
+import ContactForm from "./ContactForm";
+import Footer from "./Footer";
 
 export default function Contact() {
   return (
@@ -9,9 +11,12 @@ export default function Contact() {
         <NavBar />
         <Container>
           <div className="py-20">
-            <div>Text</div>
+            <div>
+              <ContactForm />
+            </div>
           </div>
         </Container>
+        <Footer />
       </div>
     </>
   );
