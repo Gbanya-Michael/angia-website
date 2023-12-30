@@ -11,6 +11,9 @@ export default function Contact() {
         <NavBar />
         <Container>
           <div className="py-20">
+            <div className="my-10  text-gray-600 dark:text-white/80 bg-white/70 dark:bg-black shadow-md p-3 dark:p-0">
+              Hello
+            </div>
             <div>
               <ContactForm />
             </div>
