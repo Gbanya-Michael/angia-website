@@ -91,6 +91,7 @@ export default function Home() {
   return (
     <div className="dark:bg-black bg-gray-200 relative">
       <NavBar />
+
       <ContactFormModal />
       <ReferalFormModal />
 
@@ -126,7 +127,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="p-3 my-5 md:my-0 md:w-72 ">
+          <div className="p-3 my-5 md:my-0 md:w-72">
             <div>
               {country && (
                 <h1 className="flex justify-center gap-2 text-logo1 dark:text-white font-bold text-3xl">
