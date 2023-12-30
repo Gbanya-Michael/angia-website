@@ -21,7 +21,7 @@ export default function ContactForm() {
               type="text"
               name="first-name"
               id="first-name"
-              className="block w-full mt-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              className="block w-full bg-white/80 mt-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               placeholder="Your first name"
               aria-describedby="first-name"
             />
@@ -43,7 +43,7 @@ export default function ContactForm() {
                 type="text"
                 name="last-name"
                 id="last-name"
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full bg-white/80 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 placeholder="Your last name"
                 aria-describedby="last-name"
               />
@@ -68,7 +68,7 @@ export default function ContactForm() {
               type="tel"
               name="phone-number"
               id="phone-number"
-              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              className="block w-full bg-white/80  rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               placeholder="Ex. 090 6333 6333"
               aria-describedby="phone-number"
             />
@@ -90,7 +90,7 @@ export default function ContactForm() {
               type="email"
               name="email"
               id="email"
-              className="block w-full mt-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              className="block w-full bg-white/80  mt-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               placeholder="Your email"
               aria-describedby="email"
             />
@@ -114,7 +114,7 @@ export default function ContactForm() {
                 type="text"
                 name="subject"
                 id="subject"
-                className="block w-full mt-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full bg-white/80  mt-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 placeholder="Subject of your message"
                 aria-describedby="subject"
               />
@@ -139,7 +139,7 @@ export default function ContactForm() {
                   type="message"
                   name="message"
                   id="message"
-                  className="block w-full h-40 rounded-md border-0 py-1.5 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-5"
+                  className="block w-full bg-white/80  h-40 rounded-md border-0 py-1.5 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-5"
                   placeholder="Please write your message here. 400 characters max."
                   aria-describedby="message"
                   maxLength={400}
@@ -161,7 +161,7 @@ export default function ContactForm() {
                 type="text"
                 name="refer"
                 id="refer"
-                className="block w-full mt-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full bg-white/80 mt-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 placeholder="Name of the referer"
                 aria-describedby="refer"
               />
@@ -179,7 +179,7 @@ export default function ContactForm() {
                 type="text"
                 name="referer"
                 id="referer"
-                className="block w-full mt-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full bg-white/80 mt-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 placeholder="Email of the referer"
                 aria-describedby="referer"
               />
@@ -188,8 +188,8 @@ export default function ContactForm() {
         </div>
 
         <div className=" md:flex  justify-end">
-          <button className="text-white w-full md:w-28  bg-indigo-500 px-2 h-8 mt-5 rounded-sm hover:bg-indigo-700 cursor-pointer">
-            Save
+          <button className="text-white w-full  bg-indigo-500 px-2 h-8 mt-10 rounded-sm hover:bg-indigo-700 cursor-pointer">
+            Send Message
           </button>
         </div>
       </form>
