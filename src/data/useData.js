@@ -89,6 +89,13 @@ export const homeSlides = [
 // data for services
 export const services = [
   {
+    id: "0",
+    title: "Web Development",
+    description: `Elevate your online presence with our custom web development
+                    services. We use modern technologies to modify or introduce your online
+                    presence in style.`,
+  },
+  {
     id: "1",
     title: "Web Development",
     description: `Elevate your online presence with our custom web development
@@ -112,6 +119,20 @@ export const services = [
   },
   {
     id: "4",
+    title: "SSM Services",
+    description: `Low or zero social media presence? We will set up standard social media accounts
+     and connect to your webiste. This will 
+     boost traffic and increase sales.`,
+  },
+  {
+    id: "5",
+    title: "SSM Services",
+    description: `Low or zero social media presence? We will set up standard social media accounts
+     and connect to your webiste. This will 
+     boost traffic and increase sales.`,
+  },
+  {
+    id: "6",
     title: "SSM Services",
     description: `Low or zero social media presence? We will set up standard social media accounts
      and connect to your webiste. This will 

@@ -65,7 +65,7 @@ export default function About() {
 
           <div
             onClick={openForm}
-            className="bg-white dark:bg-black  text-white  border-2 border-black dark:border-main2  dark:hover:border-main2/80 w-full text-center p-0.5 mt-10 rounded-md "
+            className="bg-white dark:bg-black cursor-pointer  text-white  border-2 border-black dark:border-main2  dark:hover:border-main2/80 w-full text-center p-0.5 mt-10 rounded-md "
           >
             <p className=" text-white text-lg w-full text-center p-1 rounded-md  bg-black hover:bg-black/80 dark:bg-main2 dark:hover:bg-main2/80">
               Need a solution? We are happy to help. Click here!

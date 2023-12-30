@@ -23,7 +23,7 @@ export default function Services() {
         <ReferalFormModal />
         <Container>
           <div className="py-20">
-            <div className="lg:w-1/2 px-3 lg:mx-auto bg-white/50 my-5 shadow-lg dark:bg-black rounded-sm">
+            <div className=" lg:w-[48%]   px-3 mx-auto bg-white/50 my-5 shadow-lg dark:bg-black rounded-sm">
               <h1 className="py-5 text-center font-semibold text-xl font-serif  md:text-3xl text-gray-800 dark:text-white/80 ">
                 Services
               </h1>
@@ -34,13 +34,13 @@ export default function Services() {
                 Africa and Australia.
               </p>
             </div>
-            <div className=" mt-20">
+            <div className=" mt-10">
               <div>
-                <ul className="md:flex flex-wrap justify-between gap-5 mt-5">
+                <ul className="md:flex flex-wrap-reverse justify-between gap-5 mt-5">
                   {services.map((service) => (
                     <li
                       key={service.id}
-                      className="mx-auto mt-5 px-3 h-50 max-w-96 md:w-96 py-5 border border-1  border-gray-300 bg-white/80 dark:bg-black dark:border-white/50 rounded-sm shadow-md"
+                      className="mx-auto mt-5 px-3 h-50 max-w-[45rem] md:w-[48%] py-5 border border-1  border-gray-300 bg-white/50 dark:bg-black dark:border-white/80 rounded-sm shadow-md"
                     >
                       <div className="flex gap-5 py-1 ">
                         <div className="flex flex-col gap-2">

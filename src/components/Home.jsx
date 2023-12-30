@@ -66,6 +66,9 @@ export default function Home() {
     if (weather && weather.main === "Fog") {
       return fog;
     }
+    if (weather && weather.main === "Drizzle") {
+      return rain;
+    }
     return defaultBg;
   };
 
