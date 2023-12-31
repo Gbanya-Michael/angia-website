@@ -98,7 +98,7 @@ export default function Home() {
       <div className="pt-28 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="bg-white/50 dark:bg-black md:border shadow-lg rounded-md dark:border-white text-gray-600 dark:text-white/80 md:flex  justify-between gap-5 p-3">
           <div className="md:w-3/4 grid grid-cols-1 place-content-center  ">
-            <h1 className="text-3xl leading-8">
+            <h1 className="text-base md:text-2xl md:leading-8">
               <span className=" font-logoFont text-logo2 font-bold">
                 Kinetic
               </span>{" "}
@@ -106,23 +106,29 @@ export default function Home() {
                 Kraft
               </span>
               <span className="mr-2">,</span>
-              the best software developers
+              is a recognized team of top-notch freelance software developers
               {country && (
-                <span className="ml-2">in {locationData.country_name}.</span>
+                <span className="mx-1">in {locationData.country_name}.</span>
               )}
+              Celebrated for our exceptional expertise and collaborative
+              approach.
             </h1>
-            <div className="text-lg md:text-2xl leading-6 mt-3">
+            <div className="text-sm md:text-xl leading-6 mt-3 dark:text-white/80">
               <p>
                 We use modern technologies to create seamless, appealing and
-                interractive web apps to solve complex problems for you and your
-                customers.
+                interractive web apps to solve complex problems for you, your
+                team and your customers.
               </p>
 
               <p className="mt-3">
-                Your website is like the cover page of a book. We make sure
-                visitors stay glued once they visit your webiste to enjoy your
-                online presence and services. We work with businesses and
-                enterpreneurs all around world.
+                Your website serves as the captivating cover page of your
+                digital story. At Kinetic Kraft, we specialize in ensuring that
+                users not only linger but become immersed in the compelling
+                narrative of your online presence and services. Collaborating
+                with businesses and entrepreneurs worldwide, we craft engaging
+                and memorable web experiences that resonate with you and your
+                audience. You can hire a single developer or the team at
+                considerate and affordable prices with professional excellence.
               </p>
             </div>
           </div>
@@ -281,7 +287,7 @@ export default function Home() {
                   <span className=" text-green-500 ">{referralCost}</span> per
                   referral—because your connections deserve the best services,
                   just like you deserve the rewards. No commitment. Just get
-                  paid anytime you refer a client successfully.
+                  paid anytime we successfully onboard your referral.
                 </p>
 
                 <button
@@ -367,21 +373,23 @@ export default function Home() {
               <h1 className="my-5 text-center font-semibold text-xl font-serif  md:text-3xl text-gray-800 dark:text-white/80 ">
                 Make Extra Income
               </h1>
-              <div className="mb-10 md:grid md:grid-cols-3 gap-5">
-                <div className=" bg-white  dark:bg-black rounded-sm shadow-md  w-full  col-span-1 order-3 ">
-                  <div className=" w-68 h-60 py-3 md:px-3">
+              <div className="my-10 md:grid md:grid-cols-3 gap-5">
+                <div className=" bg-white md:px-3 dark:bg-black rounded-sm shadow-md  w-full  col-span-1 order-3 ">
+                  <div className=" w-68 h-60 py-3 ">
                     <img
                       src={globe2}
                       alt={globe}
                       className="h-full w-full object-contain"
                     />
                   </div>
-                  <p className="p-3  text-gray-500 dark:text-white">
-                    We will work with wherever you are. We have a global reach
+                  <p className="p-3 border shadow-sm rounded-sm text-gray-500 dark:text-white/80">
+                    We welcome collaborations from any corner of the globe,
+                    ensuring our services are accessible to partners, businesses
+                    and entrepreneurs worldwide.
                   </p>
                 </div>
                 <div className="mt-5 md:mt-0 font-serif text-gray-500  dark:text-white/80 p-3 dark:p-0 bg-white  dark:bg-black rounded-sm shadow-md  col-span-2 order-1">
-                  <p className="  text-xl md:text-xl leading-5 ">
+                  <p className="text-sm md:text-xl leading-6 ">
                     Know a business or someone that would need our services?
                   </p>
                   <p className="text-xl">
@@ -400,8 +408,8 @@ export default function Home() {
                     </p>
                     <span> per referral.</span>
                   </div>
-                  <div className="text-lg">
-                    <p className="text-xl md:text-2xl leading-5">
+                  <div className="text-sm md:text-xl leading-6 ">
+                    <p className="text-lg md:text-xl leading-5 my-5">
                       How does it work?
                     </p>
                     <p>
