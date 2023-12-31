@@ -134,9 +134,9 @@ export default function Home() {
           </div>
 
           <div className="p-3 my-5 md:my-0 lg:w-72">
-            <div>
+            <div className="mt-5 lg:mt-0">
               {country && (
-                <h1 className="flex justify-center gap-2 text-logo1 dark:text-white font-bold text-3xl">
+                <h1 className="flex justify-center gap-2  text-logo1 dark:text-white font-bold text-3xl">
                   <p>{city},</p>
                   <p>{locationData.country}</p>
                 </h1>
@@ -382,7 +382,7 @@ export default function Home() {
                       className="h-full w-full object-contain"
                     />
                   </div>
-                  <p className="p-3 border shadow-sm rounded-sm text-gray-500 dark:text-white/80">
+                  <p className="p-3 md:border shadow-sm rounded-sm text-gray-500 dark:text-white/80">
                     We welcome collaborations from any corner of the globe,
                     ensuring our services are accessible to partners, businesses
                     and entrepreneurs worldwide.
