@@ -96,8 +96,8 @@ export default function Home() {
       <ReferalFormModal />
 
       <div className="pt-28 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="bg-white/50 dark:bg-black md:border shadow-lg rounded-md dark:border-white text-gray-600 dark:text-white/80 md:flex  justify-between gap-5 p-3">
-          <div className="md:w-3/4 grid grid-cols-1 place-content-center  ">
+        <div className="bg-white/50 dark:bg-black md:border shadow-lg rounded-md dark:border-white text-gray-600 dark:text-white/80 lg:flex  justify-between gap-5 p-3">
+          <div className="lg:w-3/4 grid grid-cols-1 place-content-center  ">
             <h1 className="text-base md:text-2xl md:leading-8">
               <span className=" font-logoFont text-logo2 font-bold">
                 Kinetic
@@ -133,7 +133,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="p-3 my-5 md:my-0 md:w-72">
+          <div className="p-3 my-5 md:my-0 lg:w-72">
             <div>
               {country && (
                 <h1 className="flex justify-center gap-2 text-logo1 dark:text-white font-bold text-3xl">

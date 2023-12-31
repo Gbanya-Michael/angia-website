@@ -39,9 +39,9 @@ export const useWeather = (locationData) => {
         const lon = locationData?.longitude;
 
         if (lat !== undefined && lon !== undefined) {
-          // const res = await axios.get(
-          //   `${WEATHER_URl}lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`
-          // );
+          const res = await axios.get(
+            `${WEATHER_URl}lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`
+          );
           const data = res?.data;
           setWeatherData(data);
         }
