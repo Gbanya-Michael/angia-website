@@ -95,13 +95,6 @@ export const homeSlides = [
 // data for services
 export const services = [
   {
-    id: "0",
-    title: "Web Development",
-    description: `Elevate your online presence with our custom web development
-                    services. We use modern technologies to modify or introduce your online
-                    presence in style.`,
-  },
-  {
     id: "1",
     title: "Web Development",
     description: `Elevate your online presence with our custom web development
@@ -116,32 +109,68 @@ export const services = [
     by powerful search engines like google.
                     `,
   },
-  {
-    id: "3",
-    title: "SSM Services",
-    description: `Low or zero social media presence? We will set up standard social media accounts
-     and connect to your webiste. This will 
-     boost traffic and increase sales.`,
-  },
+
   {
     id: "4",
-    title: "SSM Services",
-    description: `Low or zero social media presence? We will set up standard social media accounts
-     and connect to your webiste. This will 
-     boost traffic and increase sales.`,
+    title: "Web Hosting",
+    description: `
+    Empower your online presence with our secure and reliable hosting solutions. Elevate performance for a seamless user experience.
+    `,
   },
   {
     id: "5",
-    title: "SSM Services",
-    description: `Low or zero social media presence? We will set up standard social media accounts
-     and connect to your webiste. This will 
-     boost traffic and increase sales.`,
+    title: "E-commerce Development",
+    description: `
+Transform your business online with expert E-commerce Development. Elevate your digital storefront for a seamless shopping experience.    `,
   },
   {
     id: "6",
-    title: "SSM Services",
-    description: `Low or zero social media presence? We will set up standard social media accounts
-     and connect to your webiste. This will 
-     boost traffic and increase sales.`,
+    title: "Frontend Development",
+    description: `
+    Revolutionize user experiences with cutting-edge Frontend Development. Craft visually stunning interfaces for an immersive online reflection.
+    `,
+  },
+  {
+    id: "7",
+    title: "Backend Development",
+    description: `
+    Empower your digital infrastructure with expert Backend Development. Ensure robust functionality and seamless operations for optimal performance.
+    `,
+  },
+  {
+    id: "8",
+    title: "UI/UX Design ",
+    description: `
+    Shape exceptional user experiences with our UI/UX Design expertise. Craft visually appealing interfaces for engaging and intuitive interactions.
+    `,
+  },
+  {
+    id: "9",
+    title: "Webisite Maintenance",
+    description: `
+    Ensure the longevity of your online presence with Website Maintenance & Support. Receive expert care for a seamless and secure web experience.
+    `,
+  },
+  {
+    id: "10",
+    title: "Email Signature Design",
+    description: `
+    Optimize your professional image with Email Signature Design. Elevate your communications with visually appealing and impactful email signatures.
+    `,
+  },
+  // {
+  //   id: "11",
+  //   title: "Logo Design",
+  //   description: `
+  //   Define your brand identity with expert Logo Design. Craft a unique and memorable logo for a distinct and impactful visual presence.
+  //   `,
+  // },
+
+  {
+    id: "13",
+    title: "Content writing",
+    description: `
+    Craft compelling narratives with our expert Content Writers. Elevate your brand's voice for a resonant and impactful impression.
+    `,
   },
 ];

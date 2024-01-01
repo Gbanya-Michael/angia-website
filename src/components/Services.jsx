@@ -8,8 +8,6 @@ import { useForm } from "../contexts/FormContext";
 import { services } from "../data/useData";
 //
 
-//
-
 export default function Services() {
   //
   const { openForm, openReferalForm } = useForm();
@@ -39,11 +37,11 @@ export default function Services() {
             </div>
             <div className=" mt-10">
               <div>
-                <ul className="md:flex flex-wrap-reverse justify-between gap-5 mt-5">
+                <ul className="md:flex flex-wrap justify-between gap-5 mt-5">
                   {services.map((service) => (
                     <li
                       key={service.id}
-                      className="mx-auto mt-5 px-3 h-50 max-w-[45rem] md:w-[48%] py-5 border border-1  border-gray-300 bg-white/50 dark:bg-black dark:border-white/80 rounded-sm shadow-md"
+                      className="mx-auto mt-5 px-3 h-50 max-w-[45rem] md:w-[48%] py-5 border-gray-300 bg-white/50 dark:bg-black dark:ring-white/80 rounded-sm shadow-md dark:ring-2 hover:ring-2 hover:ring-bg1 dark:hover:ring-bg1"
                     >
                       <div className="flex gap-5 py-1 ">
                         <div className="flex flex-col gap-2">
@@ -73,7 +71,7 @@ export default function Services() {
 
               <button
                 onClick={openReferalForm}
-                className="md:text-center text-xl lg:text-start text-blue-600 hover:text-blue-700 underline mt-3"
+                className="md:text-center md:pl-2 text-xl lg:text-start text-blue-600 hover:text-blue-700 underline mt-3"
               >
                 Refer a client
               </button>
