@@ -29,9 +29,12 @@ export default function Services() {
               </h1>
 
               <p className="text-gray-600 py-5 dark:text-white/80 ">
-                We are a team of freelance software developers spread around the
-                world. We have dedicated team members situated in Europe, Asia,
-                Africa and Australia.
+                At Kinetic Kraft, we offer a spectrum of services tailored to
+                elevate your online presence. From web development to
+                cutting-edge solutions, our global team of skilled freelancers
+                is dedicated to delivering affordable and innovative services.
+                Whether you seek project-based collaborations, continual
+                support, or flexible contracting, we've got you covered.
               </p>
             </div>
             <div className=" mt-10">
