@@ -111,63 +111,57 @@ export const services = [
   },
 
   {
-    id: "4",
-    title: "Web Hosting",
-    description: `
-    Empower your online presence with our secure and reliable hosting solutions. Elevate performance for a seamless user experience.
-    `,
-  },
-  {
-    id: "5",
-    title: "E-commerce Development",
-    description: `
-Transform your business online with expert E-commerce Development. Elevate your digital storefront for a seamless shopping experience.    `,
-  },
-  {
-    id: "6",
+    id: "3",
+
     title: "Frontend Development",
     description: `
     Revolutionize user experiences with cutting-edge Frontend Development. Craft visually stunning interfaces for an immersive online reflection.
     `,
   },
   {
-    id: "7",
+    id: "4",
+    title: "E-commerce",
+    description: `
+Transform your business online with expert E-commerce Development. Elevate your digital storefront for a seamless shopping experience.    `,
+  },
+  {
+    id: "5",
+    title: "Web Hosting",
+    description: `
+    Empower your online presence with our secure and reliable hosting solutions. Elevate performance for a seamless user experience.
+    `,
+  },
+  {
+    id: "6",
     title: "Backend Development",
     description: `
     Empower your digital infrastructure with expert Backend Development. Ensure robust functionality and seamless operations for optimal performance.
     `,
   },
   {
-    id: "8",
+    id: "7",
     title: "UI/UX Design ",
     description: `
     Shape exceptional user experiences with our UI/UX Design expertise. Craft visually appealing interfaces for engaging and intuitive interactions.
     `,
   },
   {
-    id: "9",
+    id: "8",
     title: "Webisite Maintenance",
     description: `
     Ensure the longevity of your online presence with Website Maintenance & Support. Receive expert care for a seamless and secure web experience.
     `,
   },
   {
-    id: "10",
+    id: "9",
     title: "Email Signature Design",
     description: `
     Optimize your professional image with Email Signature Design. Elevate your communications with visually appealing and impactful email signatures.
     `,
   },
-  // {
-  //   id: "11",
-  //   title: "Logo Design",
-  //   description: `
-  //   Define your brand identity with expert Logo Design. Craft a unique and memorable logo for a distinct and impactful visual presence.
-  //   `,
-  // },
 
   {
-    id: "13",
+    id: "10",
     title: "Content writing",
     description: `
     Craft compelling narratives with our expert Content Writers. Elevate your brand's voice for a resonant and impactful impression.
