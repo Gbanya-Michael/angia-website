@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import NavBar from "./nav";
 import Container from "./Container";
 import { globe } from "../hooks/useImage";
@@ -6,6 +7,8 @@ import Footer from "./Footer";
 import { useForm } from "../contexts/FormContext";
 import ContactFormModal from "../modals/ContactFormModal";
 import { abouts } from "../data/useData";
+
+const portFolio = "https://michaelgbanya.netlify.app";
 
 export default function About() {
   //
@@ -17,30 +20,44 @@ export default function About() {
       <ContactFormModal />
       <Container>
         <div className="py-20">
-          <div className="lg:w-1/2 px-3 lg:mx-auto bg-white/50 mt-10 shadow-lg dark:bg-black rounded-sm">
-            <h1 className="text-gray-700 py-5 text-2xl text-center dark:text-white">
+          <div className="px-3 lg:mx-auto bg-white/50 mt-10 shadow-lg dark:bg-black rounded-sm">
+            <h1 className="text-gray-700 py-5 text-xl md:text-3xl text-center dark:text-white">
               Who We Are
             </h1>
             <div>
-              <div className=" w-68 h-56 ">
+              <div className=" w-68 h-56 mt-5 ">
                 <img
                   src={globe}
                   alt={globe}
                   className="h-full w-full object-contain"
                 />
               </div>
-              <p className="text-gray-600 py-5 dark:text-white/80 ">
-                We are a team of freelance software developers spread around the
-                world. We have dedicated team members situated in Europe, Asia,
-                Africa and Australia.
-              </p>
+              <div className="text-gray-600 mt-5 text-base md:text-lg py-5 dark:text-white/80 ">
+                <p className="mb-2">
+                  Kinetic Kraft is not an agency; we are a vibrant network of
+                  global freelance software developers who pride in their craft.
+                  We are a dynamic collaboration of individual experts, with
+                  dedicated members in Europe, Asia, Africa, and Australia.
+                </p>
+                <p className="mb-2">
+                  Our diverse talent pool collaborates seamlessly to create
+                  cutting-edge solutions for a seamless online experience. At
+                  Kinetic Kraft, we take pride in being a network that
+                  transcends boundaries, ready to engage with businesses and
+                  entrepreneurs worldwide.
+                </p>
+                Our commitment is to craft engaging online solutions that
+                captivate audiences and leave a lasting impression. Join us on
+                this global journey, where innovation knows no boundaries, and
+                the power of our freelance developer network shine.
+              </div>
             </div>
           </div>
-          <ul className="md:flex flex-wrap justify-between gap-5 mt-5">
+          <ul className="md:flex flex-wrap  justify-between gap-5 mt-5">
             {abouts.map((about) => (
               <li
                 key={about.id}
-                className="mx-auto mt-5 px-3 h-50 max-w-[45rem] md:w-[48%] py-5 border border-1  border-gray-300 bg-white/50 dark:bg-black dark:border-white/80 rounded-sm shadow-md"
+                className="mx-auto mt-5 px-3 h-50 max-w-[45rem] md:w-[48%] py-5 border border-1  border-gray-300 bg-white/50 dark:bg-black dark:border-white/80 rounded-sm shadow-sm"
               >
                 <div className="flex gap-5 py-1 ">
                   <div className="w-12 h-12 flex-shrink-0 ">
@@ -58,6 +75,28 @@ export default function About() {
                   <q className="text-gray-600 w-90 text-sm italic leading-6  md:text-xl dark:text-white/80">
                     {about.message}
                   </q>
+                )}
+
+                {about.founder && (
+                  <div className="w-fit">
+                    <Link
+                      to={portFolio}
+                      target="_blank "
+                      rel="noopener noreferrer"
+                      className="w-fit"
+                    >
+                      <h1 className="mt-3 text-gray-700 font-semibold text-xl md:text-2xl dark:text-white/80 ">
+                        {about.founder}
+                      </h1>
+                      <div className="flex gap-2 dark:text-white/80">
+                        <p>Founder</p>
+                        <p>|</p>
+                        <p className="text-blue-600 hover:text-blue-800 cursor-pointer">
+                          View profile
+                        </p>
+                      </div>
+                    </Link>
+                  </div>
                 )}
               </li>
             ))}

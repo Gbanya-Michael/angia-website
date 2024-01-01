@@ -26,39 +26,45 @@ export const abouts = [
   {
     id: "1",
     title: "Our Mision",
-    description: ` We are a team of freelance software developers spread around the
-                world. We have dedicated team members situated in Europe, Asia,
-                Africa and Australia.`,
+    description: `Dedicated to crafting cutting-edge 
+    solutions for a seamless online experience, Kinetic
+     Kraft Technologies aims to provide affordable web
+     development services to small and medium-scale businesses
+      worldwide. As a united team of freelancers, we embrace
+      flexibility in our approach, offering contracting,
+       project-based jobs, and continual services. Our mission
+        is to deliver tailored solutions that empower our
+         clients to thrive in the digital landscape.`,
   },
   {
     id: "2",
-    title: "Our Target",
-    description: `Dominate search engines with our 
-    powerful SEO optimization services. We make sure you are being found online
-    by powerful search engines like google.
+    title: "Our Vision",
+    description: `
+Kinetic Kraft team envisions a global digital landscape where small and medium businesses thrive with innovative online solutions. Committed to affordability, we stand out from agencies. As a united freelancing team, our vision extends beyond web development, aiming to pioneer collaborative, flexible approaches. Delivering cutting-edge solutions, we empower clients for sustained success in a dynamic digital world.
                     `,
   },
   {
     id: "3",
-    title: "Our Community",
-    description: `Low or zero social media presence? We will set up standard social media accounts
-     and connect to your webiste. This will 
-     boost traffic and increase sales.`,
+    title: "Stregth",
+    description: `
+    Kinetic Kraft Technologies excels with a diverse global team of skilled freelance developers, fostering innovation and delivering affordable cutting-edge solutions. Our flexibility in services, from contracting to continual support, distinguishes us, and our unity enables crafting seamless online experiences, empowering businesses globally.
+    `,
   },
   {
     id: "4",
-    title: "Our team",
-    description: `Low or zero social media presence? We will set up standard social media accounts
-     and connect to your webiste. This will 
-     boost traffic and increase sales.`,
+    title: "Trust and Growth",
+    description: `
+    Kinetic Kraft Technologies, while strong, recognizes the need for ongoing evolution. Enhancing coordination across our global team and refining processes are key priorities. Client feedback guides our continuous improvement, acknowledging that the path to excellence involves iterative growth.
+    `,
   },
   {
     id: "5",
     title: "A message from the founder.",
-    description: "",
-    message: `Low or zero social media presence? We will set up standard social media accounts
-     and connect to your webiste. This will 
-     boost traffic and increase sales.`,
+
+    message: `
+    Founding Kinetic Kraft was a personal quest to build a family of freelance developers driven by innovation. My commitment stems from a belief in affordability, collaboration, and the unique strengths each team member brings. Together, we craft solutions that empower businesses worldwide. Join us in this personal and collective journey of turning challenges into opportunities for growth.
+    `,
+    founder: "MICHAEL GBANYA",
   },
 ];
 //slider images
