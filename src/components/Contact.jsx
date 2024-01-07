@@ -9,7 +9,7 @@ import { useForm } from "../contexts/FormContext";
 export default function Contact() {
   const { openReferalForm } = useForm();
 
-  const LIVE_EMAIL = "kinetic@kinetic.com";
+  const LIVE_EMAIL = "inquiry@kinetickrafters.com";
 
   return (
     <>

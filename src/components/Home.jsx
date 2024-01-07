@@ -133,7 +133,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="p-3 my-5 md:my-0 lg:w-72">
+          <div className=" my-5 md:my-0 lg:w-72">
             <div className="mt-5 lg:mt-0">
               {country && (
                 <h1 className="flex justify-center gap-2  text-logo1 dark:text-white font-bold text-3xl">
