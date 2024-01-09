@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import NavBar from "./nav";
 import Container from "../components/Container";
 import Carousel from "../assets/utils/Carousel";
@@ -30,6 +30,7 @@ export default function Home() {
   //
   const { openForm, openReferalForm } = useForm();
   const { locationData } = locationInfo();
+  const [bgImage, setBgImage] = useState(null);
 
   const country = locationData?.country;
   const city = locationData?.city;
@@ -88,6 +89,19 @@ export default function Home() {
     return "15%";
   };
   const referralCost = handleReferal();
+
+  useEffect(() => {
+    const loadImage = () => {
+      const img = new Image();
+      img.src = weatherBG(); // Use your function to get the image URL
+      img.onload = () => {
+        setBgImage(img.src);
+      };
+    };
+
+    loadImage();
+  }, []);
+
   return (
     <div className="dark:bg-black bg-gray-200 relative">
       <NavBar />
@@ -151,7 +165,7 @@ export default function Home() {
               <div
                 className={`bg-cover bg-center h-fit p-3 mt-2 rounded-md `}
                 style={{
-                  backgroundImage: `url(${weatherBG()})`,
+                  backgroundImage: bgImage ? `url(${weatherBG()})` : "none",
                 }}
               >
                 <div>
