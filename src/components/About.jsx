@@ -29,7 +29,6 @@ export default function About() {
                 <img
                   src={globe}
                   alt={globe}
-                  loading="lazy"
                   className="h-full w-full object-contain"
                 />
               </div>
@@ -62,11 +61,7 @@ export default function About() {
               >
                 <div className="flex gap-5 py-1 ">
                   <div className="w-12 h-12 flex-shrink-0 ">
-                    <img
-                      src={globe}
-                      loading="lazy"
-                      className="w-full object-contain"
-                    />
+                    <img src={globe} className="w-full object-contain" />
                   </div>
                   <h1 className="text-gray-700 mb-3 font-semibold text-xl md:text-2xl dark:text-white/80">
                     {about.title}
