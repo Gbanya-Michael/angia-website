@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import NavBar from "./nav";
 import Container from "../components/Container";
 import Carousel from "../assets/utils/Carousel";
 import {
@@ -104,12 +103,11 @@ export default function Home() {
 
   return (
     <div className="dark:bg-black bg-gray-200 relative">
-      <NavBar />
 
       <ContactFormModal />
       <ReferalFormModal />
 
-      <div className="pt-28 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="pt-5 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="bg-white/50 dark:bg-black md:border shadow-lg rounded-md dark:border-white text-gray-600 dark:text-white/80 lg:flex  justify-between gap-5 p-3">
           <div className="lg:w-3/4 grid grid-cols-1 place-content-center  ">
             <h1 className="text-base md:text-2xl md:leading-8">

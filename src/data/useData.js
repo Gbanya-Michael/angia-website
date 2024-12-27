@@ -1,22 +1,32 @@
 import { forbesStat1, earnBanner, seoChart } from "../hooks/useImage";
+import {
+  HomeModernIcon,
+  UserGroupIcon,
+  WrenchScrewdriverIcon,
+  PhoneIcon,
+} from "@heroicons/react/24/outline";
 
 //navigation options
 export const nav = [
   {
     name: "Home",
     href: "/",
+    icon: HomeModernIcon,
   },
   {
     name: "About",
     href: "/about",
+    icon: UserGroupIcon,
   },
   {
     name: "Services",
     href: "/services",
+    icon: WrenchScrewdriverIcon,
   },
   {
     name: "Contact",
     href: "/contact",
+    icon: PhoneIcon,
   },
 ];
 
