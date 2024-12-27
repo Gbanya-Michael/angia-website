@@ -1,39 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
+import { useForm } from "@formspree/react";
+
+const END_POINT = import.meta.env.VITE_CONTACT_FORM_ENDPOINT;
 
 export default function ContactForm() {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    phoneNumber: "",
-    email: "",
-    subject: "",
-    message: "",
-    refererName: "",
-    refererEmail: "",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    SendContactForm(formData);
-    setFormData("");
-  };
-
-  const SendContactForm = (formData) => {
-    console.log("Form data:", formData);
-  };
+  const [state, handleSubmit] = useForm(`${END_POINT}`);
+  if (state.succeeded) {
+    return (
+      <div className=" w-[97%] bg-gray-200 p-4 my-4 ">
+        <div className="w-fit h-44 text-center mx-auto bg-white border border-green-500 text-green-800 p-4 my-4">
+          Your form has been submitted successfully.
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>
-      <form onSubmit={handleSubmit} id="contactForm">
+      <form onSubmit={handleSubmit}>
         <div className="md:flex gap-10">
           <div className="md:w-1/2">
             <div className="flex gap-1">
@@ -51,11 +35,15 @@ export default function ContactForm() {
               type="text"
               name="first-name"
               id="first-name"
-              onChange={handleChange}
               className="block w-full bg-white/80 mt-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               placeholder="Your first name"
               aria-describedby="first-name"
             />
+            {/* {firstNameError ? (
+              <p className="text-xs font-light text-red-600">
+                First name cannot be empty
+              </p>
+            ) : null} */}
           </div>
           <div className="md:w-1/2 mt-5 md:mt-0">
             <div className="flex gap-1">
@@ -73,7 +61,6 @@ export default function ContactForm() {
               <input
                 type="text"
                 name="last-name"
-                onChange={handleChange}
                 id="last-name"
                 className="block w-full bg-white/80 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 placeholder="Your last name"
@@ -99,7 +86,6 @@ export default function ContactForm() {
             <input
               type="tel"
               name="phone-number"
-              onChange={handleChange}
               id="phone-number"
               className="block w-full mt-2 bg-white/80  rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               placeholder="Ex. 090 6333 6333"
@@ -118,11 +104,9 @@ export default function ContactForm() {
                 *
               </span>
             </div>
-
             <input
               type="email"
               name="email"
-              onChange={handleChange}
               id="email"
               className="block w-full bg-white/80  mt-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               placeholder="Your email"
@@ -147,7 +131,6 @@ export default function ContactForm() {
               <input
                 type="text"
                 name="subject"
-                onChange={handleChange}
                 id="subject"
                 className="block w-full bg-white/80  mt-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 placeholder="Subject of your message"
@@ -173,7 +156,6 @@ export default function ContactForm() {
                 <textarea
                   type="message"
                   name="message"
-                  onChange={handleChange}
                   id="message"
                   className="block w-full bg-white/80  h-40 rounded-md border-0 py-1.5 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-5"
                   placeholder="Please write your message here. 400 characters max."
@@ -196,7 +178,6 @@ export default function ContactForm() {
               <input
                 type="text"
                 name="refer"
-                onChange={handleChange}
                 id="refer"
                 className="block w-full bg-white/80 mt-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 placeholder="Name of the referer"
@@ -215,7 +196,6 @@ export default function ContactForm() {
               <input
                 type="text"
                 name="referer"
-                onChange={handleChange}
                 id="referer"
                 className="block w-full bg-white/80 mt-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 placeholder="Email of the referer"

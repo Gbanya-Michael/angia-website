@@ -48,20 +48,22 @@ export default function NavBar() {
         className={
           darkmode
             ? "bg-gradient-to-l from-bg2 via-bg1 to-indigo-800 hover:bg-gradient-to-r"
-            : "bg-main2 "
+            : "bg-slate-700 "
         }
       >
         {({ open }) => (
           <>
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
-              <div className="flex h-16 items-center justify-between ">
+              <div className="flex h-20 items-center justify-between ">
                 <div className="flex items-center w-full justify-between ">
-                  <div className="flex-shrink-0">
-                    <img
-                      className="h-11 w-auto"
-                      src="kinetick-logo.png"
-                      alt="Your Company"
-                    />
+                  <div className="flex-shrink-0 bg-white rounded-full">
+                    <Link to="/">
+                      <img
+                        className="h-11 w-auto"
+                        src="kinetick-logo.png"
+                        alt="Your Company"
+                      />
+                    </Link>
                   </div>
                   <ul className="hidden w-[40%] md:flex justify-evenly  gap-3  ">
                     {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
@@ -101,7 +103,7 @@ export default function NavBar() {
                       <span
                         aria-hidden="true"
                         className={classNames(
-                          darkmode ? "dark:bg-black" : "bg-indigo-600",
+                          darkmode ? "dark:bg-black" : "bg-black",
                           "pointer-events-none absolute mx-auto h-3 w-7  rounded-full transition-colors duration-200 ease-in-out"
                         )}
                       />

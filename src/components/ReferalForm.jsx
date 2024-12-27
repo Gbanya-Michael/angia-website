@@ -3,11 +3,15 @@ import {
   ArrowLongLeftIcon,
   ArrowLongRightIcon,
 } from "@heroicons/react/20/solid";
+import { useForm } from "@formspree/react";
+
+const REFER_END_POINT = import.meta.env.VITE_REFERAL_FORM_ENDPOINT;
+
 export default function ContactForm() {
   const [step, setStep] = useState(1);
 
   const handleNextStep = () => {
-    if (step < 4) {
+    if (step < 2) {
       setStep(step + 1);
     }
   };
@@ -18,9 +22,19 @@ export default function ContactForm() {
     }
   };
 
+  const [state, handleSubmit] = useForm(`${REFER_END_POINT}`);
+  if (state.succeeded) {
+    return (
+      <div className=" absolute z-50 right-2 md:right-5 top-10 w-[97%] h-44 bg-gray-200 p-4 my-4 ">
+        <div className="w-fit h-full text-center mx-auto bg-white border border-green-500 text-green-800 p-4 my-4">
+          Your form has been submitted successfully.
+        </div>
+      </div>
+    );
+  }
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit}>
         {step === 1 && (
           <>
             <div className="block text-lg text-center mt-10 bg-white/40 dark:bg-white/20  font-medium leading-0 text-gray-700 dark:text-white/90">
