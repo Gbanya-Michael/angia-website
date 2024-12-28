@@ -45,14 +45,10 @@ jobs:
             # Navigate to home directory
             cd /root
             
-            # Clone repository if it doesn't exist
-            if [ ! -d "$REPO_NAME" ]; then
-              git clone https://github.com/Gbanya-Michael/angia-website.git
-            fi
-            
-            # Navigate to project directory and pull latest changes
+            # Update existing repository
             cd $REPO_NAME
-            git pull origin main
+            git fetch origin main
+            git reset --hard origin/main
             
             # Clean up Docker resources
             docker system prune -f
@@ -64,6 +60,6 @@ jobs:
             fi
             
             # Start the application
-            docker-compose down
+            docker-compose down || true
             docker-compose up --build -d
           ENDSSH
