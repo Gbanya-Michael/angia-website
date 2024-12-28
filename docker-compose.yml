@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  web:
+    build: .
+    container_name: angia-website
+    restart: always
+    ports:
+      - "80:80"
+    networks:
+      - angia-network
+
+networks:
+  angia-network:
+    driver: bridge

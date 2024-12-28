@@ -35,57 +35,32 @@ export const nav = [
 export const abouts = [
   {
     id: "1",
-    title: "Our Mision",
-    description: `Dedicated to crafting cutting-edge 
-    solutions for a seamless online experience, Kinetic
-     Kraft Technologies aims to provide affordable web
-     development services to small and medium-scale businesses
-      worldwide. As a united team of freelancers, we embrace
-      flexibility in our approach, offering contracting,
-       project-based jobs, and continual services. Our mission
-        is to deliver tailored solutions that empower our
-         clients to thrive in the digital landscape.`,
+    title: "Our Mission",
+    description: `At Angia, our mission is to deliver innovative software solutions that drive business transformation. Based in Sydney, we combine technical excellence with deep industry understanding to create both custom solutions and powerful digital products. We're committed to helping businesses streamline their operations, enhance their digital presence, and achieve sustainable growth through technology.`,
   },
   {
     id: "2",
     title: "Our Vision",
-    description: `
-Kinetic Kraft team envisions a global digital landscape where small and medium businesses thrive with innovative online solutions. Committed to affordability, we stand out from agencies. As a united freelancing team, our vision extends beyond web development, aiming to pioneer collaborative, flexible approaches. Delivering cutting-edge solutions, we empower clients for sustained success in a dynamic digital world.
-                    `,
+    description: `Angia envisions a future where businesses of all sizes can harness the full potential of digital technology. We aim to be Australia's leading software development company, known for both our custom development services and our suite of innovative digital products. Our goal is to set new standards in software development, maintaining excellence in both product quality and service delivery.`,
   },
   {
     id: "3",
-    title: "Stregth",
-    description: `
-    Kinetic Kraft Technologies excels with a diverse global team of skilled freelance developers, fostering innovation and delivering affordable cutting-edge solutions. Our flexibility in services, from contracting to continual support, distinguishes us, and our unity enables crafting seamless online experiences, empowering businesses globally.
-    `,
+    title: "Our Strengths",
+    description: `Angia excels through our dual expertise in custom software development and digital product innovation. Our Sydney-based team combines deep technical knowledge with a strong understanding of business needs. We pride ourselves on our ability to deliver both tailored solutions and scalable products, supported by our commitment to ongoing maintenance and support.`,
   },
   {
     id: "4",
-    title: "Trust and Growth",
-    description: `
-    Kinetic Kraft Technologies, while strong, recognizes the need for ongoing evolution. Enhancing coordination across our global team and refining processes are key priorities. Client feedback guides our continuous improvement, acknowledging that the path to excellence involves iterative growth.
-    `,
+    title: "Innovation & Growth",
+    description: `At Angia, innovation is at our core. We continuously invest in emerging technologies and methodologies to enhance our service delivery and product development. Our commitment to growth extends beyond our own organization - we measure our success by the transformative impact our solutions have on our clients' businesses.`,
   },
   {
     id: "5",
-    title: "A message from the founder.",
-
-    message: `
-    Founding Kinetic Kraft was a personal quest to build a family of freelance developers driven by innovation. My commitment stems from a belief in affordability, collaboration, and the unique strengths each team member brings. Together, we craft solutions that empower businesses worldwide. Join us in this personal and collective journey of turning challenges into opportunities for growth.
-    `,
-    founder: "MICHAEL GBANYA",
+    title: "Company Leadership",
+    description: `Under strong leadership, Angia has established itself as a trusted name in software development. Our management team brings together extensive experience in technology, business strategy, and digital innovation. We're committed to maintaining the highest standards of service delivery while fostering a culture of continuous improvement and technical excellence.`,
   },
 ];
 //slider images
 export const homeSlides = [
-  {
-    id: 1,
-    message:
-      "Make money by referral. Work with us without obstructing your daily activities.",
-    image: earnBanner,
-    href: "/contact",
-  },
   {
     id: 2,
     message:

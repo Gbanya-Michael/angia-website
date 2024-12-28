@@ -9,7 +9,7 @@ import { services } from "../data/useData";
 
 export default function Services() {
   //
-  const { openForm, openReferalForm } = useForm();
+  const { openForm } = useForm();
 
   //
   return (
@@ -20,17 +20,17 @@ export default function Services() {
         <Container>
           <div className="py-10">
             <div className=" lg:w-[48%]   px-3 mx-auto bg-white/50 shadow-lg dark:bg-black rounded-sm">
-              <h1 className="py-5 text-center font-semibold text-xl font-serif  md:text-3xl text-gray-800 dark:text-white/80 ">
-                Services
+              <h1 className="text-center text-gray-700 mb-3 font-semibold text-xl md:text-2xl dark:text-white/80">
+                Our Services
               </h1>
-
-              <p className="text-gray-600 py-5 dark:text-white/80 ">
-                At Kinetic Kraft, we offer a spectrum of services tailored to
-                elevate your online presence. From web development to
-                cutting-edge solutions, our global team of skilled freelancers
-                is dedicated to delivering affordable and innovative services.
-                Whether you seek project-based collaborations, continual
-                support, or flexible contracting, we've got you covered.
+              <p className="text-gray-600 dark:text-white/80 text-base md:text-lg">
+                At Angia, we deliver comprehensive software development services
+                and solutions that drive digital transformation. Based in
+                Sydney, our expert team combines technical excellence with
+                industry expertise to create both custom solutions and
+                innovative digital products. From initial development to ongoing
+                maintenance, we provide end-to-end services that help businesses
+                thrive in the digital age.
               </p>
             </div>
             <div className=" mt-10">
@@ -66,13 +66,6 @@ export default function Services() {
                   ))}
                 </ul>
               </div>
-
-              <button
-                onClick={openReferalForm}
-                className="md:text-center md:pl-2 text-xl lg:text-start text-blue-600 hover:text-blue-700 underline mt-3"
-              >
-                Refer a client
-              </button>
             </div>
           </div>
         </Container>

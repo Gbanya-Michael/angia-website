@@ -103,46 +103,30 @@ export default function Home() {
 
   return (
     <div className="dark:bg-black bg-gray-200 relative">
-
       <ContactFormModal />
       <ReferalFormModal />
 
-      <div className="pt-5 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="pt-5 mx-auto max-w-8xl px-4 sm:px-6 lg:px-8">
         <div className="bg-white/50 dark:bg-black md:border shadow-lg rounded-md dark:border-white text-gray-600 dark:text-white/80 lg:flex  justify-between gap-5 p-3">
           <div className="lg:w-3/4 grid grid-cols-1 place-content-center  ">
             <h1 className="text-base md:text-2xl md:leading-8">
-              <span className=" font-logoFont text-logo2 font-bold">
-                Kinetic
-              </span>{" "}
-              <span className="font-logoFont  text-logo1 font-bold ">
-                Kraft
-              </span>
+              <span className=" font-logoFont text-logo2 font-bold">Angia</span>
               <span className="mr-2">,</span>
-              is a recognized team of top-notch freelance software developers
-              {country && (
-                <span className="mx-1">in {locationData.country_name}.</span>
-              )}
-              Celebrated for our exceptional expertise and collaborative
-              approach.
+              legally registered as{" "}
+              <span className="font-logoFont  text-logo1 font-bold ">
+                Angia Technologies
+              </span>{" "}
+              is a dynamic software development company based in Sydney,
+              Australia. We specialize in delivering high-quality software
+              solutions and comprehensive maintenance services to businesses of
+              all sizes. Our expertise spans across custom software development,
+              digital product innovation, and ongoing technical support. With a
+              portfolio of successful digital products already serving users
+              worldwide, we understand what it takes to build and maintain
+              software that makes a real impact. Whether you need a custom
+              solution for your business or reliable maintenance services, our
+              team is committed to delivering excellence in every project.
             </h1>
-            <div className="text-sm md:text-xl leading-6 mt-3 dark:text-white/80">
-              <p>
-                We use modern technologies to create seamless, appealing and
-                interractive web apps to solve complex problems for you, your
-                team and your customers.
-              </p>
-
-              <p className="mt-3">
-                Your website serves as the captivating cover page of your
-                digital story. At Kinetic Kraft, we specialize in ensuring that
-                users not only linger but become immersed in the compelling
-                narrative of your online presence and services. Collaborating
-                with businesses and entrepreneurs worldwide, we craft engaging
-                and memorable web experiences that resonate with you and your
-                audience. You can hire a single developer or the team at
-                considerate and affordable prices with professional excellence.
-              </p>
-            </div>
           </div>
 
           <div className=" my-5 md:my-0 lg:w-72">
@@ -291,22 +275,23 @@ export default function Home() {
                 </div>
               </div>
               <div className="bg-black/60 pt-3 pb-4 px-3 mt-6 ">
-                <h1 className="text-white/90 font-serif  font-extrabold text-xl md:text-2xl">
-                  Earn Money with Us
+                <h1 className="text-white/90 font-serif font-extrabold text-xl md:text-2xl">
+                  Making Digital Impact
                 </h1>
-                <p className=" text-white/70 text-sm">
-                  Unlock opportunities with us! Refer a client and earn{" "}
-                  <span className=" text-green-500 ">{referralCost}</span> per
-                  referral—because your connections deserve the best services,
-                  just like you deserve the rewards. No commitment. Just get
-                  paid anytime we successfully onboard your referral.
+                <p className="text-white/70 text-sm">
+                  From startups to established enterprises, our solutions are
+                  powering businesses across Australia. Our suite of digital
+                  products, including Birabook and LotsApark, are helping
+                  organizations streamline their operations and achieve digital
+                  excellence. Join the growing number of businesses transforming
+                  their digital presence with Angia.
                 </p>
 
                 <button
-                  onClick={openReferalForm}
+                  onClick={openForm}
                   className="mt-3 w-fit border dark:bg-main1 bg-bg1 hover:bg-main1/70 hover:text-white/80 text-white p-2 rounded-md"
                 >
-                  Refer a client
+                  Get Started
                 </button>
               </div>
             </div>
@@ -382,12 +367,12 @@ export default function Home() {
           </div>
           <div className=" md:mt-20">
             <div>
-              <h1 className="my-5 text-center font-semibold text-xl font-serif  md:text-3xl text-gray-800 dark:text-white/80 ">
-                Make Extra Income
+              <h1 className="my-5 text-center font-semibold text-xl font-serif md:text-3xl text-gray-800 dark:text-white/80">
+                Global Digital Solutions
               </h1>
               <div className="my-10 md:grid md:grid-cols-3 gap-5">
-                <div className=" bg-white md:px-3 dark:bg-black rounded-sm shadow-md  w-full  col-span-1 order-3 ">
-                  <div className=" w-68 h-60 py-3 ">
+                <div className="bg-white md:px-3 dark:bg-black rounded-sm shadow-md w-full col-span-1 order-3">
+                  <div className="w-68 h-60 py-3">
                     <img
                       src={globe2}
                       alt={globe}
@@ -395,55 +380,46 @@ export default function Home() {
                     />
                   </div>
                   <p className="p-3 md:border shadow-sm rounded-sm text-gray-500 dark:text-white/80">
-                    We welcome collaborations from any corner of the globe,
-                    ensuring our services are accessible to partners, businesses
-                    and entrepreneurs worldwide.
+                    While we're proudly based in Sydney, our impact reaches
+                    globally. Our digital products and services empower
+                    businesses worldwide to achieve their digital transformation
+                    goals.
                   </p>
                 </div>
-                <div className="mt-5 md:mt-0 font-serif text-gray-500  dark:text-white/80 p-3 dark:p-0 bg-white  dark:bg-black rounded-sm shadow-md  col-span-2 order-1">
-                  <p className="text-sm md:text-xl leading-6 ">
-                    Know a business or someone that would need our services?
-                  </p>
-                  <p className="text-xl">
-                    <span
-                      onClick={openReferalForm}
-                      className="text-blue-500 hover:text-blue-700 cursor-pointer"
-                    >
-                      Refer
-                    </span>
-                    <span> them to us and get paid.</span>
-                  </p>
-                  <div className="flex items-center gap-2 text-xl md:text-2xl  my-3 text-gray-800 dark:text-white/90 ">
-                    <p>Get paid</p>
-                    <p className="text-2xl text-green-500 animate__animated animate__tada animate__infinite ">
-                      {referralCost}
-                    </p>
-                    <span> per referral.</span>
-                  </div>
-                  <div className="text-sm md:text-xl leading-6 ">
-                    <p className="text-lg md:text-xl leading-5 my-5">
-                      How does it work?
-                    </p>
-                    <p>
-                      You know someone that owns a business with zero or poor
-                      online presence, all you need to do is click the
-                      <q>Refer Now</q> button, fill in the required fields and
-                      sumbit. You can also look for businesses on social media
-                      and refer them to us with the neccessary information
-                    </p>
-                    <p>That is it. Your part is done !</p>
-                    <p>
-                      Our team will receive the provided information and send a
-                      proposal to the client. Once successful, and we get paid,
-                      we pay you first before any expenses !
+                <div className="mt-5 md:mt-0 font-serif text-gray-500 dark:text-white/80 p-3 dark:p-0 bg-white dark:bg-black rounded-sm shadow-md col-span-2 order-1">
+                  <h2 className="text-xl md:text-2xl mb-4 text-gray-800 dark:text-white/90">
+                    Our Digital Ecosystem
+                  </h2>
+
+                  <div className="text-sm md:text-xl leading-6">
+                    <div className="mb-6">
+                      <h3 className="font-semibold mb-2">Birabook</h3>
+                      <p>
+                        A comprehensive social networking platform designed for
+                        meaningful connections and community building.
+                      </p>
+                    </div>
+
+                    <div className="mb-6">
+                      <h3 className="font-semibold mb-2">LotsApark</h3>
+                      <p>
+                        Smart parking solution revolutionizing urban mobility
+                        and parking management.
+                      </p>
+                    </div>
+
+                    <p className="mt-4">
+                      Our products are built with scalability and user
+                      experience in mind, serving businesses and users across
+                      different sectors and regions.
                     </p>
                   </div>
 
                   <button
-                    onClick={openReferalForm}
+                    onClick={openForm}
                     className="mt-3 text-white border border-1 w-fit px-2 rounded-md text-sm bg-main2 hover:bg-bg1"
                   >
-                    Refer Now
+                    Learn More
                   </button>
                 </div>
               </div>

@@ -121,17 +121,17 @@ export default function Sidebar({ content }) {
                                 to={item.href}
                                 onClick={() => setSidebarOpen(false)}
                                 className={classNames(
-                                  location.pathname === item.href
-                                    ? "bg-gray-700 text-white"
-                                    : "text-indigo-200 hover:text-white hover:bg-indigo-700",
+                                  currentItem === item.href
+                                    ? "bg-gray-800 text-white/90"
+                                    : "text-indigo-200 hover:text-gray-600 hover:bg-white/80",
                                   "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
                                 )}
                               >
                                 <item.icon
                                   className={classNames(
-                                    location.pathname === item.href
-                                      ? "text-white"
-                                      : "text-indigo-200 group-hover:text-white",
+                                    currentItem === item.href
+                                      ? "text-white/90"
+                                      : "text-indigo-200 group-hover:text-gray-600",
                                     "h-6 w-6 shrink-0"
                                   )}
                                   aria-hidden="true"
@@ -358,7 +358,18 @@ export default function Sidebar({ content }) {
             <span className="sr-only">Open sidebar</span>
             <Bars3Icon className="h-8 w-6" aria-hidden="true" />
           </button>
-          <div className="flex gap-x-4 items-center h-8">
+          <div className="lg:pl-72 flex items-center">
+            <div className="flex items-center gap-2 px-3 py-1 rounded-md bg-gradient-to-r from-indigo-100 to-blue-50 dark:from-indigo-900 dark:to-blue-900 border border-indigo-200 dark:border-indigo-800">
+              <span className="text-xs font-medium text-gray-500 dark:text-gray-400">
+                ABN
+              </span>
+              <h3 className="text-sm font-semibold text-indigo-700 dark:text-indigo-300">
+                13 665 542 162
+              </h3>
+            </div>
+          </div>
+
+          <div className="flex gap-x-4 items-center h-8 lg:hidden">
             <div className="flex items-center flex-col">
               <span className="text-sm text-gray-600">
                 {darkmode ? "Dark" : "Light"}
@@ -401,7 +412,7 @@ export default function Sidebar({ content }) {
           </div>
         </div>
 
-        <main className='lg:pl-72'>{content}</main>
+        <main className="lg:pl-72">{content}</main>
       </div>
     </>
   );
