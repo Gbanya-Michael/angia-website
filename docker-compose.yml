@@ -4,9 +4,12 @@ services:
   web:
     build: .
     container_name: angia-website
-    restart: always
+    restart: unless-stopped
     ports:
       - "80:80"
+      - "443:443"
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt:ro
     networks:
       - angia-network
 

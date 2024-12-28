@@ -42,9 +42,28 @@ jobs:
           DROPLET_IP: ${{ secrets.DROPLET_IP }}
         run: |
           ssh root@$DROPLET_IP << 'ENDSSH'
-            cd /root/$REPO_NAME
+            # Navigate to home directory
+            cd /root
+            
+            # Clone repository if it doesn't exist
+            if [ ! -d "$REPO_NAME" ]; then
+              git clone https://github.com/Gbanya-Michael/angia-website.git
+            fi
+            
+            # Navigate to project directory and pull latest changes
+            cd $REPO_NAME
             git pull origin main
+            
+            # Clean up Docker resources
             docker system prune -f
+            
+            # Ensure docker-compose is available
+            if ! command -v docker-compose &> /dev/null; then
+              apt update
+              apt install -y docker-compose
+            fi
+            
+            # Start the application
             docker-compose down
             docker-compose up --build -d
           ENDSSH
