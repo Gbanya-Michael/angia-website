@@ -2,6 +2,44 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import classNames from "classnames";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCalendarCheck,
+  faStar,
+  faMapMarkerAlt,
+  faLock,
+  faBriefcase,
+  faUsers,
+  faStore,
+  faChartLine,
+  faParking,
+  faKey,
+  faClock,
+  faTicketAlt,
+  faTh,
+  faShieldAlt,
+  faFileAlt,
+  faDollarSign,
+} from "@fortawesome/free-solid-svg-icons";
+
+const iconMap = {
+  "fas fa-calendar-check": faCalendarCheck,
+  "fas fa-star": faStar,
+  "fas fa-map-marker-alt": faMapMarkerAlt,
+  "fas fa-lock": faLock,
+  "fas fa-briefcase": faBriefcase,
+  "fas fa-users": faUsers,
+  "fas fa-store": faStore,
+  "fas fa-chart-line": faChartLine,
+  "fas fa-parking": faParking,
+  "fas fa-key": faKey,
+  "fas fa-clock": faClock,
+  "fas fa-ticket-alt": faTicketAlt,
+  "fas fa-th": faTh,
+  "fas fa-shield-alt": faShieldAlt,
+  "fas fa-file-alt": faFileAlt,
+  "fas fa-dollar-sign": faDollarSign,
+};
 
 const AppShowcase = ({ title, description, productData }) => {
   const [activeTab, setActiveTab] = useState("user");
@@ -139,8 +177,8 @@ const AppShowcase = ({ title, description, productData }) => {
                     transition={{ delay: index * 0.1 }}
                     className="flex items-start gap-4 p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
                   >
-                    <span className="text-3xl transform hover:scale-110 transition-transform">
-                      {feature.icon}
+                    <span className="text-3xl transform hover:scale-110 transition-transform text-indigo-600">
+                      <FontAwesomeIcon icon={iconMap[feature.icon]} />
                     </span>
                     <div>
                       <h3 className="font-semibold text-gray-900 dark:text-white text-lg">
@@ -174,72 +212,26 @@ const AppShowcase = ({ title, description, productData }) => {
       </div>
 
       {/* Video Section */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="py-20 bg-gray-900"
-      >
+      <div className="bg-gray-900 py-20">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-8">
-            See {title} in Action
+            See {productData.name} in Action
           </h2>
-          <div className="relative aspect-video max-w-4xl mx-auto bg-gray-800 rounded-xl overflow-hidden shadow-2xl">
-            {!isVideoPlaying ? (
-              <motion.div
-                className="absolute inset-0 cursor-pointer group"
-                onClick={() => setIsVideoPlaying(true)}
-                whileHover={{ scale: 1.02 }}
-              >
-                {/* Video Thumbnail */}
-                <img
-                  src={productData.video.thumbnail}
-                  alt={`${title} preview`}
-                  className="absolute inset-0 w-full h-full object-contain"
-                />
-                {/* Overlay with Play Button */}
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors flex flex-col items-center justify-center">
-                  <motion.div
-                    className="w-20 h-20 flex items-center justify-center rounded-full bg-white/20 backdrop-blur-sm group-hover:bg-white/30 transition-colors"
-                    whileHover={{ scale: 1.1 }}
-                  >
-                    <svg
-                      className="w-10 h-10 text-white"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </motion.div>
-                  <p className="mt-4 text-xl font-semibold text-white">
-                    Watch Demo Video
-                  </p>
-                </div>
-              </motion.div>
-            ) : (
-              <iframe
-                className="absolute inset-0 w-full h-full"
-                src={`https://www.youtube.com/embed/${productData.video.id}?autoplay=1`}
-                title={`${title} Demo`}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            )}
+          <div className="aspect-video max-w-3xl mx-auto rounded-lg overflow-hidden">
+            <div className="w-full h-full bg-gradient-to-br from-indigo-600 to-purple-700 flex items-center justify-center">
+              <div className="text-center">
+                <div className="text-5xl mb-4">🎬</div>
+                <p className="text-white text-lg font-medium">
+                  Demo video coming soon
+                </p>
+                <p className="text-white/70 text-sm mt-2">
+                  We're working on something amazing!
+                </p>
+              </div>
+            </div>
           </div>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => setIsVideoPlaying(false)}
-            className={classNames(
-              !isVideoPlaying && "hidden",
-              "mt-6 px-6 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full transition-colors"
-            )}
-          >
-            Close Video
-          </motion.button>
         </div>
-      </motion.div>
+      </div>
 
       {/* Stats Section */}
       <motion.div

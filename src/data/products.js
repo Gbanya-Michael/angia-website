@@ -2,231 +2,126 @@ export const products = [
   {
     id: 1,
     name: "Birabook",
-    description: "Beauty & Lifestyle Booking Platform",
+    shortDesc: "Beauty & Lifestyle Booking Platform",
+    description: "Connect beauty professionals with customers seamlessly",
     path: "/products/birabook",
-    icon: "/birabook.jpg",
-    shortDesc: "Connect beauty professionals with customers seamlessly",
+    icon: "/birabook-logo.png",
     video: {
-      id: "dQw4w9WgXcQ",
-      thumbnail: "/birabook.jpg",
+      id: null,
+      isAvailable: false,
     },
     features: {
       user: [
         {
           title: "Easy Booking",
-          description: "Book beauty services with just a few clicks",
-          icon: "📅",
+          description:
+            "Find and book beauty & lifestyle services in your area with just a few clicks",
+          icon: "fas fa-calendar-check",
         },
         {
-          title: "Real-time Availability",
-          description: "See live scheduling and instant confirmations",
-          icon: "⚡",
+          title: "Real Reviews",
+          description: "Read authentic reviews from verified customers",
+          icon: "fas fa-star",
+        },
+        {
+          title: "Location Based",
+          description:
+            "Discover services near you with our smart location features",
+          icon: "fas fa-map-marker-alt",
         },
         {
           title: "Secure Payments",
-          description: "Safe and encrypted payment processing",
-          icon: "🔒",
-        },
-        {
-          title: "Reviews & Ratings",
-          description: "Authentic feedback from verified customers",
-          icon: "⭐",
+          description: "Safe and secure payment processing for all bookings",
+          icon: "fas fa-lock",
         },
       ],
       business: [
         {
-          title: "Smart Calendar",
-          description: "Automated scheduling and appointment management",
-          icon: "📊",
+          title: "Business Management",
+          description:
+            "Complete toolkit to manage your beauty or lifestyle business",
+          icon: "fas fa-briefcase",
         },
         {
-          title: "Client Management",
-          description: "Track client history and preferences",
-          icon: "👥",
+          title: "Team Scheduling",
+          description:
+            "Effortlessly manage your team's availability and bookings",
+          icon: "fas fa-users",
         },
         {
-          title: "Payment Processing",
-          description: "Integrated payments and invoicing",
-          icon: "💳",
+          title: "Service Showcase",
+          description:
+            "Display your services with beautiful galleries and descriptions",
+          icon: "fas fa-store",
         },
         {
-          title: "Analytics Dashboard",
-          description: "Track business growth and insights",
-          icon: "📈",
+          title: "Analytics",
+          description: "Track your business growth with detailed insights",
+          icon: "fas fa-chart-line",
         },
       ],
+    },
+    stats: {
+      businesses: "1000+",
+      bookings: "50K+",
+      customers: "100K+",
     },
   },
   {
     id: 2,
-    name: "KineticCRM",
-    description: "Customer Relationship Management",
-    path: "/products/crm",
-    icon: "/product-logos/crm-logo.png",
-    shortDesc: "Manage your customer relationships effectively",
+    name: "lotsApark",
+    shortDesc: "Parking Management System",
+    description:
+      "Smart parking management solution for apartments and condominiums",
+    path: "/products/lotsapark",
+    icon: "/lotsapark-logo.png",
     video: {
-      id: "dQw4w9WgXcQ",
-      thumbnail: "/product-images/crm-preview.jpg",
+      id: null,
+      isAvailable: false,
     },
     features: {
       user: [
         {
-          title: "Contact Management",
-          description: "Organize and track all customer interactions",
-          icon: "📇",
+          title: "Easy Booking",
+          description: "Book and manage your parking space with a few taps",
+          icon: "fas fa-parking",
         },
         {
-          title: "Task Automation",
-          description: "Automate repetitive tasks and workflows",
-          icon: "🤖",
+          title: "Digital Access",
+          description: "Contactless entry and exit with digital passes",
+          icon: "fas fa-key",
         },
         {
-          title: "Email Integration",
-          description: "Seamless email sync and tracking",
-          icon: "📧",
+          title: "Real-time Availability",
+          description: "Check parking space availability in real-time",
+          icon: "fas fa-clock",
         },
         {
-          title: "Mobile Access",
-          description: "Access your CRM anywhere, anytime",
-          icon: "📱",
-        },
-      ],
-      business: [
-        {
-          title: "Sales Pipeline",
-          description: "Visual deal tracking and forecasting",
-          icon: "🎯",
-        },
-        {
-          title: "Team Collaboration",
-          description: "Real-time team communication tools",
-          icon: "🤝",
-        },
-        {
-          title: "Custom Reports",
-          description: "Generate detailed business insights",
-          icon: "📊",
-        },
-        {
-          title: "API Integration",
-          description: "Connect with your favorite tools",
-          icon: "����",
-        },
-      ],
-    },
-  },
-  {
-    id: 3,
-    name: "KineticERP",
-    description: "Enterprise Resource Planning",
-    path: "/products/erp",
-    icon: "/product-logos/erp-logo.png",
-    shortDesc: "Streamline your business operations",
-    video: {
-      id: "dQw4w9WgXcQ",
-      thumbnail: "/product-images/erp-preview.jpg",
-    },
-    features: {
-      user: [
-        {
-          title: "Unified Dashboard",
-          description: "All business operations in one place",
-          icon: "🎛️",
-        },
-        {
-          title: "Inventory Control",
-          description: "Real-time stock management",
-          icon: "📦",
-        },
-        {
-          title: "HR Management",
-          description: "Complete employee lifecycle management",
-          icon: "👥",
-        },
-        {
-          title: "Financial Tools",
-          description: "Accounting and financial reporting",
-          icon: "💰",
+          title: "Visitor Parking",
+          description: "Easily manage guest parking permits",
+          icon: "fas fa-ticket-alt",
         },
       ],
       business: [
         {
-          title: "Supply Chain",
-          description: "End-to-end supply chain visibility",
-          icon: "🔄",
+          title: "Space Management",
+          description: "Efficiently manage all parking spaces and allocations",
+          icon: "fas fa-th",
         },
         {
-          title: "Business Intelligence",
-          description: "Advanced analytics and reporting",
-          icon: "📊",
+          title: "Access Control",
+          description: "Advanced security and access management system",
+          icon: "fas fa-shield-alt",
         },
         {
-          title: "Compliance",
-          description: "Built-in regulatory compliance",
-          icon: "✅",
+          title: "Reporting",
+          description: "Comprehensive reports on usage and violations",
+          icon: "fas fa-file-alt",
         },
         {
-          title: "Scalability",
-          description: "Grow your business with confidence",
-          icon: "📈",
-        },
-      ],
-    },
-  },
-  {
-    id: 4,
-    name: "KineticAnalytics",
-    description: "Business Intelligence Platform",
-    path: "/products/analytics",
-    icon: "/product-logos/analytics-logo.png",
-    shortDesc: "Transform data into actionable insights",
-    video: {
-      id: "dQw4w9WgXcQ",
-      thumbnail: "/product-images/analytics-preview.jpg",
-    },
-    features: {
-      user: [
-        {
-          title: "Visual Analytics",
-          description: "Interactive dashboards and reports",
-          icon: "📈",
-        },
-        {
-          title: "Data Integration",
-          description: "Connect multiple data sources",
-          icon: "🔄",
-        },
-        {
-          title: "AI Insights",
-          description: "Machine learning powered analysis",
-          icon: "🤖",
-        },
-        {
-          title: "Custom Reports",
-          description: "Create and share custom reports",
-          icon: "📑",
-        },
-      ],
-      business: [
-        {
-          title: "Predictive Analytics",
-          description: "Forecast trends and opportunities",
-          icon: "🎯",
-        },
-        {
-          title: "Real-time Monitoring",
-          description: "Live tracking of KPIs",
-          icon: "⚡",
-        },
-        {
-          title: "Data Security",
-          description: "Enterprise-grade security",
-          icon: "🔒",
-        },
-        {
-          title: "Collaboration",
-          description: "Team sharing and annotations",
-          icon: "👥",
+          title: "Revenue Management",
+          description: "Handle parking fees and payment processing",
+          icon: "fas fa-dollar-sign",
         },
       ],
     },
