@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import NavBar from "./nav";
 import Container from "./Container";
 import { globe } from "../hooks/useImage";
 import Footer from "./Footer";
@@ -16,11 +15,10 @@ export default function About() {
   //
   return (
     <div className="dark:bg-black bg-gray-200 relative">
-      <NavBar />
       <ContactFormModal />
       <Container>
-        <div className="py-20">
-          <div className="px-3 lg:mx-auto bg-white/50 mt-10 shadow-lg dark:bg-black rounded-sm">
+        <div className="py-10">
+          <div className="px-3 lg:mx-auto bg-white/50 shadow-lg dark:bg-black rounded-sm">
             <h1 className="text-gray-700 py-5 text-xl md:text-3xl text-center dark:text-white">
               Who We Are
             </h1>

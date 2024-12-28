@@ -1,5 +1,4 @@
 import React from "react";
-import NavBar from "./nav";
 import Container from "./Container";
 import Footer from "./Footer";
 import ContactFormModal from "../modals/ContactFormModal";
@@ -16,12 +15,11 @@ export default function Services() {
   return (
     <>
       <div className="dark:bg-black bg-gray-200 relative">
-        <NavBar />
         <ContactFormModal />
         <ReferalFormModal />
         <Container>
-          <div className="py-20">
-            <div className=" lg:w-[48%]   px-3 mx-auto bg-white/50 my-5 shadow-lg dark:bg-black rounded-sm">
+          <div className="py-10">
+            <div className=" lg:w-[48%]   px-3 mx-auto bg-white/50 shadow-lg dark:bg-black rounded-sm">
               <h1 className="py-5 text-center font-semibold text-xl font-serif  md:text-3xl text-gray-800 dark:text-white/80 ">
                 Services
               </h1>

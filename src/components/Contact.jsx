@@ -1,5 +1,4 @@
 import React from "react";
-import NavBar from "./nav";
 import Container from "./Container";
 import ContactForm from "./ContactForm";
 import Footer from "./Footer";
@@ -14,11 +13,10 @@ export default function Contact() {
   return (
     <>
       <div className="dark:bg-black bg-gray-200 relative">
-        <NavBar />
         <ReferalFormModal />
         <Container>
-          <div className="py-20">
-            <div className="my-10 leading-8 rounded-sm  text-gray-600 dark:text-white/80 bg-white/70 dark:bg-black shadow-md p-3 dark:p-0">
+          <div className="py-10">
+            <div className="leading-5 rounded-sm  text-gray-600 dark:text-white/80 bg-white/70 dark:bg-black shadow-md p-3 dark:p-0">
               <div className="max-w-4xl mx-auto">
                 <p>
                   Please fill the contact form below. We will respond to your
