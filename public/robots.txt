@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://angia.com.au/sitemap.xml 
