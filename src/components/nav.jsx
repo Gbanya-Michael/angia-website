@@ -16,6 +16,7 @@ export default function Sidebar({ content }) {
   const [currentItem, setCurrentItem] = useState(null);
   const initialMode = localStorage.getItem("darkmode") === "true";
   const [darkmode, setDarkMode] = useState(initialMode);
+  const [showCookieNotice, setShowCookieNotice] = useState(false);
 
   //
   const location = useLocation();
@@ -35,6 +36,18 @@ export default function Sidebar({ content }) {
   useEffect(() => {
     localStorage.setItem("darkmode", darkmode);
   }, [darkmode]);
+
+  useEffect(() => {
+    const cookieAccepted = localStorage.getItem("angia-cookie");
+    if (!cookieAccepted) {
+      setShowCookieNotice(true);
+    }
+  }, []);
+
+  const handleAcceptCookies = () => {
+    localStorage.setItem("angia-cookie", "true");
+    setShowCookieNotice(false);
+  };
 
   const handleDarkMode = () => {
     setDarkMode(!darkmode);
@@ -414,6 +427,43 @@ export default function Sidebar({ content }) {
 
         <main className="lg:pl-72">{content}</main>
       </div>
+
+      {/* Cookie Notice */}
+      <Transition
+        show={showCookieNotice}
+        enter="transition-opacity duration-300"
+        enterFrom="opacity-0"
+        enterTo="opacity-100"
+        leave="transition-opacity duration-300"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
+        className="fixed bottom-0 left-0 right-0 z-40 lg:left-72"
+      >
+        <div className="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 p-4 shadow-lg">
+          <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex-1">
+              <p className="text-sm text-gray-600 dark:text-gray-300">
+                We use cookies to enhance your experience. By continuing to
+                visit this site you agree to our use of cookies.{" "}
+                <Link
+                  to="/privacy"
+                  className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-500"
+                >
+                  Learn more
+                </Link>
+              </p>
+            </div>
+            <div className="flex gap-4">
+              <button
+                onClick={handleAcceptCookies}
+                className="inline-flex justify-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              >
+                Accept
+              </button>
+            </div>
+          </div>
+        </div>
+      </Transition>
     </>
   );
 }
