@@ -290,8 +290,8 @@ export default function Sidebar({ content }) {
           )}
         >
           <Link to="/">
-            <div className="flex h-fit mt-2 rounded-md shrink-0 items-center w-fit bg-gray-900">
-              <img className="h-8 w-auto" src="/kinetick-logo.png" alt="logo" />
+            <div className="flex h-fit mt-2 rounded-md shrink-0 items-center w-fit">
+              <img className="h-8 w-auto" src="/angia-logo.png" alt="logo" />
             </div>
           </Link>
           <nav className="flex flex-1 flex-col">
@@ -496,10 +496,10 @@ export default function Sidebar({ content }) {
               </Switch>
             </div>
             <Link to="/">
-              <div className="lg:hidden flex h-8 mt-1 rounded-md shrink-0 items-center w-fit bg-gray-900">
+              <div className="lg:hidden flex h-8 mt-1 rounded-md shrink-0 items-center w-fit ">
                 <img
                   className="h-full w-auto"
-                  src="/kinetick-logo.png"
+                  src="/angia-logo.png"
                   alt="logo"
                 />
               </div>
