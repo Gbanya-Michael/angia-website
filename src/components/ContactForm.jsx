@@ -1,181 +1,439 @@
-import React from "react";
-import { useForm } from "@formspree/react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-const END_POINT = import.meta.env.VITE_CONTACT_FORM_ENDPOINT;
+// Replace this with your Google Apps Script deployment URL
+const FORM_ENDPOINT = import.meta.env.VITE_GOOGLE_SCRIPT_URL;
 
 export default function ContactForm() {
-  const [state, handleSubmit] = useForm(`${END_POINT}`);
-  if (state.succeeded) {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    "first-name": "",
+    "last-name": "",
+    "phone-number": "",
+    email: "",
+    subject: "",
+    message: "",
+    timestamp: "",
+  });
+  const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({});
+
+  const validateField = (name, value) => {
+    switch (name) {
+      case "first-name":
+      case "last-name":
+        return value.trim() ? "" : "This field is required";
+      case "phone-number":
+        const phoneRegex = /^[0-9\s+()-]{10,}$/;
+        if (!value.trim()) return "Phone number is required";
+        if (!phoneRegex.test(value)) return "Please enter a valid phone number";
+        return "";
+      case "email":
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!value.trim()) return "Email is required";
+        if (!emailRegex.test(value))
+          return "Please enter a valid email address";
+        return "";
+      case "subject":
+        return value.trim() ? "" : "Subject is required";
+      case "message":
+        if (!value.trim()) return "Message is required";
+        if (value.length < 10) return "Message must be at least 10 characters";
+        return "";
+      default:
+        return "";
+    }
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (touched[name]) {
+      setErrors((prev) => ({ ...prev, [name]: validateField(name, value) }));
+    }
+  };
+
+  const handleBlur = (e) => {
+    const { name, value } = e.target;
+    setTouched((prev) => ({ ...prev, [name]: true }));
+    setErrors((prev) => ({ ...prev, [name]: validateField(name, value) }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Validate all fields
+    const newErrors = {};
+    Object.keys(formData).forEach((key) => {
+      const error = validateField(key, formData[key]);
+      if (error) newErrors[key] = error;
+    });
+
+    setErrors(newErrors);
+    setTouched(
+      Object.keys(formData).reduce((acc, key) => ({ ...acc, [key]: true }), {})
+    );
+
+    if (Object.keys(newErrors).length === 0) {
+      setIsSubmitting(true);
+      try {
+        // Add timestamp to form data
+        const submissionData = {
+          ...formData,
+          timestamp: new Date().toISOString(),
+        };
+
+        console.log("Submitting to:", FORM_ENDPOINT);
+        console.log("Submission data:", submissionData);
+
+        // Create URL-encoded form data
+        const formBody = Object.keys(submissionData)
+          .map(
+            (key) =>
+              encodeURIComponent(key) +
+              "=" +
+              encodeURIComponent(submissionData[key])
+          )
+          .join("&");
+
+        const response = await fetch(FORM_ENDPOINT, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: formBody,
+          mode: "no-cors",
+        });
+
+        // Since we're using no-cors, we won't get a normal response
+        // Instead, we'll assume success if we get here without an error
+        setIsSubmitted(true);
+        // Clear form data
+        setFormData({
+          "first-name": "",
+          "last-name": "",
+          "phone-number": "",
+          email: "",
+          subject: "",
+          message: "",
+          timestamp: "",
+        });
+      } catch (error) {
+        console.error("Error submitting form:", error);
+        alert(
+          "There was an error submitting the form. Please try again later."
+        );
+      } finally {
+        setIsSubmitting(false);
+      }
+    }
+  };
+
+  if (isSubmitted) {
     return (
-      <div className=" w-[97%] bg-gray-200 p-4 my-4 ">
-        <div className="w-fit h-44 text-center mx-auto bg-white border border-green-500 text-green-800 p-4 my-4">
-          Your form has been submitted successfully.
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="w-full bg-gradient-to-r from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 p-8 rounded-lg shadow-lg"
+      >
+        <div className="text-center">
+          <div className="w-16 h-16 bg-green-100 dark:bg-green-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg
+              className="w-8 h-8 text-green-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+          </div>
+          <h3 className="text-xl font-semibold text-green-800 dark:text-green-200 mb-2">
+            Thank you for reaching out!
+          </h3>
+          <p className="text-green-600 dark:text-green-300">
+            We've received your message and will get back to you within 24
+            hours.
+          </p>
         </div>
-      </div>
+      </motion.div>
     );
   }
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <div className="md:flex gap-10">
-          <div className="md:w-1/2">
-            <div className="flex gap-1">
-              <label
-                htmlFor="first-name"
-                className="block text-sm font-medium leading-6 text-gray-500 dark:text-white/90"
-              >
-                First name
-              </label>
-              <span className="text-sm leading-6 text-red-500" id="first-name">
-                *
-              </span>
-            </div>
+    <form onSubmit={handleSubmit} className="space-y-6">
+      <div className="md:flex gap-6">
+        <div className="md:w-1/2 space-y-6">
+          {/* First Name */}
+          <div>
+            <label
+              htmlFor="first-name"
+              className="block text-sm font-medium text-gray-700 dark:text-white/90 mb-1"
+            >
+              First name <span className="text-red-500">*</span>
+            </label>
             <input
               type="text"
               name="first-name"
               id="first-name"
-              className="block w-full bg-white/80 mt-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              value={formData["first-name"]}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              className={`block w-full rounded-md border-0 py-2 px-3 bg-white/80 dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset ${
+                errors["first-name"]
+                  ? "ring-red-500"
+                  : "ring-gray-300 dark:ring-gray-700"
+              } placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 dark:focus:ring-indigo-500 sm:text-sm`}
               placeholder="Your first name"
-              aria-describedby="first-name"
             />
-            {/* {firstNameError ? (
-              <p className="text-xs font-light text-red-600">
-                First name cannot be empty
-              </p>
-            ) : null} */}
+            <AnimatePresence>
+              {touched["first-name"] && errors["first-name"] && (
+                <motion.p
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="mt-1 text-sm text-red-500"
+                >
+                  {errors["first-name"]}
+                </motion.p>
+              )}
+            </AnimatePresence>
           </div>
-          <div className="md:w-1/2 mt-5 md:mt-0">
-            <div className="flex gap-1">
-              <label
-                htmlFor="last-name"
-                className="block text-sm font-medium leading-6 text-gray-500 dark:text-white/90"
-              >
-                Last name
-              </label>
-              <span className="text-sm leading-6 text-red-500" id="last-name">
-                *
-              </span>
-            </div>
-            <div className="mt-2">
-              <input
-                type="text"
-                name="last-name"
-                id="last-name"
-                className="block w-full bg-white/80 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                placeholder="Your last name"
-                aria-describedby="last-name"
-              />
-            </div>
-          </div>
-        </div>
-        <div className="md:flex gap-10 mt-5">
-          <div className="md:w-1/2">
-            <div className="flex gap-1">
-              <label
-                htmlFor="phone-number"
-                className="block text-sm font-medium leading-6 text-gray-500 dark:text-white/90"
-              >
-                Phone no.
-              </label>
-              <span className="text-sm leading-6 text-red-500" id="prev-amount">
-                *
-              </span>
-            </div>
 
+          {/* Last Name */}
+          <div>
+            <label
+              htmlFor="last-name"
+              className="block text-sm font-medium text-gray-700 dark:text-white/90 mb-1"
+            >
+              Last name <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              name="last-name"
+              id="last-name"
+              value={formData["last-name"]}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              className={`block w-full rounded-md border-0 py-2 px-3 bg-white/80 dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset ${
+                errors["last-name"]
+                  ? "ring-red-500"
+                  : "ring-gray-300 dark:ring-gray-700"
+              } placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 dark:focus:ring-indigo-500 sm:text-sm`}
+              placeholder="Your last name"
+            />
+            <AnimatePresence>
+              {touched["last-name"] && errors["last-name"] && (
+                <motion.p
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="mt-1 text-sm text-red-500"
+                >
+                  {errors["last-name"]}
+                </motion.p>
+              )}
+            </AnimatePresence>
+          </div>
+
+          {/* Phone Number */}
+          <div>
+            <label
+              htmlFor="phone-number"
+              className="block text-sm font-medium text-gray-700 dark:text-white/90 mb-1"
+            >
+              Phone number <span className="text-red-500">*</span>
+            </label>
             <input
               type="tel"
               name="phone-number"
               id="phone-number"
-              className="block w-full mt-2 bg-white/80  rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              value={formData["phone-number"]}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              className={`block w-full rounded-md border-0 py-2 px-3 bg-white/80 dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset ${
+                errors["phone-number"]
+                  ? "ring-red-500"
+                  : "ring-gray-300 dark:ring-gray-700"
+              } placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 dark:focus:ring-indigo-500 sm:text-sm`}
               placeholder="Ex. 090 6333 6333"
-              aria-describedby="phone-number"
             />
+            <AnimatePresence>
+              {touched["phone-number"] && errors["phone-number"] && (
+                <motion.p
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="mt-1 text-sm text-red-500"
+                >
+                  {errors["phone-number"]}
+                </motion.p>
+              )}
+            </AnimatePresence>
           </div>
-          <div className="md:w-1/2 mt-5 md:mt-0">
-            <div className="flex gap-1">
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium leading-6 text-gray-500 dark:text-white/90"
-              >
-                Email
-              </label>
-              <span className="text-sm leading-6 text-red-500" id="last-name">
-                *
-              </span>
-            </div>
+
+          {/* Email */}
+          <div>
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700 dark:text-white/90 mb-1"
+            >
+              Email <span className="text-red-500">*</span>
+            </label>
             <input
               type="email"
               name="email"
               id="email"
-              className="block w-full bg-white/80  mt-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              value={formData.email}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              className={`block w-full rounded-md border-0 py-2 px-3 bg-white/80 dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset ${
+                errors.email
+                  ? "ring-red-500"
+                  : "ring-gray-300 dark:ring-gray-700"
+              } placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 dark:focus:ring-indigo-500 sm:text-sm`}
               placeholder="Your email"
-              aria-describedby="email"
             />
-          </div>
-        </div>
-        <div className="md:flex gap-10 mt-5 ">
-          <div className="md:w-1/2 mt-5 md:mt-0">
-            <div className="mb-5">
-              <div className="flex gap-1">
-                <label
-                  htmlFor="subject"
-                  className="block text-sm font-medium leading-6 text-gray-500 dark:text-white/90"
+            <AnimatePresence>
+              {touched.email && errors.email && (
+                <motion.p
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="mt-1 text-sm text-red-500"
                 >
-                  Subject
-                </label>
-                <span className="text-sm leading-6 text-red-500" id="subject">
-                  *
-                </span>
-              </div>
-              <input
-                type="text"
-                name="subject"
-                id="subject"
-                className="block w-full bg-white/80  mt-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                placeholder="Subject of your message"
-                aria-describedby="subject"
-              />
-            </div>
-            <div>
-              <div className="flex gap-1">
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium leading-6 text-gray-500 dark:text-white/90"
-                >
-                  Message
-                </label>
-                <span
-                  className="text-sm leading-6 text-red-500"
-                  id="description"
-                >
-                  *
-                </span>
-              </div>
-              <div className="mt-2">
-                <textarea
-                  type="message"
-                  name="message"
-                  id="message"
-                  className="block w-full bg-white/80  h-40 rounded-md border-0 py-1.5 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-5"
-                  placeholder="Please write your message here. 400 characters max."
-                  aria-describedby="message"
-                  maxLength={400}
-                ></textarea>
-              </div>
-            </div>
+                  {errors.email}
+                </motion.p>
+              )}
+            </AnimatePresence>
           </div>
         </div>
 
-        <div className=" md:flex  justify-end">
-          <button
-            type="submit"
-            className="text-white w-full  bg-indigo-500 px-2 h-8 mt-10 rounded-sm hover:bg-indigo-700 cursor-pointer"
-          >
-            Send Message
-          </button>
+        <div className="md:w-1/2 space-y-6 mt-6 md:mt-0">
+          {/* Subject */}
+          <div>
+            <label
+              htmlFor="subject"
+              className="block text-sm font-medium text-gray-700 dark:text-white/90 mb-1"
+            >
+              Subject <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              name="subject"
+              id="subject"
+              value={formData.subject}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              className={`block w-full rounded-md border-0 py-2 px-3 bg-white/80 dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset ${
+                errors.subject
+                  ? "ring-red-500"
+                  : "ring-gray-300 dark:ring-gray-700"
+              } placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 dark:focus:ring-indigo-500 sm:text-sm`}
+              placeholder="Subject of your message"
+            />
+            <AnimatePresence>
+              {touched.subject && errors.subject && (
+                <motion.p
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="mt-1 text-sm text-red-500"
+                >
+                  {errors.subject}
+                </motion.p>
+              )}
+            </AnimatePresence>
+          </div>
+
+          {/* Message */}
+          <div>
+            <label
+              htmlFor="message"
+              className="block text-sm font-medium text-gray-700 dark:text-white/90 mb-1"
+            >
+              Message <span className="text-red-500">*</span>
+            </label>
+            <textarea
+              name="message"
+              id="message"
+              value={formData.message}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              rows={8}
+              className={`block w-full rounded-md border-0 py-2 px-3 bg-white/80 dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset ${
+                errors.message
+                  ? "ring-red-500"
+                  : "ring-gray-300 dark:ring-gray-700"
+              } placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 dark:focus:ring-indigo-500 sm:text-sm`}
+              placeholder="Please write your message here. 400 characters max."
+              maxLength={400}
+            />
+            <AnimatePresence>
+              {touched.message && errors.message && (
+                <motion.p
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="mt-1 text-sm text-red-500"
+                >
+                  {errors.message}
+                </motion.p>
+              )}
+            </AnimatePresence>
+            <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+              {formData.message.length}/400 characters
+            </p>
+          </div>
         </div>
-      </form>
-    </>
+      </div>
+
+      <div className="flex justify-end">
+        <motion.button
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          type="submit"
+          disabled={isSubmitting}
+          className={`px-6 py-2.5 rounded-md text-white font-medium transition-colors ${
+            isSubmitting
+              ? "bg-gray-400 cursor-not-allowed"
+              : "bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600"
+          }`}
+        >
+          {isSubmitting ? (
+            <div className="flex items-center">
+              <svg
+                className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                ></circle>
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                ></path>
+              </svg>
+              Sending...
+            </div>
+          ) : (
+            "Send Message"
+          )}
+        </motion.button>
+      </div>
+    </form>
   );
 }

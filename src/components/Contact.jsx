@@ -4,15 +4,14 @@ import ContactForm from "./ContactForm";
 import Footer from "./Footer";
 
 export default function Contact() {
-  const LIVE_EMAIL = "inquiry@kinetickrafters.com";
 
   return (
     <>
       <div className="dark:bg-black bg-gray-200 relative">
         <Container>
           <div className="py-10">
-            <div className="leading-5 rounded-sm  text-gray-600 dark:text-white/80 bg-white/70 dark:bg-black shadow-md p-3 dark:p-0">
-              <div className="max-w-4xl mx-auto">
+            <div className="leading-5 mb-6 rounded-sm  text-gray-600 dark:text-white/80 bg-white/70 dark:bg-black shadow-md p-3 dark:p-0">
+              <div>
                 <p>
                   Please fill the contact form below. We will respond to your
                   inquiry within 24 hours.
@@ -20,10 +19,14 @@ export default function Contact() {
                 <p className="my-5">
                   Alternatively, if you want to send a direct email to us, you
                   can send your inquiry to
-                  <span className="text-blue-600 mx-1">{LIVE_EMAIL}.</span> We
-                  highly recommend using the contact form provided below, this
-                  will allow us to handle your inquiry faster with neccessary
-                  details.
+                  <span className="text-blue-600 mx-1">
+                    {import.meta.env.VITE_PUBLIC_EMAIL}.
+                  </span>{" "}
+                </p>
+                <p>
+                  We highly recommend using the contact form provided below,
+                  this will allow us to handle your inquiry faster with
+                  neccessary details.
                 </p>
 
                 <p className="mt-5">
@@ -33,9 +36,7 @@ export default function Contact() {
                 </p>
               </div>
             </div>
-            <div className="bg-white/70 dark:bg-black shadow-md dark:p-0 p-3 rounded-sm">
               <ContactForm />
-            </div>
           </div>
         </Container>
         <Footer />
