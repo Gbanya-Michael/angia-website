@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -19,6 +19,8 @@ import {
   faShieldAlt,
   faFileAlt,
   faDollarSign,
+  faTimes,
+  faPlay,
 } from "@fortawesome/free-solid-svg-icons";
 import Footer from "./Footer";
 
@@ -45,6 +47,12 @@ const AppShowcase = ({ title, description, productData }) => {
   const [activeTab, setActiveTab] = useState("user");
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
+  useEffect(() => {
+    if (isVideoPlaying) {
+      setIsVideoPlaying(false);
+    }
+  }, [activeTab]);
+
   const containerVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -64,6 +72,15 @@ const AppShowcase = ({ title, description, productData }) => {
       x: 0,
       transition: { duration: 0.4 },
     },
+  };
+
+  const getCurrentVideo = () => {
+    if (!productData.video.isAvailable) return null;
+    return productData.video.featureVideos[activeTab] || productData.video;
+  };
+
+  const getMockupImage = (tab) => {
+    return `https://picsum.photos/seed/${productData.name.toLowerCase()}-${tab}-mockup/800/600`;
   };
 
   return (
@@ -201,9 +218,12 @@ const AppShowcase = ({ title, description, productData }) => {
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img
-                src={`/mockup-${activeTab}.png`}
+                src={getMockupImage(activeTab)}
                 alt={`${activeTab} interface`}
                 className="w-full rounded-2xl transform hover:scale-105 transition-transform duration-500"
+                onError={(e) => {
+                  e.target.src = `https://picsum.photos/seed/fallback-${activeTab}/800/600`;
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
             </div>
@@ -217,18 +237,48 @@ const AppShowcase = ({ title, description, productData }) => {
           <h2 className="text-3xl font-bold text-white mb-8">
             See {productData.name} in Action
           </h2>
-          <div className="aspect-video max-w-3xl mx-auto rounded-lg overflow-hidden">
-            <div className="w-full h-full bg-gradient-to-br from-indigo-600 to-purple-700 flex items-center justify-center">
-              <div className="text-center">
-                <div className="text-5xl mb-4">🎬</div>
-                <p className="text-white text-lg font-medium">
-                  Demo video coming soon
-                </p>
-                <p className="text-white/70 text-sm mt-2">
-                  We're working on something amazing!
-                </p>
+          <div className="aspect-video max-w-3xl mx-auto rounded-lg overflow-hidden relative">
+            {isVideoPlaying ? (
+              <div className="relative">
+                <iframe
+                  className="w-full aspect-video"
+                  src={`https://www.youtube.com/embed/${
+                    getCurrentVideo()?.id
+                  }?autoplay=1`}
+                  title={`${title} Demo`}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+                <button
+                  onClick={() => setIsVideoPlaying(false)}
+                  className="absolute top-4 right-4 text-white bg-black/50 hover:bg-black/70 p-2 rounded-full transition-colors"
+                >
+                  <FontAwesomeIcon icon={faTimes} className="w-5 h-5" />
+                </button>
               </div>
-            </div>
+            ) : (
+              <div
+                className="relative cursor-pointer group"
+                onClick={() => setIsVideoPlaying(true)}
+              >
+                <img
+                  src={
+                    getCurrentVideo()?.thumbnail ||
+                    `/placeholder-${activeTab}.jpg`
+                  }
+                  alt={`${title} ${activeTab} demo thumbnail`}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors flex items-center justify-center">
+                  <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <FontAwesomeIcon
+                      icon={faPlay}
+                      className="w-8 h-8 text-indigo-600 ml-1"
+                    />
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

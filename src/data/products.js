@@ -7,8 +7,19 @@ export const products = [
     path: "/products/birabook",
     icon: "/birabook-logo.png",
     video: {
-      id: null,
-      isAvailable: false,
+      id: "dQw4w9WgXcQ",
+      thumbnail: "https://picsum.photos/seed/birabook/1280/720",
+      isAvailable: true,
+      featureVideos: {
+        user: {
+          id: "dQw4w9WgXcQ",
+          thumbnail: "https://picsum.photos/seed/birabook-user/1280/720",
+        },
+        business: {
+          id: "dQw4w9WgXcQ",
+          thumbnail: "https://picsum.photos/seed/birabook-business/1280/720",
+        },
+      },
     },
     features: {
       user: [
@@ -74,10 +85,21 @@ export const products = [
     description:
       "Smart parking management solution for apartments and condominiums",
     path: "/products/lotsapark",
-    icon: "/lotsapark-logo.png",
+    icon: "/angia-logo.png",
     video: {
-      id: null,
-      isAvailable: false,
+      id: "dQw4w9WgXcQ",
+      thumbnail: "https://picsum.photos/seed/lotsapark/1280/720",
+      isAvailable: true,
+      featureVideos: {
+        user: {
+          id: "dQw4w9WgXcQ",
+          thumbnail: "https://picsum.photos/seed/lotsapark-user/1280/720",
+        },
+        business: {
+          id: "dQw4w9WgXcQ",
+          thumbnail: "https://picsum.photos/seed/lotsapark-business/1280/720",
+        },
+      },
     },
     features: {
       user: [
