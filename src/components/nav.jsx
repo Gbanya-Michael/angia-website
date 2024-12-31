@@ -88,7 +88,7 @@ export default function Sidebar({ content }) {
                   darkmode
                     ? "bg-gradient-to-l from-bg2 via-bg1 to-indigo-800 hover:bg-gradient-to-r"
                     : "bg-slate-700",
-                  "relative mr-16 flex w-full max-w-xs flex-1"
+                  "relative flex  "
                 )}
               >
                 <Transition.Child
@@ -125,7 +125,10 @@ export default function Sidebar({ content }) {
                   )}
                 >
                   <nav className="flex flex-1 flex-col">
-                    <ul role="list" className="flex flex-1 flex-col gap-y-7">
+                    <ul
+                      role="list"
+                      className="flex flex-1 flex-col gap-y-7 pt-5"
+                    >
                       <li>
                         <ul role="list" className="-mx-2 space-y-1">
                           {nav.map((item) => (
@@ -134,7 +137,9 @@ export default function Sidebar({ content }) {
                                 to={item.href}
                                 onClick={() => setSidebarOpen(false)}
                                 className={classNames(
-                                  currentItem === item.href
+                                  currentItem === item.href ||
+                                    (item.href === "/blog" &&
+                                      currentItem?.startsWith("/blog/"))
                                     ? "bg-gray-800 text-white/90"
                                     : "text-indigo-200 hover:text-gray-600 hover:bg-white/80",
                                   "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
@@ -142,7 +147,9 @@ export default function Sidebar({ content }) {
                               >
                                 <item.icon
                                   className={classNames(
-                                    currentItem === item.href
+                                    currentItem === item.href ||
+                                      (item.href === "/blog" &&
+                                        currentItem?.startsWith("/blog/"))
                                       ? "text-white/90"
                                       : "text-indigo-200 group-hover:text-gray-600",
                                     "h-6 w-6 shrink-0"
@@ -304,7 +311,9 @@ export default function Sidebar({ content }) {
                         to={item.href}
                         onClick={() => setCurrentItem(item.href)}
                         className={classNames(
-                          currentItem === item.href
+                          currentItem === item.href ||
+                            (item.href === "/blog" &&
+                              currentItem?.startsWith("/blog/"))
                             ? "bg-gray-800 text-white/90"
                             : "text-indigo-200 hover:text-gray-600 hover:bg-white/80",
                           "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
@@ -312,7 +321,9 @@ export default function Sidebar({ content }) {
                       >
                         <item.icon
                           className={classNames(
-                            currentItem === item.href
+                            currentItem === item.href ||
+                              (item.href === "/blog" &&
+                                currentItem?.startsWith("/blog/"))
                               ? "text-white/90"
                               : "text-indigo-200 group-hover:text-gray-600",
                             "h-6 w-6 shrink-0"

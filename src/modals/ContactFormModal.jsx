@@ -24,11 +24,6 @@ export default function ContactFormModal() {
                 Contact Form
               </div>
               <div className="text-gray-600 dark:text-white/80 my-5 text-sm md:text-lg">
-                <p className="my-5">
-                  Please fill the form below. We will respond to you within 24
-                  hours. If you were refered by someone, kindly include their
-                  details.
-                </p>
                 <p>
                   Fields marked with <span className="text-red-500">*</span> are
                   required fields.

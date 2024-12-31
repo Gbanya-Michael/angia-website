@@ -165,44 +165,6 @@ export default function ContactForm() {
               </div>
             </div>
           </div>
-          <div className="md:w-1/2 mt-5 md:mt-0">
-            <div>
-              <div className="flex gap-1">
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium leading-6 text-gray-500 dark:text-white/90"
-                >
-                  Referer's full name
-                </label>
-              </div>
-              <input
-                type="text"
-                name="refer"
-                id="refer"
-                className="block w-full bg-white/80 mt-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                placeholder="Name of the referer"
-                aria-describedby="refer"
-              />
-            </div>
-            <div className="mt-5 ">
-              <div className="flex gap-1">
-                <label
-                  htmlFor="referer"
-                  className="block text-sm font-medium leading-6 text-gray-500 dark:text-white/90"
-                >
-                  Referer's email address
-                </label>
-              </div>
-              <input
-                type="text"
-                name="referer"
-                id="referer"
-                className="block w-full bg-white/80 mt-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                placeholder="Email of the referer"
-                aria-describedby="referer"
-              />
-            </div>
-          </div>
         </div>
 
         <div className=" md:flex  justify-end">

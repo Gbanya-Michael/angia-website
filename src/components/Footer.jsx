@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 
 const navigation = {
   contact: [
-    { name: "Email", href: "#" },
-    { name: "WhatsApp", href: "#" },
+    { name: import.meta.env.VITE_PUBLIC_EMAIL, href: "#" },
+    { name: "0409944555", href: "#" },
   ],
-  partnership: [
-    { name: "Affliate", href: "#" },
-    { name: "Inquiries", href: "#" },
+  products: [
+    { name: "Birabook", href: "https://birabook.com" },
+    { name: "lotsApark", href: "#" },
   ],
 
   social: [
@@ -67,7 +67,7 @@ export default function Footer() {
                   {navigation.contact.map((item) => (
                     <li key={item.name}>
                       <Link
-                        to={item.href}
+                        to={"#"}
                         className="text-sm leading-6 text-gray-600 dark:text-gray-300 hover:text-gray-500"
                       >
                         {item.name}
@@ -78,17 +78,21 @@ export default function Footer() {
               </div>
               <div>
                 <h3 className="text-sm font-semibold leading-6 text-gray-700 dark:text-white">
-                  Partnership
+                  Products
                 </h3>
                 <ul role="list" className="mt-4 space-y-2">
-                  {navigation.partnership.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        to={item.href}
-                        className="text-sm leading-6 text-gray-600 dark:text-gray-300 hover:text-gray-500"
+                  {navigation.products.map((item) => (
+                    <li
+                      key={item.name}
+                      className="text-sm leading-6 text-gray-600 dark:text-gray-300 hover:text-indigo-900 hover:underline hover:text-bold"
+                    >
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
                         {item.name}
-                      </Link>
+                      </a>
                     </li>
                   ))}
                 </ul>
@@ -96,20 +100,22 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-10 border-t border-white/10 pt-8  md:flex md:items-center md:justify-between ">
+        <div className="mt-8 border-t border-gray-900/10 dark:border-white/10 pt-8 md:flex md:items-center md:justify-between">
           <div className="flex space-x-6 md:order-2">
             {navigation.social.map((item) => (
-              <Link
+              <a
                 key={item.name}
-                to={item.href}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="dark:text-gray-300 hover:text-gray-500"
               >
                 <span className="sr-only">{item.name}</span>
                 <item.icon className="h-6 w-6" aria-hidden="true" />
-              </Link>
+              </a>
             ))}
           </div>
-          <p className="mt-8 text-xs leading-5 tetx-gray-600 dark:text-gray-300 md:order-1 md:mt-0">
+          <p className="mt-8 text-xs leading-5 text-gray-600 dark:text-gray-300 md:order-1 md:mt-0">
             &copy; 2024 Angia Technologies. All rights reserved.
           </p>
         </div>

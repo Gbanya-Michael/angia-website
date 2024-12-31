@@ -6,28 +6,120 @@
   <link rel="icon" type="image/png" href="/angia-logo.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'MEASUREMENT_ID');
+  </script>
+
+  <!-- Web Vitals Monitoring -->
+  <script>
+    addEventListener('DOMContentLoaded', function () {
+      // Core Web Vitals
+      if ('PerformanceObserver' in window) {
+        var lcpObserver = new PerformanceObserver(function (list) {
+          var entries = list.getEntries();
+          entries.forEach(function (entry) {
+            if (entry.identifier === 'LCP') {
+              console.log('LCP:', entry.startTime);
+              gtag('event', 'web_vitals', {
+                event_category: 'Web Vitals',
+                event_label: 'LCP',
+                value: Math.round(entry.startTime)
+              });
+            }
+          });
+        });
+        lcpObserver.observe({ entryTypes: ['largest-contentful-paint'] });
+
+        var fidObserver = new PerformanceObserver(function (list) {
+          list.getEntries().forEach(function (entry) {
+            gtag('event', 'web_vitals', {
+              event_category: 'Web Vitals',
+              event_label: 'FID',
+              value: Math.round(entry.processingStart - entry.startTime)
+            });
+          });
+        });
+        fidObserver.observe({ entryTypes: ['first-input'] });
+
+        var clsObserver = new PerformanceObserver(function (list) {
+          list.getEntries().forEach(function (entry) {
+            if (entry.hadRecentInput) return;
+            gtag('event', 'web_vitals', {
+              event_category: 'Web Vitals',
+              event_label: 'CLS',
+              value: Math.round(entry.value * 1000)
+            });
+          });
+        });
+        clsObserver.observe({ entryTypes: ['layout-shift'] });
+      }
+    });
+  </script>
+
   <!-- SEO Meta Tags -->
-  <title>Angia Technologies | Software Development & Digital Solutions</title>
+  <title>Angia Technologies | Custom Software Development & Digital Solutions Sydney</title>
   <meta name="description"
-    content="Angia Technologies provides high-quality software development services in Sydney, featuring Birabook for beauty & lifestyle bookings and lotsApark for smart parking management." />
+    content="Leading software development company in Sydney. Specializing in custom software solutions, web development, and digital products like Birabook and lotsApark. ABN: 13 665 542 162" />
   <meta name="keywords"
-    content="software development, beauty booking platform, parking management system, Sydney, Birabook, lotsApark" />
+    content="software development sydney, custom software solutions, web development, mobile apps, Birabook, lotsApark, parking management system, beauty booking platform, digital solutions australia" />
+  <meta name="author" content="Angia Technologies" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://angia.com.au" />
 
   <!-- Open Graph / Social Media -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://angia.com.au" />
-  <meta property="og:title" content="Angia Technologies | Software Development & Digital Solutions" />
+  <meta property="og:title" content="Angia Technologies | Custom Software Development Sydney" />
   <meta property="og:description"
-    content="Leading software development company in Sydney, offering Birabook for beauty & lifestyle bookings and lotsApark for smart parking management." />
-  <meta property="og:image" content="https://angia.com.au/og-image.jpg" />
+    content="Sydney-based software development company specializing in custom solutions and digital products. Creators of Birabook and lotsApark. Transform your business with our expertise." />
+  <meta property="og:image" content="https://angia.com.au/angia-logo.png" />
+  <meta property="og:site_name" content="Angia Technologies" />
+  <meta property="og:locale" content="en_AU" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://angia.com.au" />
-  <meta name="twitter:title" content="Angia Technologies | Software Development & Digital Solutions" />
+  <meta name="twitter:title" content="Angia Technologies | Custom Software Development Sydney" />
   <meta name="twitter:description"
-    content="Leading software development company in Sydney, offering Birabook for beauty & lifestyle bookings and lotsApark for smart parking management." />
-  <meta name="twitter:image" content="https://angia.com.au/og-image.jpg" />
+    content="Sydney-based software development company specializing in custom solutions and digital products. Creators of Birabook and lotsApark." />
+  <meta name="twitter:image" content="https://angia.com.au/angia-logo.png" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Angia Technologies",
+      "url": "https://angia.com.au",
+      "logo": "https://angia.com.au/angia-logo.png",
+      "description": "Leading software development company in Sydney, specializing in custom software solutions and digital products.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sydney",
+        "addressRegion": "NSW",
+        "addressCountry": "AU"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "",
+        "contactType": "customer service"
+      },
+      "sameAs": [],
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": "-33.8688",
+          "longitude": "151.2093"
+        }
+      }
+    }
+  </script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 </head>

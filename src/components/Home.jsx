@@ -22,12 +22,11 @@ import "animate.css";
 import DateTimeDisplay from "../assets/utils/DateTime";
 import ContactFormModal from "../modals/ContactFormModal";
 import { useForm } from "../contexts/FormContext";
-import ReferalFormModal from "../modals/ReferalFormModal";
 import { services, homeSlides } from "../data/useData";
 
 export default function Home() {
   //
-  const { openForm, openReferalForm } = useForm();
+  const { openForm } = useForm();
   const { locationData } = locationInfo();
   const [bgImage, setBgImage] = useState(null);
 
@@ -72,23 +71,6 @@ export default function Home() {
     return defaultBg;
   };
 
-  const handleReferal = () => {
-    if (country === "AU") {
-      return "A$500";
-    }
-    if (country === "NG") {
-      return "₦100,000 ";
-    }
-    if (country === "GB") {
-      return "£300";
-    }
-    if (country === "PH") {
-      return "₱10,000";
-    }
-    return "15%";
-  };
-  const referralCost = handleReferal();
-
   useEffect(() => {
     const loadImage = () => {
       const img = new Image();
@@ -104,8 +86,6 @@ export default function Home() {
   return (
     <div className="dark:bg-black bg-gray-200 relative">
       <ContactFormModal />
-      <ReferalFormModal />
-
       <div className="pt-5 mx-auto max-w-8xl px-4 sm:px-6 lg:px-8">
         <div className="bg-white/50 dark:bg-black md:border shadow-lg rounded-md dark:border-white text-gray-600 dark:text-white/80 lg:flex  justify-between gap-5 p-3">
           <div className="lg:w-3/4 grid grid-cols-1 place-content-center  ">

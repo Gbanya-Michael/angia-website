@@ -4,6 +4,7 @@ import {
   UserGroupIcon,
   WrenchScrewdriverIcon,
   PhoneIcon,
+  BookOpenIcon,
 } from "@heroicons/react/24/outline";
 
 //navigation options
@@ -22,6 +23,11 @@ export const nav = [
     name: "Services",
     href: "/services",
     icon: WrenchScrewdriverIcon,
+  },
+  {
+    name: "Blog",
+    href: "/blog",
+    icon: BookOpenIcon,
   },
   {
     name: "Contact",

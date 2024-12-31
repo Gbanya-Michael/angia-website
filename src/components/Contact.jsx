@@ -2,18 +2,13 @@ import React from "react";
 import Container from "./Container";
 import ContactForm from "./ContactForm";
 import Footer from "./Footer";
-import ReferalFormModal from "../modals/ReferalFormModal";
-import { useForm } from "../contexts/FormContext";
 
 export default function Contact() {
-  const { openReferalForm } = useForm();
-
   const LIVE_EMAIL = "inquiry@kinetickrafters.com";
 
   return (
     <>
       <div className="dark:bg-black bg-gray-200 relative">
-        <ReferalFormModal />
         <Container>
           <div className="py-10">
             <div className="leading-5 rounded-sm  text-gray-600 dark:text-white/80 bg-white/70 dark:bg-black shadow-md p-3 dark:p-0">
@@ -30,15 +25,7 @@ export default function Contact() {
                   will allow us to handle your inquiry faster with neccessary
                   details.
                 </p>
-                <p>
-                  If you are contacting us about referring a potential client,
-                  <span
-                    onClick={openReferalForm}
-                    className="cursor-pointer text-blue-600 mx-1"
-                  >
-                    click here.
-                  </span>
-                </p>
+
                 <p className="mt-5">
                   We are actively engaged with our clients. We strive for
                   perfection and creating a balanced relationship with our

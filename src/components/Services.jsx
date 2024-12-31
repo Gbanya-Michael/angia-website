@@ -2,7 +2,6 @@ import React from "react";
 import Container from "./Container";
 import Footer from "./Footer";
 import ContactFormModal from "../modals/ContactFormModal";
-import ReferalFormModal from "../modals/ReferalFormModal";
 import { useForm } from "../contexts/FormContext";
 import { services } from "../data/useData";
 //
@@ -16,7 +15,6 @@ export default function Services() {
     <>
       <div className="dark:bg-black bg-gray-200 relative">
         <ContactFormModal />
-        <ReferalFormModal />
         <Container>
           <div className="py-10">
             <div className=" lg:w-[48%]   px-3 mx-auto bg-white/50 shadow-lg dark:bg-black rounded-sm">

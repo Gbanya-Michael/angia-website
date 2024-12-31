@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import classNames from "classnames";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -21,6 +20,7 @@ import {
   faFileAlt,
   faDollarSign,
 } from "@fortawesome/free-solid-svg-icons";
+import Footer from "./Footer";
 
 const iconMap = {
   "fas fa-calendar-check": faCalendarCheck,
@@ -314,6 +314,7 @@ const AppShowcase = ({ title, description, productData }) => {
           </div>
         </div>
       </motion.div>
+      <Footer />
     </div>
   );
 };
