@@ -20,13 +20,10 @@ import Footer from "./Footer";
 import { locationInfo, useWeather } from "../hooks/useApi";
 import "animate.css";
 import DateTimeDisplay from "../assets/utils/DateTime";
-import ContactFormModal from "../modals/ContactFormModal";
-import { useForm } from "../contexts/FormContext";
 import { services, homeSlides } from "../data/useData";
 
 export default function Home() {
   //
-  const { openForm } = useForm();
   const { locationData } = locationInfo();
   const [bgImage, setBgImage] = useState(null);
 
@@ -85,28 +82,30 @@ export default function Home() {
 
   return (
     <div className="dark:bg-black bg-gray-200 relative">
-      <ContactFormModal />
       <div className="pt-5 mx-auto max-w-8xl px-4 sm:px-6 lg:px-8">
         <div className="bg-white/50 dark:bg-black md:border shadow-lg rounded-md dark:border-white text-gray-600 dark:text-white/80 lg:flex  justify-between gap-5 p-3">
           <div className="lg:w-3/4 grid grid-cols-1 place-content-center  ">
-            <h1 className="text-base md:text-2xl md:leading-8">
-              <span className=" font-logoFont text-logo2 font-bold">Angia</span>
+            <h1 className="text-3xl md:text-4xl font-bold mb-6">
+              Welcome to Angia Technologies
+            </h1>
+            <h2 className="text-base md:text-2xl md:leading-8">
+              <span className="font-logoFont text-logo2 font-bold">Angia</span>
               <span className="mr-2">,</span>
               legally registered as{" "}
-              <span className="font-logoFont  text-logo1 font-bold ">
+              <span className="font-logoFont text-logo1 font-bold">
                 Angia Technologies
               </span>{" "}
-              is a dynamic software development company based in Sydney,
-              Australia. We specialize in delivering high-quality software
-              solutions and comprehensive maintenance services to businesses of
-              all sizes. Our expertise spans across custom software development,
-              digital product innovation, and ongoing technical support. With a
+              is a software development company based in Sydney, Australia. We
+              specialize in delivering high-quality software solutions and
+              comprehensive maintenance services to businesses of all sizes. Our
+              expertise spans across custom software development, digital
+              product innovation, and ongoing technical support. With a
               portfolio of successful digital products already serving users
               worldwide, we understand what it takes to build and maintain
               software that makes a real impact. Whether you need a custom
               solution for your business or reliable maintenance services, our
               team is committed to delivering excellence in every project.
-            </h1>
+            </h2>
           </div>
 
           <div className=" my-5 md:my-0 lg:w-72">
@@ -230,9 +229,9 @@ export default function Home() {
 
             <div className="md:w-2/3  leading-3">
               <div className="bg-black/60 py-3 px-3">
-                <h1 className="text-white/90 font-serif  font-extrabold text-xl md:text-2xl">
+                <h2 className="text-white/90 font-serif font-extrabold text-xl md:text-2xl">
                   Unlock The Power Of The Internet
-                </h1>
+                </h2>
                 <div>
                   <p className=" text-white/70  text-sm">
                     Ready to take your business to the next level? Our digital
@@ -244,14 +243,6 @@ export default function Home() {
                     will increase your productivity by eliminating long manual
                     processes.
                   </p>
-                  <button
-                    onClick={() => {
-                      openForm();
-                    }}
-                    className="mt-3 w-fit border dark:bg-main1 bg-bg1 hover:bg-main1/70 hover:text-white/80 text-white p-2 rounded-md"
-                  >
-                    Contact us
-                  </button>
                 </div>
               </div>
               <div className="bg-black/60 pt-3 pb-4 px-3 mt-6 ">
@@ -267,12 +258,12 @@ export default function Home() {
                   their digital presence with Angia.
                 </p>
 
-                <button
-                  onClick={openForm}
+                <Link
+                  to="/contact"
                   className="mt-3 w-fit border dark:bg-main1 bg-bg1 hover:bg-main1/70 hover:text-white/80 text-white p-2 rounded-md"
                 >
-                  Get Started
-                </button>
+                  Contact us
+                </Link>
               </div>
             </div>
           </div>
@@ -325,17 +316,13 @@ export default function Home() {
                         {service.title}
                       </h1>
                     </div>
-
                     <p className="text-gray-600 w-90 text-sm leading-6  md:text-xl dark:text-white/80">
                       {service.description}
                     </p>
 
-                    <button
-                      onClick={() => openForm()}
-                      className="mt-3 text-white border border-1 w-fit px-2 rounded-md text-sm bg-main2 hover:bg-bg1"
-                    >
-                      Get in touch
-                    </button>
+                    <p className="mt-3 text-white border border-1 w-fit px-2 rounded-md text-sm bg-main2 hover:bg-bg1">
+                      <Link to="/contact">Get in touch</Link>
+                    </p>
                   </li>
                 ))}
               </ul>
@@ -395,12 +382,12 @@ export default function Home() {
                     </p>
                   </div>
 
-                  <button
-                    onClick={openForm}
+                  <Link
+                    to="/contact"
                     className="mt-3 text-white border border-1 w-fit px-2 rounded-md text-sm bg-main2 hover:bg-bg1"
                   >
                     Learn More
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>

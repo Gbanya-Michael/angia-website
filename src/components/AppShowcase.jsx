@@ -183,15 +183,18 @@ const AppShowcase = ({ title, description, productData }) => {
               {activeTab === "user" ? "User Experience" : "Business Features"}
             </h2>
             <div className="space-y-4">
-              <AnimatePresence mode="wait">
+              <AnimatePresence mode="sync">
                 {productData.features[activeTab].map((feature, index) => (
                   <motion.div
                     key={feature.title}
-                    variants={itemVariants}
-                    initial="hidden"
-                    animate="visible"
-                    exit="hidden"
-                    transition={{ delay: index * 0.1 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{
+                      duration: 0.3,
+                      delay: index * 0.1,
+                      ease: "easeInOut",
+                    }}
                     className="flex items-start gap-4 p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
                   >
                     <span className="text-3xl transform hover:scale-110 transition-transform text-indigo-600">

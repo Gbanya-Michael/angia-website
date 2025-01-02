@@ -103,13 +103,14 @@ export default function ContactForm() {
             "Content-Type": "application/x-www-form-urlencoded",
           },
           body: formBody,
-          mode: "no-cors",
+          mode: "no-cors", // This is important for handling CORS
+          redirect: "follow",
+          credentials: "omit",
         });
 
-        // Since we're using no-cors, we won't get a normal response
-        // Instead, we'll assume success if we get here without an error
+        // With no-cors mode, we won't get a normal response
+        // We'll assume success if we get here
         setIsSubmitted(true);
-        // Clear form data
         setFormData({
           "first-name": "",
           "last-name": "",
@@ -135,12 +136,12 @@ export default function ContactForm() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="w-full bg-gradient-to-r from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 p-8 rounded-lg shadow-lg"
+        className="w-full bg-gradient-to-r from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 p-8 rounded-lg shadow-lg border border-green-200 dark:border-green-800"
       >
         <div className="text-center">
-          <div className="w-16 h-16 bg-green-100 dark:bg-green-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="w-20 h-20 bg-green-100 dark:bg-green-900/50 rounded-full flex items-center justify-center mx-auto mb-6 ring-4 ring-green-50 dark:ring-green-900">
             <svg
-              className="w-8 h-8 text-green-500"
+              className="w-10 h-10 text-green-500"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -153,13 +154,37 @@ export default function ContactForm() {
               />
             </svg>
           </div>
-          <h3 className="text-xl font-semibold text-green-800 dark:text-green-200 mb-2">
+          <h3 className="text-2xl font-semibold text-green-800 dark:text-green-200 mb-4">
             Thank you for reaching out!
           </h3>
-          <p className="text-green-600 dark:text-green-300">
-            We've received your message and will get back to you within 24
-            hours.
-          </p>
+          <div className="space-y-2 mb-6">
+            <p className="text-green-600 dark:text-green-300 text-lg">
+              We've received your message and will get back to you within 24
+              hours.
+            </p>
+            <p className="text-green-500 dark:text-green-400 text-sm">
+              A confirmation email has been sent to your inbox.
+            </p>
+          </div>
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={() => {
+              setIsSubmitted(false);
+              setFormData({
+                "first-name": "",
+                "last-name": "",
+                "phone-number": "",
+                email: "",
+                subject: "",
+                message: "",
+                timestamp: "",
+              });
+            }}
+            className="px-6 py-2 bg-green-600 hover:bg-green-700 dark:bg-green-500 dark:hover:bg-green-600 text-white rounded-md font-medium transition-colors"
+          >
+            Close
+          </motion.button>
         </div>
       </motion.div>
     );
@@ -191,7 +216,7 @@ export default function ContactForm() {
               } placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 dark:focus:ring-indigo-500 sm:text-sm`}
               placeholder="Your first name"
             />
-            <AnimatePresence>
+            <AnimatePresence mode="sync">
               {touched["first-name"] && errors["first-name"] && (
                 <motion.p
                   initial={{ opacity: 0, height: 0 }}
@@ -227,7 +252,7 @@ export default function ContactForm() {
               } placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 dark:focus:ring-indigo-500 sm:text-sm`}
               placeholder="Your last name"
             />
-            <AnimatePresence>
+            <AnimatePresence mode="sync">
               {touched["last-name"] && errors["last-name"] && (
                 <motion.p
                   initial={{ opacity: 0, height: 0 }}
@@ -263,7 +288,7 @@ export default function ContactForm() {
               } placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 dark:focus:ring-indigo-500 sm:text-sm`}
               placeholder="Ex. 090 6333 6333"
             />
-            <AnimatePresence>
+            <AnimatePresence mode="sync">
               {touched["phone-number"] && errors["phone-number"] && (
                 <motion.p
                   initial={{ opacity: 0, height: 0 }}
@@ -299,7 +324,7 @@ export default function ContactForm() {
               } placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 dark:focus:ring-indigo-500 sm:text-sm`}
               placeholder="Your email"
             />
-            <AnimatePresence>
+            <AnimatePresence mode="sync">
               {touched.email && errors.email && (
                 <motion.p
                   initial={{ opacity: 0, height: 0 }}
@@ -337,7 +362,7 @@ export default function ContactForm() {
               } placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 dark:focus:ring-indigo-500 sm:text-sm`}
               placeholder="Subject of your message"
             />
-            <AnimatePresence>
+            <AnimatePresence mode="sync">
               {touched.subject && errors.subject && (
                 <motion.p
                   initial={{ opacity: 0, height: 0 }}
@@ -352,29 +377,28 @@ export default function ContactForm() {
           </div>
 
           {/* Message */}
-          <div>
+          <div className="col-span-2">
             <label
               htmlFor="message"
-              className="block text-sm font-medium text-gray-700 dark:text-white/90 mb-1"
+              className="block text-sm font-medium text-gray-700 dark:text-gray-200"
             >
-              Message <span className="text-red-500">*</span>
+              Message
             </label>
             <textarea
-              name="message"
               id="message"
+              name="message"
+              rows={4}
+              maxLength={400}
               value={formData.message}
               onChange={handleChange}
               onBlur={handleBlur}
-              rows={8}
-              className={`block w-full rounded-md border-0 py-2 px-3 bg-white/80 dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset ${
-                errors.message
-                  ? "ring-red-500"
-                  : "ring-gray-300 dark:ring-gray-700"
-              } placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 dark:focus:ring-indigo-500 sm:text-sm`}
-              placeholder="Please write your message here. 400 characters max."
-              maxLength={400}
+              className={`mt-1 block w-full rounded-md shadow-sm ${
+                touched.message && errors.message
+                  ? "border-red-500 focus:border-red-500 focus:ring-red-500"
+                  : "border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 dark:border-gray-600 dark:focus:border-indigo-400 dark:focus:ring-indigo-400"
+              } dark:bg-gray-800`}
             />
-            <AnimatePresence>
+            <AnimatePresence mode="sync">
               {touched.message && errors.message && (
                 <motion.p
                   initial={{ opacity: 0, height: 0 }}

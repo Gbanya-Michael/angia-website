@@ -2,17 +2,14 @@ import React from "react";
 import Container from "./Container";
 import { globe } from "../hooks/useImage";
 import Footer from "./Footer";
-import { useForm } from "../contexts/FormContext";
-import ContactFormModal from "../modals/ContactFormModal";
 import { abouts } from "../data/useData";
+import { Link } from "react-router-dom";
 
 export default function About() {
   //
-  const { openForm } = useForm();
   //
   return (
     <div className="dark:bg-black bg-gray-200 relative">
-      <ContactFormModal />
       <Container>
         <div className="py-10 text-gray-600 leading-6  dark:text-white/80">
           <div className="px-3 lg:mx-auto bg-white/50 shadow-lg dark:bg-black rounded-sm">
@@ -82,12 +79,11 @@ export default function About() {
             ))}
           </ul>
 
-          <div
-            onClick={openForm}
-            className="bg-white dark:bg-black cursor-pointer  text-white  border-2 border-black dark:border-main2  dark:hover:border-main2/80 w-full text-center p-0.5 mt-10 rounded-md "
-          >
+          <div className="bg-white dark:bg-black cursor-pointer  text-white  border-2 border-black dark:border-main2  dark:hover:border-main2/80 w-full text-center p-0.5 mt-10 rounded-md ">
             <p className=" text-white text-lg w-full text-center p-1 rounded-md  bg-black hover:bg-black/80 dark:bg-main2 dark:hover:bg-main2/80">
-              Need a solution? We are happy to help. Click here!
+              <Link to="/contact">
+                Need a solution? We are happy to help. Click here!
+              </Link>
             </p>
           </div>
         </div>

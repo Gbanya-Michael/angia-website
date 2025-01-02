@@ -1,0 +1,21 @@
+# Redirect old URLs to new ones
+
+/home / 301
+/about-us /about 301
+/our-services /services 301
+/contact-us /contact 301
+/blog/_ /blog/:splat 301
+/products/_ /products/:splat 301
+
+# Handle www to non-www redirect
+
+https://www.angia.com.au/* https://angia.com.au/:splat 301!
+
+# Handle HTTP to HTTPS redirect
+
+http://angia.com.au/_ https://angia.com.au/:splat 301!
+http://www.angia.com.au/_ https://angia.com.au/:splat 301!
+
+# SPA fallback
+
+/\* /index.html 200

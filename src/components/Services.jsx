@@ -1,23 +1,20 @@
 import React from "react";
 import Container from "./Container";
 import Footer from "./Footer";
-import ContactFormModal from "../modals/ContactFormModal";
-import { useForm } from "../contexts/FormContext";
 import { services } from "../data/useData";
+import { Link } from "react-router-dom";
 //
 
 export default function Services() {
   //
-  const { openForm } = useForm();
 
   //
   return (
     <>
       <div className="dark:bg-black bg-gray-200 relative">
-        <ContactFormModal />
         <Container>
           <div className="py-10">
-            <div className=" lg:w-[48%]   px-3 mx-auto bg-white/50 shadow-lg dark:bg-black rounded-sm">
+            <div className=" px-3 mx-auto bg-white/50 shadow-lg dark:bg-black rounded-sm">
               <h1 className="text-center text-gray-700 mb-3 font-semibold text-xl md:text-2xl dark:text-white/80">
                 Our Services
               </h1>
@@ -54,12 +51,9 @@ export default function Services() {
                         {service.description}
                       </p>
 
-                      <button
-                        onClick={openForm}
-                        className="mt-3 text-white border border-1 w-fit px-2 rounded-md text-sm bg-main2 hover:bg-bg1"
-                      >
-                        Get in touch
-                      </button>
+                      <p className="mt-3 text-white border border-1 w-fit px-2 rounded-md text-sm bg-main2 hover:bg-bg1">
+                        <Link to="/contact">Get in touch</Link>
+                      </p>
                     </li>
                   ))}
                 </ul>
