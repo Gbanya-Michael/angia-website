@@ -85,8 +85,8 @@ export default function Home() {
       <div className="pt-5 mx-auto max-w-8xl px-4 sm:px-6 lg:px-8">
         <div className="bg-white/50 dark:bg-black md:border shadow-lg rounded-md dark:border-white text-gray-600 dark:text-white/80 lg:flex  justify-between gap-5 p-3">
           <div className="lg:w-3/4 grid grid-cols-1 place-content-center  ">
-            <h1 className="text-3xl md:text-4xl font-bold mb-6">
-              Welcome to Angia Technologies
+            <h1 className="text-3xl md:text-4xl font-bold mb-6 sr-only">
+              Angia Technologies
             </h1>
             <h2 className="text-base md:text-2xl md:leading-8">
               <span className="font-logoFont text-logo2 font-bold">Angia</span>
