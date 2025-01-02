@@ -18,7 +18,7 @@ export default function About() {
             </h1>
             <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
               <p className=" md:text-lg leading-6 text-gray-600 dark:text-gray-300">
-                Angia is a dynamic software development company headquartered in
+                Angia is a recognized software development company headquartered in
                 Sydney, Australia, specializing in creating innovative digital
                 solutions that drive business growth and efficiency.
               </p>
