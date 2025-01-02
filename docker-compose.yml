@@ -6,8 +6,7 @@ services:
     container_name: angia-website
     restart: unless-stopped
     ports:
-      - "80:80"
-      - "443:443"
+      - "8080:80"
     volumes:
       - ./dist:/usr/share/nginx/html
       - /etc/letsencrypt:/etc/letsencrypt:ro
