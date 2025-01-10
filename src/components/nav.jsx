@@ -297,8 +297,8 @@ export default function Sidebar({ content }) {
           )}
         >
           <Link to="/">
-            <div className="flex h-fit mt-2 rounded-md shrink-0 items-center w-fit">
-              <img className="h-8 w-auto" src="/angia-logo.png" alt="logo" />
+            <div className="h-14 w-20 my-2 rounded-md">
+              <img className="object-contain rounded-md" src="/angia-logo.png" alt="logo" />
             </div>
           </Link>
           <nav className="flex flex-1 flex-col">
@@ -462,7 +462,7 @@ export default function Sidebar({ content }) {
             onClick={() => setSidebarOpen(true)}
           >
             <span className="sr-only">Open sidebar</span>
-            <Bars3Icon className="h-8 w-6" aria-hidden="true" />
+            <Bars3Icon className="h-10 w-8" aria-hidden="true" />
           </button>
           <div className="lg:pl-72 flex items-center">
             <div className="flex items-center gap-2 px-3 py-1 rounded-md bg-gradient-to-r from-indigo-100 to-blue-50 dark:from-indigo-900 dark:to-blue-900 border border-indigo-200 dark:border-indigo-800">
