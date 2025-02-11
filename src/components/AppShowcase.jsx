@@ -301,32 +301,36 @@ const AppShowcase = ({ title, description, productData }) => {
               className="p-6 rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 shadow-lg"
             >
               <div className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-2">
-                1000+
+                {productData.stats.businesses}
+              </div>
+              <div className="text-gray-600 dark:text-gray-400">
+                {productData.name === "lotsApark"
+                  ? "Active Locations"
+                  : "Active Businesses"}
+              </div>
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="p-6 rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 shadow-lg"
+            >
+              <div className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-2">
+                {productData.stats.bookings}
+              </div>
+              <div className="text-gray-600 dark:text-gray-400">
+                {productData.name === "lotsApark"
+                  ? "Listed Parking Spaces"
+                  : "Total Bookings"}
+              </div>
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="p-6 rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 shadow-lg"
+            >
+              <div className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-2">
+                {productData.stats.customers}
               </div>
               <div className="text-gray-600 dark:text-gray-400">
                 Active Users
-              </div>
-            </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="p-6 rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 shadow-lg"
-            >
-              <div className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-2">
-                50K+
-              </div>
-              <div className="text-gray-600 dark:text-gray-400">
-                Transactions
-              </div>
-            </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="p-6 rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 shadow-lg"
-            >
-              <div className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-2">
-                100K+
-              </div>
-              <div className="text-gray-600 dark:text-gray-400">
-                Happy Customers
               </div>
             </motion.div>
           </div>

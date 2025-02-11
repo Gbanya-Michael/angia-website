@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 const navigation = {
   contact: [
     { name: import.meta.env.VITE_PUBLIC_EMAIL, href: "#" },
-    { name: "0409944555", href: "#" },
+    { name: "0447533470", href: "#" },
   ],
   products: [
     { name: "Birabook", href: "https://birabook.com" },
-    { name: "lotsApark", href: "#" },
+    { name: "lotsApark", href: "https://lotsapark.com" },
   ],
 
   social: [

@@ -347,10 +347,11 @@ export default function Home() {
                     />
                   </div>
                   <p className="p-3 md:border shadow-sm rounded-sm text-gray-500 dark:text-white/80">
-                    While we're proudly based in Sydney, our impact reaches
-                    globally. Our digital products and services empower
-                    businesses worldwide to achieve their digital transformation
-                    goals.
+                    While proudly headquartered in Sydney, our vision extends
+                    globally. We're committed to delivering world-class digital
+                    solutions that transcend borders, helping businesses
+                    worldwide achieve their digital transformation goals through
+                    innovative technology and exceptional service.
                   </p>
                 </div>
                 <div className="mt-5 md:mt-0 font-serif text-gray-500 dark:text-white/80 p-3 dark:p-0 bg-white dark:bg-black rounded-sm shadow-md col-span-2 order-1">
@@ -362,23 +363,29 @@ export default function Home() {
                     <div className="mb-6">
                       <h3 className="font-semibold mb-2">Birabook</h3>
                       <p>
-                        A comprehensive social networking platform designed for
-                        meaningful connections and community building.
+                        A comprehensive marketplace platform connecting beauty
+                        and lifestyle professionals with customers. Features a
+                        robust business management system for service providers
+                        to manage bookings, teams, and services efficiently.
                       </p>
                     </div>
 
                     <div className="mb-6">
                       <h3 className="font-semibold mb-2">LotsApark</h3>
                       <p>
-                        Smart parking solution revolutionizing urban mobility
-                        and parking management.
+                        Streamlined building parking management solution that
+                        enables property managers to create secure platforms for
+                        tenants. Features include building account management,
+                        tenant access control, and a marketplace for parking
+                        space sharing.
                       </p>
                     </div>
 
                     <p className="mt-4">
-                      Our products are built with scalability and user
-                      experience in mind, serving businesses and users across
-                      different sectors and regions.
+                      Our products are designed with enterprise-grade security
+                      and scalability, serving businesses across Australia with
+                      user-friendly interfaces and comprehensive management
+                      tools.
                     </p>
                   </div>
 

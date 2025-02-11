@@ -74,8 +74,8 @@ export const products = [
     },
     stats: {
       businesses: "1000+",
-      bookings: "50K+",
-      customers: "100K+",
+      bookings: "15K+",
+      customers: "2K+",
     },
   },
   {
@@ -85,7 +85,7 @@ export const products = [
     description:
       "Smart parking management solution for apartments and condominiums",
     path: "/products/lotsapark",
-    icon: "/angia-logo.png",
+    icon: "/lotsapark-logo.svg",
     video: {
       id: "dQw4w9WgXcQ",
       thumbnail: "https://picsum.photos/seed/lotsapark/1280/720",
@@ -104,48 +104,61 @@ export const products = [
     features: {
       user: [
         {
-          title: "Easy Booking",
-          description: "Book and manage your parking space with a few taps",
-          icon: "fas fa-parking",
-        },
-        {
-          title: "Digital Access",
-          description: "Contactless entry and exit with digital passes",
+          title: "Easy Access",
+          description:
+            "Join your building's parking marketplace with a simple access code",
           icon: "fas fa-key",
         },
         {
-          title: "Real-time Availability",
-          description: "Check parking space availability in real-time",
-          icon: "fas fa-clock",
+          title: "Find Parking",
+          description:
+            "Browse available parking spots in your building and connect with owners directly",
+          icon: "fas fa-parking",
         },
         {
-          title: "Visitor Parking",
-          description: "Easily manage guest parking permits",
-          icon: "fas fa-ticket-alt",
+          title: "Earn Extra",
+          description:
+            "List your unused parking space and earn extra income when you're not using it",
+          icon: "fas fa-dollar-sign",
+        },
+        {
+          title: "Secure Platform",
+          description:
+            "Connect with verified residents in your building through our secure platform",
+          icon: "fas fa-shield-alt",
         },
       ],
       business: [
         {
-          title: "Space Management",
-          description: "Efficiently manage all parking spaces and allocations",
+          title: "Quick Setup",
+          description:
+            "Create a location account and get a unique access code for your tenants",
           icon: "fas fa-th",
         },
         {
-          title: "Access Control",
-          description: "Advanced security and access management system",
+          title: "Secure Access",
+          description:
+            "Control who can access your building's parking marketplace with unique access codes",
           icon: "fas fa-shield-alt",
         },
         {
-          title: "Reporting",
-          description: "Comprehensive reports on usage and violations",
-          icon: "fas fa-file-alt",
+          title: "Reduced Workload",
+          description:
+            "Let tenants handle their parking arrangements directly while you maintain oversight",
+          icon: "fas fa-chart-line",
         },
         {
-          title: "Revenue Management",
-          description: "Handle parking fees and payment processing",
-          icon: "fas fa-dollar-sign",
+          title: "Easy Overview",
+          description:
+            "Monitor parking activities in your building without getting involved in day-to-day operations",
+          icon: "fas fa-eye",
         },
       ],
+    },
+    stats: {
+      businesses: "1000+",
+      bookings: "16K+",
+      customers: "10000+",
     },
   },
 ];
