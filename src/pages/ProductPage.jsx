@@ -20,6 +20,7 @@ export default function ProductPage() {
             title={product.name}
             description={product.description}
             productData={product}
+            href={product.productLink}
           />
         }
       />

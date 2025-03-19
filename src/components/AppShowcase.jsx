@@ -43,7 +43,7 @@ const iconMap = {
   "fas fa-dollar-sign": faDollarSign,
 };
 
-const AppShowcase = ({ title, description, productData }) => {
+const AppShowcase = ({ title, description, productData, href }) => {
   const [activeTab, setActiveTab] = useState("user");
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
@@ -99,23 +99,27 @@ const AppShowcase = ({ title, description, productData }) => {
           animate="visible"
           className="relative z-10 max-w-7xl mx-auto px-4 py-20 text-center text-white"
         >
-          <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ type: "spring", stiffness: 200, damping: 10 }}
-            className="h-24 w-24 mx-auto mb-8 transform hover:scale-110 transition-transform"
-          >
-            <img
-              src={productData.icon}
-              alt={`${title} logo`}
-              className="w-full h-full object-contain"
-            />
-          </motion.div>
+          <Link to={href} target="_blank">
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ type: "spring", stiffness: 200, damping: 10 }}
+              className="h-24 w-24 mx-auto mb-8 transform hover:scale-110 transition-transform"
+            >
+              <img
+                src={productData.icon}
+                alt={`${title} logo`}
+                className="w-full h-full object-contain"
+              />
+            </motion.div>
+          </Link>
           <motion.h1
             variants={itemVariants}
             className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300"
           >
-            {title}
+            <Link to={href} target="_blank">
+              {title}
+            </Link>
           </motion.h1>
           <motion.p
             variants={itemVariants}

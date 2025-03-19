@@ -6,6 +6,7 @@ export const products = [
     description: "Connect beauty professionals with customers seamlessly",
     path: "/products/birabook",
     icon: "/birabook-logo.png",
+    productLink: "https://birabook.com",
     video: {
       id: "dQw4w9WgXcQ",
       thumbnail: "https://picsum.photos/seed/birabook/1280/720",
@@ -86,6 +87,7 @@ export const products = [
       "Smart parking management solution for apartments and condominiums",
     path: "/products/lotsapark",
     icon: "/lotsapark-logo.svg",
+    productLink: "https://lotsapark.com",
     video: {
       id: "dQw4w9WgXcQ",
       thumbnail: "https://picsum.photos/seed/lotsapark/1280/720",
