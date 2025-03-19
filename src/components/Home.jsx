@@ -29,13 +29,11 @@ export default function Home() {
 
   const country = locationData?.country;
   const city = locationData?.city;
-  // console.log(locationData);
 
   const { weatherData } = useWeather(locationData);
   const currentWeather = weatherData?.current;
 
   const weather = currentWeather?.weather[0];
-  // console.log(weather);
 
   const weatherBG = () => {
     if (weather && weather.main === "Rain") {
@@ -258,12 +256,12 @@ export default function Home() {
                   their digital presence with Angia.
                 </p>
 
-                <Link
-                  to="/contact"
-                  className="mt-3 w-fit border dark:bg-main1 bg-bg1 hover:bg-main1/70 hover:text-white/80 text-white p-2 rounded-md"
+                <div
+                  className="mt-3 w-fit border dark:bg-main1 bg-bg1
+                hover:bg-main1/70 hover:text-white/80 text-white p-2 rounded-md"
                 >
-                  Contact us
-                </Link>
+                  <Link to="/contact">Contact us</Link>
+                </div>
               </div>
             </div>
           </div>
@@ -361,7 +359,13 @@ export default function Home() {
 
                   <div className="text-sm md:text-xl leading-6">
                     <div className="mb-6">
-                      <h3 className="font-semibold mb-2">Birabook</h3>
+                      <Link
+                        to="https://birabook.com"
+                        target="_blank"
+                        className="font-semibold mb-2 text-blue-500 hover:text-blue-00 hover:underline"
+                      >
+                        Birabook
+                      </Link>
                       <p>
                         A comprehensive marketplace platform connecting beauty
                         and lifestyle professionals with customers. Features a
@@ -371,7 +375,13 @@ export default function Home() {
                     </div>
 
                     <div className="mb-6">
-                      <h3 className="font-semibold mb-2">LotsApark</h3>
+                      <Link
+                        to="https://birabook.com"
+                        target="_blank"
+                        className="font-semibold mb-2 text-blue-500 hover:text-blue-00 hover:underline"
+                      >
+                        LotsApark
+                      </Link>
                       <p>
                         Streamlined building parking management solution that
                         enables property managers to create secure platforms for
