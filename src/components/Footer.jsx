@@ -9,7 +9,10 @@ const navigation = {
     { name: "Birabook", href: "https://birabook.com" },
     { name: "lotsApark", href: "https://lotsapark.com" },
   ],
-
+  legal: [
+    { name: "Privacy Policy", href: "/privacy" },
+    { name: "Contact", href: "/contact" },
+  ],
   social: [
     {
       name: "Facebook",
@@ -93,6 +96,21 @@ export default function Footer() {
                       >
                         {item.name}
                       </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-sm font-semibold leading-6 text-gray-700 dark:text-white">
+                  Legal
+                </h3>
+                <ul role="list" className="mt-4 space-y-2">
+                  {navigation.legal.map((item) => (
+                    <li
+                      key={item.name}
+                      className="text-sm leading-6 text-gray-600 dark:text-gray-300 hover:text-indigo-900 hover:underline hover:text-bold"
+                    >
+                      <Link to={item.href}>{item.name}</Link>
                     </li>
                   ))}
                 </ul>

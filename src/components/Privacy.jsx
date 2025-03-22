@@ -7,11 +7,11 @@ export default function Privacy() {
     <div className="dark:bg-black bg-gray-200 relative">
       <Container>
         <div className="py-10 text-gray-600 leading-6 dark:text-white/80">
-          <div className="px-3 lg:mx-auto bg-white/50 shadow-lg dark:bg-black rounded-sm">
+          <div className="bg-white/50 shadow-lg dark:bg-black rounded-sm">
             <h1 className="text-center text-gray-700 mb-3 font-semibold text-xl md:text-2xl dark:text-white/80">
               Privacy Policy
             </h1>
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+            <div className="space-y-6">
               <section>
                 <h2 className="text-lg font-semibold text-gray-800 dark:text-white mb-3">
                   Your Privacy
