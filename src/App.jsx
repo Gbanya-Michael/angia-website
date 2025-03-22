@@ -7,6 +7,7 @@ import ServicesPage from "./pages/ServicesPage";
 import ContactPage from "./pages/ContactPage";
 import ProductPage from "./pages/ProductPage";
 import BlogPage from "./pages/BlogPage";
+import PrivacyPage from "./pages/PrivacyPage";
 import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
         <Route path="/products/:productId" element={<ProductPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:slug" element={<BlogPage />} />
+        <Route path="/privacy" element={<PrivacyPage />} />
       </Routes>
     </div>
   );
