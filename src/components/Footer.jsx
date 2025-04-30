@@ -6,8 +6,8 @@ import { faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 export default function Footer() {
   const navigation = {
     products: [
-      { name: "Birabook", href: "https://birabook.com.au" },
-      { name: "LotsApark", href: "https://lotsapark.com.au" },
+      { name: "Birabook", href: "https://birabook.com" },
+      { name: "LotsApark", href: "https://lotsapark.com" },
     ],
     legal: [
       { name: "Privacy Policy", href: "/privacy" },
