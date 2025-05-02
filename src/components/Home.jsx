@@ -376,18 +376,18 @@ export default function Home() {
 
                     <div className="mb-6">
                       <Link
-                        to="https://birabook.com"
+                        to="https://lotsapark.com"
                         target="_blank"
                         className="font-semibold mb-2 text-blue-500 hover:text-blue-00 hover:underline"
                       >
-                        LotsApark
+                        LotsaPark
                       </Link>
                       <p>
                         Streamlined building parking management solution that
-                        enables property managers to create secure platforms for
-                        tenants. Features include building account management,
-                        tenant access control, and a marketplace for parking
-                        space sharing.
+                        enables property managers to create secure and
+                        independent market place for tenants. Features include
+                        building account management, tenant access control, and
+                        a marketplace for parking space renting.
                       </p>
                     </div>
 
