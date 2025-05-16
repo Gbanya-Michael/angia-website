@@ -44,10 +44,9 @@ export const blogPosts = [
     coverImage:
       "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?q=80&w=2070&auto=format&fit=crop",
     author: {
-      name: "John Smith",
-      role: "Technical Director",
-      avatar:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop",
+      name: "Michael Gbanya",
+      role: "Founder & Software Engineer",
+      avatar: "/michael.jpeg",
     },
   },
   {
@@ -89,10 +88,9 @@ export const blogPosts = [
     coverImage:
       "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop",
     author: {
-      name: "Sarah Johnson",
-      role: "Digital Strategy Lead",
-      avatar:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2070&auto=format&fit=crop",
+      name: "Michael Gbanya",
+      role: "Founder & Software Engineer",
+      avatar: "/michael.jpeg",
     },
   },
   {
@@ -140,10 +138,9 @@ export const blogPosts = [
     coverImage:
       "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop",
     author: {
-      name: "Michael Chen",
-      role: "Lead Developer",
-      avatar:
-        "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=2070&auto=format&fit=crop",
+      name: "Michael Gbanya",
+      role: "Founder & Software Engineer",
+      avatar: "/michael.jpeg",
     },
   },
 ];
