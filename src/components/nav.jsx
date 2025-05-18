@@ -1,7 +1,12 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Dialog, Switch, Transition, Menu } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import {
+  Bars3Icon,
+  XMarkIcon,
+  PhoneIcon,
+  EnvelopeIcon,
+} from "@heroicons/react/24/outline";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { nav } from "../data/useData";
 import { products } from "../data/products";
@@ -298,7 +303,11 @@ export default function Sidebar({ content }) {
         >
           <Link to="/">
             <div className="h-14 w-20 my-2 rounded-md">
-              <img className="object-contain rounded-md" src="/angia-logo.png" alt="logo" />
+              <img
+                className="object-contain rounded-md"
+                src="/angia-logo.png"
+                alt="logo"
+              />
             </div>
           </Link>
           <nav className="flex flex-1 flex-col">
@@ -464,14 +473,28 @@ export default function Sidebar({ content }) {
             <span className="sr-only">Open sidebar</span>
             <Bars3Icon className="h-10 w-8" aria-hidden="true" />
           </button>
-          <div className="lg:pl-72 flex items-center">
-            <div className="flex items-center gap-2 px-3 py-1 rounded-md bg-gradient-to-r from-indigo-100 to-blue-50 dark:from-indigo-900 dark:to-blue-900 border border-indigo-200 dark:border-indigo-800">
-              <span className="text-xs font-medium text-gray-500 dark:text-gray-400">
+          <div className="lg:pl-72 flex items-center justify-between lg:w-full ">
+            <div className="flex items-center gap-2 px-4 py-2 rounded-md bg-gradient-to-r from-indigo-100 to-blue-50 dark:from-indigo-900 dark:to-blue-900 border border-indigo-200 dark:border-indigo-800">
+              <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
                 ABN
               </span>
-              <h3 className="text-sm font-semibold text-indigo-700 dark:text-indigo-300">
+              <h3 className="text-base font-bold text-indigo-700 dark:text-indigo-300">
                 13 665 542 162
               </h3>
+            </div>
+            <div className="hidden lg:flex lg:gap-x-4 lg:items-center ">
+              <div className="flex items-center gap-2 px-4 py-2 rounded-md bg-gradient-to-r from-indigo-100 to-blue-50 dark:from-indigo-900 dark:to-blue-900 border border-indigo-200 dark:border-indigo-800">
+                <PhoneIcon className="h-5 w-5 text-gray-500 dark:text-gray-400" />
+                <h3 className="text-base font-bold text-indigo-700 dark:text-indigo-300">
+                  {import.meta.env.VITE_PUBLIC_PHONE}
+                </h3>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 rounded-md bg-gradient-to-r from-indigo-100 to-blue-50 dark:from-indigo-900 dark:to-blue-900 border border-indigo-200 dark:border-indigo-800">
+                <EnvelopeIcon className="h-5 w-5 text-gray-500 dark:text-gray-400" />
+                <h3 className="text-base font-bold text-indigo-700 dark:text-indigo-300">
+                  {import.meta.env.VITE_PUBLIC_EMAIL}
+                </h3>
+              </div>
             </div>
           </div>
 
