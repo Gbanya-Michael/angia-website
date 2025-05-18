@@ -4,11 +4,14 @@ FROM node:18-alpine as build
 # Set NODE_OPTIONS to increase memory limit
 ENV NODE_OPTIONS="--max-old-space-size=4096"
 
+# Install yarn
+RUN apk add --no-cache yarn
+
 WORKDIR /app
-COPY package*.json ./
-RUN npm install
+COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile
 COPY . .
-RUN npm run build
+RUN yarn build
 
 # Production stage
 FROM nginx:alpine
