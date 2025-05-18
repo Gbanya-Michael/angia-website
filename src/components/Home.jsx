@@ -21,6 +21,7 @@ import { locationInfo, useWeather } from "../hooks/useApi";
 import "animate.css";
 import DateTimeDisplay from "../assets/utils/DateTime";
 import { services, homeSlides } from "../data/useData";
+import { PhoneIcon, EnvelopeIcon } from "@heroicons/react/24/outline";
 
 export default function Home() {
   //
@@ -80,6 +81,40 @@ export default function Home() {
 
   return (
     <div className="dark:bg-black bg-gray-200 relative">
+      <div className="lg:hidden relative z-40">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden">
+            <div className="p-4">
+              <div className="flex items-center justify-center gap-4">
+                <a
+                  href={`tel:${import.meta.env.VITE_PUBLIC_PHONE}`}
+                  className="group flex items-center space-x-2 text-gray-700 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300"
+                >
+                  <div className="bg-gradient-to-br from-indigo-500 to-blue-500 dark:from-indigo-600 dark:to-blue-600 p-2 rounded-lg group-hover:scale-110 transition-transform duration-300 shadow-md">
+                    <PhoneIcon className="h-5 w-5 text-white" />
+                  </div>
+                  <span className="text-sm font-medium">
+                    {import.meta.env.VITE_PUBLIC_PHONE}
+                  </span>
+                </a>
+                <div className="h-6 w-px bg-gradient-to-b from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600"></div>
+                <a
+                  href={`mailto:${import.meta.env.VITE_PUBLIC_EMAIL}`}
+                  className="group flex items-center space-x-2 text-gray-700 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300"
+                >
+                  <div className="bg-gradient-to-br from-indigo-500 to-blue-500 dark:from-indigo-600 dark:to-blue-600 p-2 rounded-lg group-hover:scale-110 transition-transform duration-300 shadow-md">
+                    <EnvelopeIcon className="h-5 w-5 text-white" />
+                  </div>
+                  <span className="text-sm font-medium">
+                    {import.meta.env.VITE_PUBLIC_EMAIL}
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="pt-5 mx-auto max-w-8xl px-4 sm:px-6 lg:px-8">
         <div className="bg-white/50 dark:bg-black md:border shadow-lg rounded-md dark:border-white text-gray-600 dark:text-white/80 lg:flex  justify-between gap-5 p-3">
           <div className="lg:w-3/4 grid grid-cols-1 place-content-center  ">
