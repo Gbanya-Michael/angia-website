@@ -2,7 +2,7 @@ import React from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import Container from "./Container";
 import Footer from "./Footer";
-import { blogPosts } from "../data/blogPosts.jsx";
+import { blogPosts } from "../data/blogPosts.js";
 
 const BlogContent = ({ content }) => {
   return (
