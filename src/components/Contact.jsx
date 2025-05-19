@@ -4,7 +4,6 @@ import ContactForm from "./ContactForm";
 import Footer from "./Footer";
 
 export default function Contact() {
-
   return (
     <>
       <div className="dark:bg-black bg-gray-200 relative">
@@ -23,11 +22,6 @@ export default function Contact() {
                     {import.meta.env.VITE_PUBLIC_EMAIL}.
                   </span>{" "}
                 </p>
-                <p>
-                  We highly recommend using the contact form provided below,
-                  this will allow us to handle your inquiry faster with
-                  neccessary details.
-                </p>
 
                 <p className="mt-5">
                   We are actively engaged with our clients. We strive for
@@ -36,7 +30,7 @@ export default function Contact() {
                 </p>
               </div>
             </div>
-              <ContactForm />
+            <ContactForm />
           </div>
         </Container>
         <Footer />
