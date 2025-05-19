@@ -1,5 +1,6 @@
+import React from "react";
 import { Helmet } from "react-helmet";
-import Services from "../components/services";
+import Services from "../components/Services";
 import Sidebar from "../components/nav";
 
 export default function ServicesPage() {
