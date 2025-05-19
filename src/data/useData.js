@@ -1,4 +1,4 @@
-import { forbesStat1, earnBanner, seoChart } from "../hooks/useImage";
+import { forbesStat1, seoChart } from "../hooks/useImage";
 import {
   HomeModernIcon,
   UserGroupIcon,
@@ -80,63 +80,5 @@ export const homeSlides = [
       "Websites increase online sales Websites increase online sales Websites increase",
     image: seoChart,
     href: "/contact",
-  },
-];
-
-// data for services
-export const services = [
-  {
-    id: "1",
-    title: "Web Development",
-    description:
-      "Need a website that stands out? We'll build you a modern, fast, and beautiful website that your customers will love. Whether you're starting fresh or updating an existing site, we've got you covered.",
-  },
-  {
-    id: "2",
-    title: "SEO Services",
-    description:
-      "Tired of being invisible online? Let's get your business to the top of Google searches. We use proven strategies to help your customers find you when they're looking for services like yours.",
-  },
-  {
-    id: "3",
-    title: "Frontend Development",
-    description:
-      "First impressions matter. We create stunning, responsive websites that look great on any device. Your users will enjoy smooth, intuitive interactions that keep them coming back for more.",
-  },
-  {
-    id: "4",
-    title: "E-commerce",
-    description:
-      "Ready to sell online? We'll build you a secure, user-friendly online store that makes shopping a breeze. From product listings to checkout, we ensure your customers have a smooth buying experience.",
-  },
-  {
-    id: "5",
-    title: "Web Hosting",
-    description:
-      "Don't let slow hosting hold you back. Our reliable hosting solutions keep your website fast, secure, and always online. We handle the technical stuff so you can focus on your business.",
-  },
-  {
-    id: "6",
-    title: "Backend Development",
-    description:
-      "Think of it as your website's engine room - we build robust systems that power your online presence. From databases to APIs, we ensure everything runs smoothly behind the scenes.",
-  },
-  {
-    id: "7",
-    title: "UI/UX Design",
-    description:
-      "Want your website to feel just right? Our design team creates interfaces that your users will love to use. We combine beautiful aesthetics with practical functionality to deliver the best experience.",
-  },
-  {
-    id: "8",
-    title: "Website Maintenance",
-    description:
-      "Think of us as your website's personal care team. We keep everything running smoothly with regular updates, security checks, and performance tuning. No technical headaches - we handle it all.",
-  },
-  {
-    id: "9",
-    title: "Content Writing",
-    description:
-      "Words matter. Our writers craft engaging content that speaks directly to your audience. We help tell your story in a way that connects with your customers and gets your message across clearly.",
   },
 ];

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Container from "../components/Container";
 import Carousel from "../assets/utils/Carousel";
 import {
@@ -20,8 +20,9 @@ import Footer from "./Footer";
 import { locationInfo, useWeather } from "../hooks/useApi";
 import "animate.css";
 import DateTimeDisplay from "../assets/utils/DateTime";
-import { services, homeSlides } from "../data/useData";
+import { homeSlides } from "../data/useData";
 import { PhoneIcon, EnvelopeIcon } from "@heroicons/react/24/outline";
+import { servicesData } from "../data/services";
 
 export default function Home() {
   //
@@ -113,6 +114,54 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Services Section */}
+      <div className="py-16 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-black">
+        <Container>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+              Our Services
+            </h2>
+            <p className="text-gray-600 dark:text-gray-300  mx-auto">
+              Empowering businesses with cutting-edge technology solutions and
+              innovative digital services
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {servicesData.slice(0, 4).map((service) => {
+              const Icon = service.icon;
+              return (
+                <div
+                  key={service.id}
+                  className="group bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700"
+                >
+                  <div
+                    className={`bg-gradient-to-br ${service.gradient} p-3 rounded-lg w-fit mb-4 group-hover:scale-110 transition-transform duration-300`}
+                  >
+                    <Icon className="h-6 w-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    {service.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+
+          <div
+            className="mt-12 border dark:bg-main1 bg-bg1 w-fit mx-auto
+                hover:bg-main1/70 hover:text-white/80 text-white  text-base font-medium rounded-md transition-colors duration-300"
+          >
+            <Link to="/services" className="px-4">
+              Explore All Services
+            </Link>
+          </div>
+        </Container>
       </div>
 
       <div className="pt-5 mx-auto max-w-8xl px-4 sm:px-6 lg:px-8">
@@ -328,43 +377,6 @@ export default function Home() {
             </Carousel>
           </div>
 
-          <div className=" mt-20">
-            <div>
-              <h1 className="my-5 text-center font-semibold text-xl font-serif  md:text-3xl text-gray-800 dark:text-white/80 ">
-                Services
-              </h1>
-              <ul className="md:flex flex-wrap justify-between gap-5 mt-5">
-                {services.slice(0, 3).map((service) => (
-                  <li
-                    key={service.id}
-                    className="mx-auto mt-5 px-3 h-50 max-w-96 md:w-96 py-5 border border-1  border-gray-300 bg-white/80 dark:bg-black dark:border-white/50 rounded-sm shadow-md"
-                  >
-                    <div className="flex gap-5 py-1 ">
-                      <div className="flex flex-col gap-2">
-                        <div className="w-12 h-1 dark:bg-gradient-to-l from-bg2 via-bg1 to-indigo-800 dark:hover:bg-gradient-to-r bg-black" />
-                        <div className="w-12 h-1 dark:bg-gradient-to-l from-bg2 via-bg1 to-indigo-800 dark:hover:bg-gradient-to-r bg-black" />
-                        <div className="w-12 h-1 dark:bg-gradient-to-l from-bg2 via-bg1 to-indigo-800 dark:hover:bg-gradient-to-r bg-black" />
-                      </div>
-                      <h1 className="text-gray-700 mb-3 font-semibold text-xl md:text-2xl dark:text-white/80">
-                        {service.title}
-                      </h1>
-                    </div>
-                    <p className="text-gray-600 w-90 text-sm leading-6  md:text-xl dark:text-white/80">
-                      {service.description}
-                    </p>
-
-                    <p className="mt-3 text-white border border-1 w-fit px-2 rounded-md text-sm bg-main2 hover:bg-bg1">
-                      <Link to="/contact">Get in touch</Link>
-                    </p>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="md:text-center text-xl lg:text-start text-blue-600 hover:text-blue-700 underline mt-3">
-              <Link to="/services">See all services</Link>
-            </div>
-          </div>
           <div className=" md:mt-20">
             <div>
               <h1 className="my-5 text-center font-semibold text-xl font-serif md:text-3xl text-gray-800 dark:text-white/80">
@@ -446,6 +458,7 @@ export default function Home() {
           </div>
         </div>
       </Container>
+
       <Footer />
     </div>
   );

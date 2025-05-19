@@ -1,4 +1,3 @@
-import React from "react";
 import { Helmet } from "react-helmet";
 import Sidebar from "../components/nav";
 import Privacy from "../components/Privacy";
