@@ -1,4 +1,4 @@
-import { blogPosts } from "../data/blogPosts.jsx";
+import { blogPosts } from "../data/blogPosts.js";
 
 const generateSitemap = () => {
   const baseUrl = "https://angia.com.au";
