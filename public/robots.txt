@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Allow: /blog/
+Allow: /blog/*
 
+# Sitemap
 Sitemap: https://angia.com.au/sitemap.xml 

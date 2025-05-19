@@ -1,11 +1,31 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import basicSsl from "@vitejs/plugin-basic-ssl";
+import generateSitemap from "./src/utils/generateSitemap.js";
+import fs from "fs";
 import path from "path";
+
+// Sitemap generation plugin
+const sitemapPlugin = () => ({
+  name: "sitemap-generator",
+  buildStart() {
+    const sitemap = generateSitemap();
+    fs.writeFileSync(path.resolve(__dirname, "public/sitemap.xml"), sitemap);
+    console.log("Sitemap generated successfully!");
+  },
+  handleHotUpdate({ file }) {
+    // Regenerate sitemap when blog data changes
+    if (file.includes("blogPosts.jsx")) {
+      const sitemap = generateSitemap();
+      fs.writeFileSync(path.resolve(__dirname, "public/sitemap.xml"), sitemap);
+      console.log("Sitemap updated due to blog changes!");
+    }
+  },
+});
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), basicSsl()],
+  plugins: [react(), basicSsl(), sitemapPlugin()],
   root: path.resolve(__dirname, "."),
   build: {
     outDir: "dist",
