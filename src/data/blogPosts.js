@@ -2,7 +2,7 @@ export const blogPosts = [
   {
     slug: "ai-integration-for-business-success",
     title: "How Angia Helps Businesses Integrate AI for Success",
-    date: "2024-01-10",
+    date: "2025-05-19",
     readTime: 7,
     excerpt:
       "Discover how Angia Technologies is helping businesses leverage AI to streamline operations, enhance customer experiences, and drive growth.",
@@ -55,15 +55,15 @@ export const blogPosts = [
     },
   },
   {
-    slug: "custom-software-development-trends-2024",
-    title: "Custom Software Development Trends in 2024",
+    slug: "custom-software-development-trends-2025",
+    title: "Custom Software Development Trends in 2025",
     date: "2025-05-19",
     readTime: 5,
     excerpt:
-      "Explore the latest trends shaping custom software development in 2024, from AI integration to sustainable coding practices.",
+      "Explore the latest trends shaping custom software development in 2025, from AI integration to sustainable coding practices.",
     content: {
       intro:
-        "The landscape of custom software development is constantly evolving, and 2024 brings exciting new trends and technologies. In this post, we will explore the key developments that are shaping the industry and how businesses can leverage them for success.",
+        "The landscape of custom software development is constantly evolving, and 2025 brings exciting new trends and technologies. In this post, we will explore the key developments that are shaping the industry and how businesses can leverage them for success.",
       sections: [
         {
           title: "Key Trends",
@@ -77,7 +77,7 @@ export const blogPosts = [
         {
           title: "AI and Machine Learning Integration",
           content:
-            "Artificial Intelligence and Machine Learning continue to revolutionize software development. In 2024, we are seeing increased adoption of AI-powered development tools, automated testing, and intelligent code assistance. This trend is not just about creating AI applications, but also about using AI to improve the development process itself.",
+            "Artificial Intelligence and Machine Learning continue to revolutionize software development. In 2025, we are seeing increased adoption of AI-powered development tools, automated testing, and intelligent code assistance. This trend is not just about creating AI applications, but also about using AI to improve the development process itself.",
         },
         {
           title: "Sustainable Software Development",
@@ -150,7 +150,7 @@ export const blogPosts = [
   },
   {
     slug: "web-development-best-practices",
-    title: "Web Development Best Practices for 2024",
+    title: "Web Development Best Practices for 2025",
     date: "2025-05-01",
     readTime: 6,
     excerpt:

@@ -53,21 +53,6 @@
   </url>
   <url>
     <loc>https://angia.com.au/blog/ai-integration-for-business-success</loc>
-    <lastmod>2024-01-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <news:news>
-      <news:publication>
-        <news:name>Angia Technologies Blog</news:name>
-        <news:language>en</news:language>
-      </news:publication>
-      <news:publication_date>2024-01-10T00:00:00+00:00</news:publication_date>
-      <news:title>How Angia Helps Businesses Integrate AI for Success</news:title>
-      <news:keywords>Process Automation, Customer Experience Enhancement, Data-Driven Decision Making, Cost Reduction</news:keywords>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://angia.com.au/blog/custom-software-development-trends-2024</loc>
     <lastmod>2025-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -77,7 +62,22 @@
         <news:language>en</news:language>
       </news:publication>
       <news:publication_date>2025-05-19T00:00:00+00:00</news:publication_date>
-      <news:title>Custom Software Development Trends in 2024</news:title>
+      <news:title>How Angia Helps Businesses Integrate AI for Success</news:title>
+      <news:keywords>Process Automation, Customer Experience Enhancement, Data-Driven Decision Making, Cost Reduction</news:keywords>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://angia.com.au/blog/custom-software-development-trends-2025</loc>
+    <lastmod>2025-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <news:news>
+      <news:publication>
+        <news:name>Angia Technologies Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-05-19T00:00:00+00:00</news:publication_date>
+      <news:title>Custom Software Development Trends in 2025</news:title>
       <news:keywords>AI and Machine Learning Integration, Sustainable Software Development, Edge Computing Solutions, Enhanced Security Measures</news:keywords>
     </news:news>
   </url>
@@ -107,7 +107,7 @@
         <news:language>en</news:language>
       </news:publication>
       <news:publication_date>2025-05-01T00:00:00+00:00</news:publication_date>
-      <news:title>Web Development Best Practices for 2024</news:title>
+      <news:title>Web Development Best Practices for 2025</news:title>
       <news:keywords>Performance Optimization, Security Measures, Accessibility Standards, Mobile-First Design</news:keywords>
     </news:news>
   </url>
