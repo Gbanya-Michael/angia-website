@@ -9,16 +9,27 @@ import path from "path";
 const sitemapPlugin = () => ({
   name: "sitemap-generator",
   buildStart() {
-    const sitemap = generateSitemap();
-    fs.writeFileSync(path.resolve(__dirname, "public/sitemap.xml"), sitemap);
-    console.log("Sitemap generated successfully!");
+    try {
+      const sitemap = generateSitemap();
+      fs.writeFileSync(path.resolve(__dirname, "public/sitemap.xml"), sitemap);
+      console.log("Sitemap generated successfully!");
+    } catch (error) {
+      console.error("Error generating sitemap:", error);
+    }
   },
   handleHotUpdate({ file }) {
     // Regenerate sitemap when blog data changes
     if (file.includes("blogPosts.jsx")) {
-      const sitemap = generateSitemap();
-      fs.writeFileSync(path.resolve(__dirname, "public/sitemap.xml"), sitemap);
-      console.log("Sitemap updated due to blog changes!");
+      try {
+        const sitemap = generateSitemap();
+        fs.writeFileSync(
+          path.resolve(__dirname, "public/sitemap.xml"),
+          sitemap
+        );
+        console.log("Sitemap updated due to blog changes!");
+      } catch (error) {
+        console.error("Error updating sitemap:", error);
+      }
     }
   },
 });
@@ -39,5 +50,8 @@ export default defineConfig({
     https: true,
     port: 5173,
     host: true,
+  },
+  resolve: {
+    extensions: [".js", ".jsx", ".json"],
   },
 });
