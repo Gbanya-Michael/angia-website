@@ -84,9 +84,6 @@ export default function ContactForm() {
           timestamp: new Date().toISOString(),
         };
 
-        console.log("Submitting to:", FORM_ENDPOINT);
-        console.log("Submission data:", submissionData);
-
         // Create URL-encoded form data
         const formBody = Object.keys(submissionData)
           .map(
@@ -121,7 +118,6 @@ export default function ContactForm() {
           timestamp: "",
         });
       } catch (error) {
-        console.error("Error submitting form:", error);
         alert(
           "There was an error submitting the form. Please try again later."
         );
