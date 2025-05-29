@@ -119,6 +119,21 @@ const N8nChat = () => {
     }
   };
 
+  const formatMessage = (text) => {
+    return text.split("\n").map((line, index) => {
+      // Check if line starts with a bullet point
+      if (line.trim().startsWith("-")) {
+        return (
+          <div key={index} className="flex items-start space-x-2">
+            <span className="text-main1 dark:text-main2 mt-1">•</span>
+            <span>{line.trim().substring(1).trim()}</span>
+          </div>
+        );
+      }
+      return <div key={index}>{line}</div>;
+    });
+  };
+
   return (
     <div className="fixed top-20 right-7 z-50">
       {isMinimized ? (
@@ -183,7 +198,7 @@ const N8nChat = () => {
             </div>
           </div>
           <div className="p-4">
-            <div className="h-64 overflow-y-auto mb-4">
+            <div className="h-64 overflow-y-auto mb-4 space-y-2">
               {messages.map((message, index) => (
                 <div
                   key={index}
@@ -192,13 +207,15 @@ const N8nChat = () => {
                   }`}
                 >
                   <div
-                    className={`rounded-lg p-1 ${
+                    className={`rounded-lg p-3 ${
                       message.sender === "user"
                         ? "bg-main1 text-white"
                         : "bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
                     }`}
                   >
-                    <p className="text-sm">{message.text}</p>
+                    <div className="text-sm whitespace-pre-line">
+                      {formatMessage(message.text)}
+                    </div>
                   </div>
                 </div>
               ))}
