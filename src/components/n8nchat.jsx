@@ -1,5 +1,8 @@
 import { useState, useEffect, useRef } from "react";
-import { MinusIcon } from "@heroicons/react/24/outline";
+import {
+  MinusIcon,
+  ChatBubbleBottomCenterTextIcon,
+} from "@heroicons/react/24/outline";
 
 const N8nChat = () => {
   const [isMinimized, setIsMinimized] = useState(true);
@@ -173,13 +176,6 @@ const N8nChat = () => {
       /\[(.*?)\]\((.*?)\)/g,
       '<a href="$2" class="text-main1 dark:text-main2 underline hover:opacity-80" target="_blank" rel="noopener noreferrer">$1</a>'
     );
-
-    // Handle code: `code`
-    text = text.replace(
-      /`(.*?)`/g,
-      '<code class="bg-gray-200 dark:bg-gray-600 px-1 rounded">$1</code>'
-    );
-
     return <span dangerouslySetInnerHTML={{ __html: text }} />;
   };
 
@@ -187,15 +183,14 @@ const N8nChat = () => {
     <div className="fixed top-20 right-7 z-50">
       {isMinimized ? (
         <div className="relative">
-          <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full animate-ping"></div>
           <button
             onClick={handleOpenChat}
-            className="relative bg-main1 hover:bg-main2 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 transform"
+            className="relative dark:bg-gray-200 bg-main1 hover:bg-main2 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-90 transform"
           >
             <div className="w-10 h-10 flex items-center justify-center">
-              <svg
+              {/* <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8"
+                className="h-8 w-8 animate-pulse hover:animate-none"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -206,10 +201,11 @@ const N8nChat = () => {
                   strokeWidth={2}
                   d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
                 />
-              </svg>
+              </svg> */}
+              <ChatBubbleBottomCenterTextIcon className="h-8 w-8 animate-pulse hover:animate-none text-white dark:text-black" />
             </div>
           </button>
-          <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-white dark:bg-gray-800 px-2 py-1 rounded text-xs text-gray-600 dark:text-gray-300 whitespace-nowrap shadow-md">
+          <div className="absolute -bottom-5 left-1/2 transform -translate-x-1/2 bg-white dark:bg-gray-800 px-2 py-1 rounded text-xs text-gray-600 dark:text-gray-300 whitespace-nowrap shadow-md">
             Chat with Angiata
           </div>
         </div>
