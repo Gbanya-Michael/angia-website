@@ -9,6 +9,7 @@ import ProductPage from "./pages/ProductPage";
 import BlogPage from "./pages/BlogPage";
 import PrivacyPage from "./pages/PrivacyPage";
 import ScrollToTop from "./components/ScrollToTop";
+import N8nChat from "./components/n8nchat";
 import { blogPosts } from "./data/blogPosts";
 
 function App() {
@@ -83,6 +84,7 @@ function App() {
         <Route path="/blog/:slug" element={<BlogPage />} />
         <Route path="/privacy" element={<PrivacyPage />} />
       </Routes>
+      <N8nChat />
     </div>
   );
 }

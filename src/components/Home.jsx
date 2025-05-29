@@ -23,7 +23,6 @@ import DateTimeDisplay from "../assets/utils/DateTime";
 import { homeSlides } from "../data/useData";
 import { PhoneIcon, EnvelopeIcon } from "@heroicons/react/24/outline";
 import { servicesData } from "../data/services";
-import N8nChat from "./n8nchat";
 
 export default function Home() {
   //
@@ -83,7 +82,6 @@ export default function Home() {
 
   return (
     <div className="dark:bg-black bg-gray-200 relative">
-      <N8nChat />
       <div className="lg:hidden relative z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden">
