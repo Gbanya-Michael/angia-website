@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { MinusIcon } from "@heroicons/react/24/outline";
 
 const N8nChat = () => {
@@ -7,6 +7,15 @@ const N8nChat = () => {
   const [inputMessage, setInputMessage] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [sessionId, setSessionId] = useState(null);
+  const messagesEndRef = useRef(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages, isTyping]);
 
   // Initialize chat session
   useEffect(() => {
@@ -120,18 +129,58 @@ const N8nChat = () => {
   };
 
   const formatMessage = (text) => {
-    return text.split("\n").map((line, index) => {
-      // Check if line starts with a bullet point
-      if (line.trim().startsWith("-")) {
-        return (
-          <div key={index} className="flex items-start space-x-2">
-            <span className="text-main1 dark:text-main2 mt-1">•</span>
-            <span>{line.trim().substring(1).trim()}</span>
-          </div>
-        );
-      }
-      return <div key={index}>{line}</div>;
+    // Split by double newlines to handle paragraphs
+    const paragraphs = text.split("\n\n");
+
+    return paragraphs.map((paragraph, pIndex) => {
+      // Split paragraph into lines
+      const lines = paragraph.split("\n");
+
+      return (
+        <div key={pIndex} className="mb-3 last:mb-0">
+          {lines.map((line, lIndex) => {
+            // Handle bullet points
+            if (line.trim().startsWith("-")) {
+              return (
+                <div key={lIndex} className="flex items-start space-x-2 mb-1">
+                  <span className="text-main1 dark:text-main2 mt-1">•</span>
+                  <span>{formatText(line.trim().substring(1).trim())}</span>
+                </div>
+              );
+            }
+
+            // Handle regular lines
+            return (
+              <div key={lIndex} className="mb-1">
+                {formatText(line)}
+              </div>
+            );
+          })}
+        </div>
+      );
     });
+  };
+
+  const formatText = (text) => {
+    // Handle bold text: **text**
+    text = text.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+
+    // Handle italic text: *text*
+    text = text.replace(/\*(.*?)\*/g, "<em>$1</em>");
+
+    // Handle links: [text](url)
+    text = text.replace(
+      /\[(.*?)\]\((.*?)\)/g,
+      '<a href="$2" class="text-main1 dark:text-main2 underline hover:opacity-80" target="_blank" rel="noopener noreferrer">$1</a>'
+    );
+
+    // Handle code: `code`
+    text = text.replace(
+      /`(.*?)`/g,
+      '<code class="bg-gray-200 dark:bg-gray-600 px-1 rounded">$1</code>'
+    );
+
+    return <span dangerouslySetInnerHTML={{ __html: text }} />;
   };
 
   return (
@@ -202,7 +251,7 @@ const N8nChat = () => {
               {messages.map((message, index) => (
                 <div
                   key={index}
-                  className={`mb-2 w-fit ${
+                  className={`mb-3 w-fit ${
                     message.sender === "user" ? "ml-auto" : "mr-auto"
                   }`}
                 >
@@ -213,9 +262,7 @@ const N8nChat = () => {
                         : "bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
                     }`}
                   >
-                    <div className="text-sm whitespace-pre-line">
-                      {formatMessage(message.text)}
-                    </div>
+                    <div className="text-sm">{formatMessage(message.text)}</div>
                   </div>
                 </div>
               ))}
@@ -238,6 +285,7 @@ const N8nChat = () => {
                   </div>
                 </div>
               )}
+              <div ref={messagesEndRef} />
             </div>
             <div className="flex space-x-2">
               <input
