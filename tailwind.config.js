@@ -17,6 +17,20 @@ export default {
         logoFont: ["New Rocker", "serif"],
         secondaryFont: ["Playfair Display SC", "serif"],
       },
+      keyframes: {
+        ping: {
+          "0%": { transform: "scale(1)", opacity: "1" },
+          "75%, 100%": { transform: "scale(2)", opacity: "0" },
+        },
+        fadeIn: {
+          "0%": { opacity: "0", transform: "scale(0.95)" },
+          "100%": { opacity: "1", transform: "scale(1)" },
+        },
+      },
+      animation: {
+        ping: "ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite",
+        fadeIn: "fadeIn 0.3s ease-out",
+      },
     },
   },
   plugins: [require("@tailwindcss/forms")],

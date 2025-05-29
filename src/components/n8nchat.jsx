@@ -2,13 +2,8 @@ import { useState, useEffect } from "react";
 import { MinusIcon } from "@heroicons/react/24/outline";
 
 const N8nChat = () => {
-  const [isMinimized, setIsMinimized] = useState(false);
-  const [messages, setMessages] = useState([
-    {
-      text: "Hey there, I am Angiata, Angia's personal assistant.",
-      sender: "Angiata",
-    },
-  ]);
+  const [isMinimized, setIsMinimized] = useState(true);
+  const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [sessionId, setSessionId] = useState(null);
@@ -32,6 +27,43 @@ const N8nChat = () => {
 
     initializeChat();
   }, []);
+
+  const handleOpenChat = async () => {
+    setIsMinimized(false);
+    if (messages.length === 0) {
+      setIsTyping(true);
+      try {
+        const response = await fetch(import.meta.env.VITE_N8N_CHAT_HOOK_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            sessionId,
+            chatInput: "greeting",
+          }),
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to get greeting");
+        }
+
+        const data = await response.json();
+        if (data && data.output) {
+          setMessages([{ text: data.output, sender: "Angiata" }]);
+        }
+      } catch (error) {
+        setMessages([
+          {
+            text: "Hey there, I am Angiata, Angia's personal assistant. How can I help you today?",
+            sender: "Angiata",
+          },
+        ]);
+      } finally {
+        setIsTyping(false);
+      }
+    }
+  };
 
   const handleSendMessage = async () => {
     if (!inputMessage.trim() || !sessionId) return;
@@ -59,7 +91,6 @@ const N8nChat = () => {
       }
 
       const data = await response.json();
-      console.log("Response from n8n:", data);
 
       // Add bot response to chat
       if (data && data.output) {
@@ -69,7 +100,6 @@ const N8nChat = () => {
         ]);
       }
     } catch (error) {
-      console.error("Error sending message:", error);
       setMessages((prev) => [
         ...prev,
         {
@@ -92,31 +122,57 @@ const N8nChat = () => {
   return (
     <div className="fixed top-20 right-7 z-50">
       {isMinimized ? (
-        <button
-          onClick={() => setIsMinimized(false)}
-          className="bg-main1 hover:bg-main2 text-white p-3 rounded-full shadow-lg transition-all duration-300"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+        <div className="relative">
+          <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full animate-ping"></div>
+          <button
+            onClick={handleOpenChat}
+            className="relative bg-main1 hover:bg-main2 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 transform"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
-            />
-          </svg>
-        </button>
+            <div className="w-10 h-10 flex items-center justify-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-8 w-8"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
+                />
+              </svg>
+            </div>
+          </button>
+          <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-white dark:bg-gray-800 px-2 py-1 rounded text-xs text-gray-600 dark:text-gray-300 whitespace-nowrap shadow-md">
+            Chat with Angiata
+          </div>
+        </div>
       ) : (
-        <div className="dark:bg-white bg-gray-800 rounded-lg shadow-xl w-80 border border-gray-200 dark:border-gray-700">
+        <div className="dark:bg-white bg-gray-800 rounded-lg shadow-xl w-80 border border-gray-200 dark:border-gray-700 animate-fadeIn">
           <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-              Chat with us
-            </h3>
+            <div className="flex items-center space-x-2">
+              <div className="w-8 h-8 bg-main1 rounded-full flex items-center justify-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 text-white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
+                  />
+                </svg>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                Chat with Angiata
+              </h3>
+            </div>
             <div className="flex space-x-2">
               <button
                 onClick={() => setIsMinimized(true)}
