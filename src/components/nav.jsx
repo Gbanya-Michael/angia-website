@@ -144,7 +144,9 @@ export default function Sidebar({ content }) {
                                 className={classNames(
                                   currentItem === item.href ||
                                     (item.href === "/blog" &&
-                                      currentItem?.startsWith("/blog/"))
+                                      currentItem?.startsWith("/blog/")) ||
+                                    (item.href === "/demo" &&
+                                      currentItem?.startsWith("/demo/"))
                                     ? "bg-gray-800 text-white/90"
                                     : "text-indigo-200 hover:text-gray-600 hover:bg-white/80",
                                   "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
@@ -154,7 +156,9 @@ export default function Sidebar({ content }) {
                                   className={classNames(
                                     currentItem === item.href ||
                                       (item.href === "/blog" &&
-                                        currentItem?.startsWith("/blog/"))
+                                        currentItem?.startsWith("/blog/")) ||
+                                      (item.href === "/demo" &&
+                                        currentItem?.startsWith("/demo/"))
                                       ? "text-white/90"
                                       : "text-indigo-200 group-hover:text-gray-600",
                                     "h-6 w-6 shrink-0"
@@ -322,7 +326,9 @@ export default function Sidebar({ content }) {
                         className={classNames(
                           currentItem === item.href ||
                             (item.href === "/blog" &&
-                              currentItem?.startsWith("/blog/"))
+                              currentItem?.startsWith("/blog/")) ||
+                            (item.href === "/demo" &&
+                              currentItem?.startsWith("/demo/"))
                             ? "bg-gray-800 text-white/90"
                             : "text-indigo-200 hover:text-gray-600 hover:bg-white/80",
                           "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
@@ -332,7 +338,9 @@ export default function Sidebar({ content }) {
                           className={classNames(
                             currentItem === item.href ||
                               (item.href === "/blog" &&
-                                currentItem?.startsWith("/blog/"))
+                                currentItem?.startsWith("/blog/")) ||
+                              (item.href === "/demo" &&
+                                currentItem?.startsWith("/demo/"))
                               ? "text-white/90"
                               : "text-indigo-200 group-hover:text-gray-600",
                             "h-6 w-6 shrink-0"

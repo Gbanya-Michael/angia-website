@@ -5,7 +5,13 @@ import {
   WrenchScrewdriverIcon,
   PhoneIcon,
   BookOpenIcon,
+  BeakerIcon,
 } from "@heroicons/react/24/outline";
+
+import WeatherDemo from "../components/WeatherDemo";
+import TodoDemo from "../components/TodoDemo";
+import CalculatorDemo from "../components/CalculatorDemo";
+import ChatDemo from "../components/ChatDemo";
 
 //navigation options
 export const nav = [
@@ -29,10 +35,16 @@ export const nav = [
     href: "/blog",
     icon: BookOpenIcon,
   },
+
   {
     name: "Contact",
     href: "/contact",
     icon: PhoneIcon,
+  },
+  {
+    name: "Demo Jobs",
+    href: "/demo",
+    icon: BeakerIcon,
   },
 ];
 
@@ -80,5 +92,40 @@ export const homeSlides = [
       "Websites increase online sales Websites increase online sales Websites increase",
     image: seoChart,
     href: "/contact",
+  },
+];
+
+//demo applications
+
+export const demoApps = [
+  {
+    id: "chat",
+    name: "Chat Demo",
+    description:
+      "Interactive chat application demo with real-time messaging capabilities",
+    icon: "💬",
+    component: ChatDemo,
+  },
+  {
+    id: "calculator",
+    name: "Calculator Demo",
+    description:
+      "Advanced calculator with scientific functions and history tracking",
+    icon: "🔢",
+    component: CalculatorDemo,
+  },
+  {
+    id: "todo",
+    name: "Todo App",
+    description: "Task management application with drag-and-drop functionality",
+    icon: "✅",
+    component: TodoDemo,
+  },
+  {
+    id: "weather",
+    name: "Weather App",
+    description: "Real-time weather forecast with location-based updates",
+    icon: "🌤️",
+    component: WeatherDemo,
   },
 ];

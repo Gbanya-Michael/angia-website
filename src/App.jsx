@@ -8,6 +8,8 @@ import ContactPage from "./pages/ContactPage";
 import ProductPage from "./pages/ProductPage";
 import BlogPage from "./pages/BlogPage";
 import PrivacyPage from "./pages/PrivacyPage";
+import DemoPage from "./pages/DemoPage";
+import DemoApp from "./components/DemoApp";
 import ScrollToTop from "./components/ScrollToTop";
 import N8nChat from "./components/n8nchat";
 import { blogPosts } from "./data/blogPosts";
@@ -83,6 +85,8 @@ function App() {
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:slug" element={<BlogPage />} />
         <Route path="/privacy" element={<PrivacyPage />} />
+        <Route path="/demo" element={<DemoPage />} />
+        <Route path="/demo/:demoId" element={<DemoApp />} />
       </Routes>
       <N8nChat />
     </div>
