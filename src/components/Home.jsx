@@ -82,7 +82,7 @@ export default function Home() {
 
   return (
     <div className="dark:bg-black bg-gray-200 relative">
-      <div className="lg:hidden fixed left-0 right-0 z-50">
+      <div className="lg:hidden">
         <div className="max-w-lg mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden">
             <div className="p-2">
