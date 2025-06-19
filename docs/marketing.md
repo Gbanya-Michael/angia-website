@@ -19,7 +19,7 @@
 
 ### Local Business Organizations
 
-- [ ] Sydney Chamber of Commerce
+- [ ] Melbourne Chamber of Commerce
 - [ ] NSW Business Chamber
 - [ ] Australian Computer Society
 

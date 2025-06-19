@@ -12,7 +12,7 @@ export default function HomePage() {
         </title>
         <meta
           name="description"
-          content="Angia Technologies is a Sydney-based software development company specializing in custom software solutions, web development, AI integration, and digital transformation services."
+          content="Angia Technologies is a Melbourne-based software development company specializing in custom software solutions, web development, AI integration, and digital transformation services."
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://angia.com.au" />

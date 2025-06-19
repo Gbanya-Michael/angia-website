@@ -37,11 +37,11 @@ export default function Services() {
             </h1>
             <p className="text-gray-600 dark:text-gray-300  text-start">
               At Angia, we deliver comprehensive software development services
-              and solutions that drive digital transformation. Based in Sydney,
-              our expert team combines technical excellence with industry
-              expertise to create both custom solutions and innovative digital
-              products. From initial development to ongoing maintenance, we
-              provide end-to-end services that help businesses thrive in the
+              and solutions that drive digital transformation. Based in
+              Melbourne, our expert team combines technical excellence with
+              industry expertise to create both custom solutions and innovative
+              digital products. From initial development to ongoing maintenance,
+              we provide end-to-end services that help businesses thrive in the
               digital age.
             </p>
           </div>

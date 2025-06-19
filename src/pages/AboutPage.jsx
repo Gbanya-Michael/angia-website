@@ -10,7 +10,7 @@ export default function AboutPage() {
         <title>About Us | Angia Technologies</title>
         <meta
           name="description"
-          content="Learn about Angia Technologies, a Sydney-based software development company delivering innovative digital solutions and custom software development services worldwide."
+          content="Learn about Angia Technologies, a Melbourne-based software development company delivering innovative digital solutions and custom software development services worldwide."
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://angia.com.au/about" />

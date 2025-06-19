@@ -10,7 +10,7 @@ export default function ContactPage() {
         <title>Contact Us | Angia Technologies</title>
         <meta
           name="description"
-          content="Get in touch with Angia Technologies for custom software development, web solutions, and digital transformation services. Based in Sydney, serving clients worldwide."
+          content="Get in touch with Angia Technologies for custom software development, web solutions, and digital transformation services. Based in Melbourne, serving clients worldwide."
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://angia.com.au/contact" />

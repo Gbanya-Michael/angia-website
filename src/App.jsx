@@ -59,15 +59,15 @@ function App() {
           <>
             <title>
               Angia Technologies | Custom Software Development & Digital
-              Solutions Sydney
+              Solutions Melbourne
             </title>
             <meta
               name="description"
-              content="Leading software development company in Sydney. Specializing in custom software solutions, web development, and digital products like Birabook and lotsApark."
+              content="Leading software development company in Melbourne. Specializing in custom software solutions, web development, and digital products like Birabook and lotsApark."
             />
             <meta
               name="keywords"
-              content="software development sydney, custom software solutions, web development, mobile apps, Birabook, lotsApark"
+              content="software development Melbourne, custom software solutions, web development, mobile apps, Birabook, lotsApark"
             />
             <meta name="author" content="Angia Technologies" />
             <meta name="robots" content="index, follow" />

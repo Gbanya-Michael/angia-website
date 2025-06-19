@@ -393,7 +393,7 @@ export default function Home() {
                     />
                   </div>
                   <p className="p-3 md:border shadow-sm rounded-sm text-gray-500 dark:text-white/80">
-                    While proudly headquartered in Sydney, our vision extends
+                    While proudly headquartered in Melbourne, our vision extends
                     globally. We're committed to delivering world-class digital
                     solutions that transcend borders, helping businesses
                     worldwide achieve their digital transformation goals through
