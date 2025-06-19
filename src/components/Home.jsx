@@ -82,10 +82,10 @@ export default function Home() {
 
   return (
     <div className="dark:bg-black bg-gray-200 relative">
-      <div className="lg:hidden relative z-40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <div className="lg:hidden fixed left-0 right-0 z-50">
+        <div className="max-w-lg mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden">
-            <div className="p-4">
+            <div className="p-2">
               <div className="flex items-center justify-center gap-4">
                 <a
                   href={`tel:${import.meta.env.VITE_PUBLIC_PHONE}`}
@@ -177,16 +177,17 @@ export default function Home() {
               <span className="font-logoFont text-logo1 font-bold">
                 Angia Technologies
               </span>{" "}
-              is a software development company based in Sydney, Australia. We
-              specialize in delivering high-quality software solutions and
-              comprehensive maintenance services to businesses of all sizes. Our
-              expertise spans across custom software development, digital
-              product innovation, and ongoing technical support. With a
-              portfolio of successful digital products already serving users
-              worldwide, we understand what it takes to build and maintain
-              software that makes a real impact. Whether you need a custom
-              solution for your business or reliable maintenance services, our
-              team is committed to delivering excellence in every project.
+              is a software and digital product development agency based in
+              Melbourne, Australia. We specialize in delivering high-quality
+              software solutions and comprehensive maintenance services to
+              businesses of all sizes. Our expertise spans across custom
+              software development, digital product innovation, and ongoing
+              technical support. With a portfolio of successful digital products
+              already serving users worldwide, we understand what it takes to
+              build and maintain software that makes a real impact. Whether you
+              need a custom solution for your business or reliable maintenance
+              services, our team is committed to delivering excellence in every
+              project.
             </h2>
           </div>
 

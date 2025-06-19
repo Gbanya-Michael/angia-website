@@ -121,8 +121,11 @@ export default function Footer() {
               </div>
             </div>
           </div>
+          <p className="text-sm mt-4leading-6 text-gray-700 dark:text-white">
+            Address: 3478 G, 470 St Kilda Rd, Melbourne, Vic 3004
+          </p>
         </div>
-        <div className="mt-8 border-t border-gray-900/10 dark:border-white/10 pt-8 sm:mt-12 lg:mt-16">
+        <div className="mt-4 border-t border-gray-900/10 dark:border-white/10 pt-8 sm:mt-8 ">
           <p className="text-xs leading-5 text-gray-500 dark:text-white/80">
             &copy; {new Date().getFullYear()} Angia Technologies. All rights
             reserved.

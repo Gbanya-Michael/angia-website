@@ -8,10 +8,7 @@ import {
   BeakerIcon,
 } from "@heroicons/react/24/outline";
 
-import WeatherDemo from "../components/WeatherDemo";
-import TodoDemo from "../components/TodoDemo";
-import CalculatorDemo from "../components/CalculatorDemo";
-import ChatDemo from "../components/ChatDemo";
+import Expertunity from "../components/DemoJobs/Expertunity";
 
 //navigation options
 export const nav = [
@@ -41,11 +38,11 @@ export const nav = [
     href: "/contact",
     icon: PhoneIcon,
   },
-  {
-    name: "Demo Jobs",
-    href: "/demo",
-    icon: BeakerIcon,
-  },
+  // {
+  //   name: "Demo Jobs",
+  //   href: "/demo",
+  //   icon: BeakerIcon,
+  // },
 ];
 
 //about data
@@ -99,33 +96,11 @@ export const homeSlides = [
 
 export const demoApps = [
   {
-    id: "chat",
-    name: "Chat Demo",
+    id: "expertunity",
+    name: "Expertunity",
     description:
-      "Interactive chat application demo with real-time messaging capabilities",
-    icon: "💬",
-    component: ChatDemo,
-  },
-  {
-    id: "calculator",
-    name: "Calculator Demo",
-    description:
-      "Advanced calculator with scientific functions and history tracking",
-    icon: "🔢",
-    component: CalculatorDemo,
-  },
-  {
-    id: "todo",
-    name: "Todo App",
-    description: "Task management application with drag-and-drop functionality",
-    icon: "✅",
-    component: TodoDemo,
-  },
-  {
-    id: "weather",
-    name: "Weather App",
-    description: "Real-time weather forecast with location-based updates",
-    icon: "🌤️",
-    component: WeatherDemo,
+      "Helping subject matter experts grow enterprise skills and create strategic value.",
+    icon: "👨‍💼👩‍💼💼",
+    component: Expertunity,
   },
 ];
