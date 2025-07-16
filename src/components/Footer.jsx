@@ -7,7 +7,7 @@ export default function Footer() {
   const navigation = {
     products: [
       { name: "Birabook", href: "https://birabook.com" },
-      { name: "LotsApark", href: "https://lotsapark.com" },
+      { name: "LotsaPark", href: "https://lotsapark.com" },
     ],
     legal: [
       { name: "Privacy Policy", href: "/privacy" },

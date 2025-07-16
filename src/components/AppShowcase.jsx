@@ -308,7 +308,7 @@ const AppShowcase = ({ title, description, productData, href }) => {
                 {productData.stats.businesses}
               </div>
               <div className="text-gray-600 dark:text-gray-400">
-                {productData.name === "lotsApark"
+                {productData.name === "LotsaPark"
                   ? "Active Locations"
                   : "Active Businesses"}
               </div>
@@ -321,7 +321,7 @@ const AppShowcase = ({ title, description, productData, href }) => {
                 {productData.stats.bookings}
               </div>
               <div className="text-gray-600 dark:text-gray-400">
-                {productData.name === "lotsApark"
+                {productData.name === "LotsaPark"
                   ? "Listed Parking Spaces"
                   : "Total Bookings"}
               </div>

@@ -8,8 +8,6 @@ import {
   BeakerIcon,
 } from "@heroicons/react/24/outline";
 
-import Expertunity from "../components/DemoJobs/Expertunity";
-
 //navigation options
 export const nav = [
   {
@@ -38,11 +36,6 @@ export const nav = [
     href: "/contact",
     icon: PhoneIcon,
   },
-  // {
-  //   name: "Demo Jobs",
-  //   href: "/demo",
-  //   icon: BeakerIcon,
-  // },
 ];
 
 //about data
@@ -51,7 +44,7 @@ export const abouts = [
   {
     id: "1",
     title: "Our Mission",
-    description: `At Angia, our mission is to deliver innovative software solutions that drive business transformation. Based in Melbourne, we combine technical excellence with deep industry understanding to create both custom solutions and powerful digital products. We're committed to helping businesses streamline their operations, enhance their digital presence, and achieve sustainable growth through technology.`,
+    description: `At Angia, our mission is to deliver innovative software solutions that drive business transformation. Based in Sydney, we combine technical excellence with deep industry understanding to create both custom solutions and powerful digital products. We're committed to helping businesses streamline their operations, enhance their digital presence, and achieve sustainable growth through technology.`,
   },
   {
     id: "2",
@@ -61,7 +54,7 @@ export const abouts = [
   {
     id: "3",
     title: "Our Strengths",
-    description: `Angia excels through our dual expertise in custom software development and digital product innovation. Our Melbourne-based team combines deep technical knowledge with a strong understanding of business needs. We pride ourselves on our ability to deliver both tailored solutions and scalable products, supported by our commitment to ongoing maintenance and support.`,
+    description: `Angia excels through our dual expertise in custom software development and digital product innovation. Our Sydney-based team combines deep technical knowledge with a strong understanding of business needs. We pride ourselves on our ability to deliver both tailored solutions and scalable products, supported by our commitment to ongoing maintenance and support.`,
   },
   {
     id: "4",
@@ -89,18 +82,5 @@ export const homeSlides = [
       "Websites increase online sales Websites increase online sales Websites increase",
     image: seoChart,
     href: "/contact",
-  },
-];
-
-//demo applications
-
-export const demoApps = [
-  {
-    id: "expertunity",
-    name: "Expertunity",
-    description:
-      "Helping subject matter experts grow enterprise skills and create strategic value.",
-    icon: "👨‍💼👩‍💼💼",
-    component: Expertunity,
   },
 ];

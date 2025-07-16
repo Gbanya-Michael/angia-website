@@ -38,7 +38,7 @@ export default function About() {
                   providing custom software development services tailored to
                   specific business needs, while also maintaining a portfolio of
                   successful digital products used by organizations worldwide.
-                  Our products, including Birabook and LotsApark, showcase our
+                  Our products, including Birabook and LotsaPark, showcase our
                   commitment to innovation and user-centric design.
                 </p>
 

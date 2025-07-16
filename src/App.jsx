@@ -8,8 +8,6 @@ import ContactPage from "./pages/ContactPage";
 import ProductPage from "./pages/ProductPage";
 import BlogPage from "./pages/BlogPage";
 import PrivacyPage from "./pages/PrivacyPage";
-import DemoPage from "./pages/DemoPage";
-import DemoApp from "./components/DemoApp";
 import ScrollToTop from "./components/ScrollToTop";
 import N8nChat from "./components/n8nchat";
 import { blogPosts } from "./data/blogPosts";
@@ -63,11 +61,11 @@ function App() {
             </title>
             <meta
               name="description"
-              content="Leading software development company in Melbourne. Specializing in custom software solutions, web development, and digital products like Birabook and lotsApark."
+              content="Leading software development company in Melbourne. Specializing in custom software solutions, web development, and digital products like Birabook and LotsaPark."
             />
             <meta
               name="keywords"
-              content="software development Melbourne, custom software solutions, web development, mobile apps, Birabook, lotsApark"
+              content="software development Melbourne, custom software solutions, web development, mobile apps, Birabook, LotsaPark"
             />
             <meta name="author" content="Angia Technologies" />
             <meta name="robots" content="index, follow" />
@@ -85,8 +83,6 @@ function App() {
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:slug" element={<BlogPage />} />
         <Route path="/privacy" element={<PrivacyPage />} />
-        <Route path="/demo" element={<DemoPage />} />
-        <Route path="/demo/:demoId" element={<DemoApp />} />
       </Routes>
       <N8nChat />
     </div>

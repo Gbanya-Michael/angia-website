@@ -335,7 +335,7 @@ export default function Home() {
                 <p className="text-white/70 text-sm">
                   From startups to established enterprises, our solutions are
                   powering businesses across Australia. Our suite of digital
-                  products, including Birabook and LotsApark, are helping
+                  products, including Birabook and LotsPark, are helping
                   organizations streamline their operations and achieve digital
                   excellence. Join the growing number of businesses transforming
                   their digital presence with Angia.

@@ -81,7 +81,7 @@ export const products = [
   },
   {
     id: 2,
-    name: "lotsApark",
+    name: "LotsaPark",
     shortDesc: "Parking Management System",
     description:
       "Smart parking management solution for apartments and condominiums",
