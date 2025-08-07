@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Replace this with your Google Apps Script deployment URL
 const FORM_ENDPOINT = import.meta.env.VITE_GOOGLE_SCRIPT_URL;
 
 export default function ContactForm() {
