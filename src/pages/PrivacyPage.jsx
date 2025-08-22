@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import Sidebar from "../components/nav";
 import Privacy from "../components/Privacy";
 
