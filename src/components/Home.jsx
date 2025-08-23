@@ -7,6 +7,7 @@ import ServicesSection from "./Services";
 import PortfolioSection from "./Portfolio";
 import { TestimonialsSection } from "./Testimonials";
 import { FooterSection } from "./Footter";
+import { ContactSection } from "./ContactUs";
 
 export default function Home() {
   return (
@@ -49,6 +50,7 @@ export default function Home() {
       <ServicesSection />
       <PortfolioSection />
       <TestimonialsSection />
+      <ContactSection />
       <FooterSection />
       <Footer />
     </div>
