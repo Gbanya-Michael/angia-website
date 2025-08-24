@@ -163,7 +163,7 @@ export function ContactSection() {
     return (
       <section
         id="contact"
-        className="py-16 bg-gradient-to-br from-main1 to-main2 dark:from-main2 to-logo1 text-white transition-colors duration-300"
+        className="py-16 bg-white dark:bg-gradient-to-br dark:from-main2 dark:to-logo1 text-gray-800 dark:text-white transition-colors duration-300"
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
@@ -171,12 +171,12 @@ export function ContactSection() {
               id="confirmation-message"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="w-full bg-white/10 backdrop-blur-sm border border-white/20 p-8 rounded-xl shadow-lg"
+              className="w-full bg-gray-50 dark:bg-white/10 backdrop-blur-sm border border-gray-200 dark:border-white/20 p-8 rounded-xl shadow-lg"
             >
               <div className="text-center">
-                <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 ring-4 ring-white/10">
+                <div className="w-20 h-20 bg-main2/20 dark:bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 ring-4 ring-main2/10 dark:ring-white/10">
                   <svg
-                    className="w-10 h-10 text-white"
+                    className="w-10 h-10 text-main1 dark:text-white"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -189,15 +189,15 @@ export function ContactSection() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-semibold text-white mb-4">
+                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
                   Thank you for reaching out!
                 </h3>
                 <div className="space-y-2 mb-6">
-                  <p className="text-white/90 text-lg">
+                  <p className="text-gray-700 dark:text-white/90 text-lg">
                     We've received your message and will get back to you within
                     24 hours.
                   </p>
-                  <p className="text-white/80 text-sm">
+                  <p className="text-gray-600 dark:text-white/80 text-sm">
                     A confirmation email has been sent to your inbox.
                   </p>
                 </div>
@@ -216,7 +216,7 @@ export function ContactSection() {
                       timestamp: "",
                     });
                   }}
-                  className="px-6 py-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/30 rounded-lg text-white font-medium transition-all duration-300 hover:scale-105"
+                  className="px-6 py-2 bg-main1 hover:bg-main2 dark:bg-white/20 dark:hover:bg-white/30 text-white dark:text-white backdrop-blur-sm border border-main1 dark:border-white/30 rounded-lg font-medium transition-all duration-300 hover:scale-105"
                 >
                   Send Another Message
                 </motion.button>
@@ -231,18 +231,18 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="py-16 bg-gradient-to-br from-main1 to-main2 dark:from-main2 to-logo1 text-white transition-colors duration-300"
+      className="py-16 bg-white dark:bg-gradient-to-br dark:from-main2 dark:to-logo1 text-gray-800 dark:text-white transition-colors duration-300"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <div className="mb-4 bg-white/20 text-white px-4 py-2 rounded-full border border-white/30 w-fit mx-auto">
+            <div className="mb-4 bg-main2/10 dark:bg-white/20 text-main1 dark:text-white px-4 py-2 rounded-full border border-main2/20 dark:border-white/30 w-fit mx-auto">
               Get Started
             </div>
-            <h2 className="text-3xl md:text-4xl mb-6 font-bold">
+            <h2 className="text-3xl md:text-4xl mb-6 font-bold text-gray-900 dark:text-white">
               Ready to Launch Your MVP?
             </h2>
-            <p className="text-xl text-white/90 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 dark:text-white/90 max-w-2xl mx-auto">
               Let's discuss your project and see how we can help you go from
               idea to market in just 6 weeks.
             </p>
@@ -250,11 +250,11 @@ export function ContactSection() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Contact Form */}
-            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6">
-              <h3 className="text-2xl font-bold mb-4 text-white">
+            <div className="bg-gray-50 dark:bg-white/10 backdrop-blur-sm border border-gray-200 dark:border-white/20 rounded-xl p-6">
+              <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
                 Start Your Project
               </h3>
-              <p className="text-white/80 mb-6">
+              <p className="text-gray-600 dark:text-white/80 mb-6">
                 Fill out the form below and we'll get back to you within 24
                 hours with a detailed proposal.
               </p>
@@ -263,8 +263,8 @@ export function ContactSection() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {/* First Name */}
                   <div>
-                    <label className="block text-sm font-medium text-white/90 mb-1">
-                      First name <span className="text-red-400">*</span>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-white/90 mb-1">
+                      First name <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="text"
@@ -272,10 +272,10 @@ export function ContactSection() {
                       value={formData["first-name"]}
                       onChange={handleChange}
                       onBlur={handleBlur}
-                      className={`w-full px-4 py-3 bg-white/20 border rounded-lg text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-300 ${
+                      className={`w-full px-4 py-3 bg-white dark:bg-white/20 border rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-main2/50 dark:focus:ring-white/50 focus:border-main2/50 dark:focus:border-white/50 transition-all duration-300 ${
                         errors["first-name"]
-                          ? "border-red-400"
-                          : "border-white/30"
+                          ? "border-red-500"
+                          : "border-gray-300 dark:border-white/30"
                       }`}
                       placeholder="Your first name"
                     />
@@ -285,7 +285,7 @@ export function ContactSection() {
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
                           exit={{ opacity: 0, height: 0 }}
-                          className="mt-1 text-sm text-red-300"
+                          className="mt-1 text-sm text-red-600 dark:text-red-300"
                         >
                           {errors["first-name"]}
                         </motion.p>
@@ -295,8 +295,8 @@ export function ContactSection() {
 
                   {/* Last Name */}
                   <div>
-                    <label className="block text-sm font-medium text-white/90 mb-1">
-                      Last name <span className="text-red-400">*</span>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-white/90 mb-1">
+                      Last name <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="text"
@@ -304,10 +304,10 @@ export function ContactSection() {
                       value={formData["last-name"]}
                       onChange={handleChange}
                       onBlur={handleBlur}
-                      className={`w-full px-4 py-3 bg-white/20 border rounded-lg text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-300 ${
+                      className={`w-full px-4 py-3 bg-white dark:bg-white/20 border rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-main2/50 dark:focus:ring-white/50 focus:border-main2/50 dark:focus:border-white/50 transition-all duration-300 ${
                         errors["last-name"]
-                          ? "border-red-400"
-                          : "border-white/30"
+                          ? "border-red-500"
+                          : "border-gray-300 dark:border-white/30"
                       }`}
                       placeholder="Your last name"
                     />
@@ -317,7 +317,7 @@ export function ContactSection() {
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
                           exit={{ opacity: 0, height: 0 }}
-                          className="mt-1 text-sm text-red-300"
+                          className="mt-1 text-sm text-red-600 dark:text-red-300"
                         >
                           {errors["last-name"]}
                         </motion.p>
@@ -328,8 +328,8 @@ export function ContactSection() {
 
                 {/* Phone Number */}
                 <div>
-                  <label className="block text-sm font-medium text-white/90 mb-1">
-                    Phone number <span className="text-red-400">*</span>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-white/90 mb-1">
+                    Phone number <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="tel"
@@ -337,10 +337,10 @@ export function ContactSection() {
                     value={formData["phone-number"]}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    className={`w-full px-4 py-3 bg-white/20 border rounded-lg text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-300 ${
+                    className={`w-full px-4 py-3 bg-white dark:bg-white/20 border rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-main2/50 dark:focus:ring-white/50 focus:border-main2/50 dark:focus:border-white/50 transition-all duration-300 ${
                       errors["phone-number"]
-                        ? "border-red-400"
-                        : "border-white/30"
+                        ? "border-red-500"
+                        : "border-gray-300 dark:border-white/30"
                     }`}
                     placeholder="Ex. 090 6333 6333"
                   />
@@ -350,7 +350,7 @@ export function ContactSection() {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="mt-1 text-sm text-red-300"
+                        className="mt-1 text-sm text-red-600 dark:text-red-300"
                       >
                         {errors["phone-number"]}
                       </motion.p>
@@ -360,8 +360,8 @@ export function ContactSection() {
 
                 {/* Email */}
                 <div>
-                  <label className="block text-sm font-medium text-white/90 mb-1">
-                    Email <span className="text-red-400">*</span>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-white/90 mb-1">
+                    Email <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="email"
@@ -369,8 +369,10 @@ export function ContactSection() {
                     value={formData.email}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    className={`w-full px-4 py-3 bg-white/20 border rounded-lg text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-300 ${
-                      errors.email ? "border-red-400" : "border-white/30"
+                    className={`w-full px-4 py-3 bg-white dark:bg-white/20 border rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-main2/50 dark:focus:ring-white/50 focus:border-main2/50 dark:focus:border-white/50 transition-all duration-300 ${
+                      errors.email
+                        ? "border-red-500"
+                        : "border-gray-300 dark:border-white/30"
                     }`}
                     placeholder="Your email"
                   />
@@ -380,7 +382,7 @@ export function ContactSection() {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="mt-1 text-sm text-red-300"
+                        className="mt-1 text-sm text-red-600 dark:text-red-300"
                       >
                         {errors.email}
                       </motion.p>
@@ -390,8 +392,8 @@ export function ContactSection() {
 
                 {/* Subject */}
                 <div>
-                  <label className="block text-sm font-medium text-white/90 mb-1">
-                    Subject <span className="text-red-400">*</span>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-white/90 mb-1">
+                    Subject <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -399,8 +401,10 @@ export function ContactSection() {
                     value={formData.subject}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    className={`w-full px-4 py-3 bg-white/20 border rounded-lg text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-300 ${
-                      errors.subject ? "border-red-400" : "border-white/30"
+                    className={`w-full px-4 py-3 bg-white dark:bg-white/20 border rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-main2/50 dark:focus:ring-white/50 focus:border-main2/50 dark:focus:border-white/50 transition-all duration-300 ${
+                      errors.subject
+                        ? "border-red-500"
+                        : "border-gray-300 dark:border-white/30"
                     }`}
                     placeholder="Subject of your message"
                   />
@@ -410,7 +414,7 @@ export function ContactSection() {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="mt-1 text-sm text-red-300"
+                        className="mt-1 text-sm text-red-600 dark:text-red-300"
                       >
                         {errors.subject}
                       </motion.p>
@@ -420,8 +424,8 @@ export function ContactSection() {
 
                 {/* Message */}
                 <div>
-                  <label className="block text-sm font-medium text-white/90 mb-1">
-                    Message <span className="text-red-400">*</span>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-white/90 mb-1">
+                    Message <span className="text-red-500">*</span>
                   </label>
                   <textarea
                     name="message"
@@ -430,8 +434,10 @@ export function ContactSection() {
                     value={formData.message}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    className={`w-full px-4 py-3 bg-white/20 border rounded-lg text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-300 resize-none ${
-                      errors.message ? "border-red-400" : "border-white/30"
+                    className={`w-full px-4 py-3 bg-white dark:bg-white/20 border rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-main2/50 dark:focus:ring-white/50 focus:border-main2/50 dark:focus:border-white/50 transition-all duration-300 resize-none ${
+                      errors.message
+                        ? "border-red-500"
+                        : "border-gray-300 dark:border-white/30"
                     }`}
                     placeholder="Tell us about your project idea..."
                   />
@@ -441,13 +447,13 @@ export function ContactSection() {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="mt-1 text-sm text-red-300"
+                        className="mt-1 text-sm text-red-600 dark:text-red-300"
                       >
                         {errors.message}
                       </motion.p>
                     )}
                   </AnimatePresence>
-                  <p className="mt-1 text-sm text-white/70">
+                  <p className="mt-1 text-sm text-gray-500 dark:text-white/70">
                     {formData.message.length}/400 characters
                   </p>
                 </div>
@@ -459,8 +465,8 @@ export function ContactSection() {
                   disabled={isSubmitting}
                   className={`w-full px-6 py-3 rounded-lg text-white font-semibold transition-all duration-300 ${
                     isSubmitting
-                      ? "bg-white/20 cursor-not-allowed"
-                      : "bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/30 hover:scale-105"
+                      ? "bg-gray-400 cursor-not-allowed"
+                      : "bg-main1 hover:bg-main2 dark:bg-white/20 dark:hover:bg-white/30 backdrop-blur-sm border border-main1 dark:border-white/30 hover:scale-105"
                   }`}
                 >
                   {isSubmitting ? (
@@ -497,10 +503,10 @@ export function ContactSection() {
             {/* Benefits */}
             <div className="space-y-6">
               <div className="text-center lg:text-left">
-                <h3 className="text-2xl mb-4 font-bold text-white">
+                <h3 className="text-2xl mb-4 font-bold text-gray-900 dark:text-white">
                   Why Choose The MVP Guys?
                 </h3>
-                <p className="text-white/80 mb-8">
+                <p className="text-gray-600 dark:text-white/80 mb-8">
                   We've perfected the art of rapid MVP development, helping
                   Australian businesses launch faster and smarter.
                 </p>
@@ -510,27 +516,29 @@ export function ContactSection() {
                 {benefits.map((benefit, index) => (
                   <div
                     key={index}
-                    className="flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 hover:bg-white/20 transition-all duration-300"
+                    className="flex items-center space-x-3 bg-gray-50 dark:bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-gray-200 dark:border-white/20 hover:bg-gray-100 dark:hover:bg-white/20 transition-all duration-300"
                   >
                     {benefit.icon}
-                    <span className="text-white font-medium">
+                    <span className="text-gray-700 dark:text-white font-medium">
                       {benefit.text}
                     </span>
                   </div>
                 ))}
               </div>
 
-              <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:bg-white/20 transition-all duration-300">
+              <div className="bg-gray-50 dark:bg-white/10 backdrop-blur-sm border border-gray-200 dark:border-white/20 rounded-xl p-6 hover:bg-gray-100 dark:hover:bg-white/20 transition-all duration-300">
                 <div className="text-center">
-                  <h4 className="text-xl mb-2 font-bold text-white">
+                  <h4 className="text-xl mb-2 font-bold text-gray-900 dark:text-white">
                     Free Consultation
                   </h4>
-                  <p className="text-white/80 mb-4">
+                  <p className="text-gray-600 dark:text-white/80 mb-4">
                     Get expert advice on your MVP strategy, tech stack, and
                     go-to-market approach.
                   </p>
-                  <div className="text-3xl font-bold text-white mb-1">$0</div>
-                  <div className="text-sm text-white/80">
+                  <div className="text-3xl font-bold text-main1 dark:text-white mb-1">
+                    $0
+                  </div>
+                  <div className="text-sm text-gray-500 dark:text-white/80">
                     No commitment required
                   </div>
                 </div>
