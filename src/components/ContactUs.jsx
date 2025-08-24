@@ -197,29 +197,7 @@ export function ContactSection() {
                     We've received your message and will get back to you within
                     24 hours.
                   </p>
-                  <p className="text-gray-600 dark:text-white/80 text-sm">
-                    A confirmation email has been sent to your inbox.
-                  </p>
                 </div>
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => {
-                    setIsSubmitted(false);
-                    setFormData({
-                      "first-name": "",
-                      "last-name": "",
-                      "phone-number": "",
-                      email: "",
-                      subject: "",
-                      message: "",
-                      timestamp: "",
-                    });
-                  }}
-                  className="px-6 py-2 bg-main1 hover:bg-main2 dark:bg-white/20 dark:hover:bg-white/30 text-white dark:text-white backdrop-blur-sm border border-main1 dark:border-white/30 rounded-lg font-medium transition-all duration-300 hover:scale-105"
-                >
-                  Send Another Message
-                </motion.button>
               </div>
             </motion.div>
           </div>

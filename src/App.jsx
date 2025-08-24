@@ -4,7 +4,6 @@ import { Helmet } from "react-helmet-async";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import ServicesPage from "./pages/ServicesPage";
-import ContactPage from "./pages/ContactPage";
 import ProductPage from "./pages/ProductPage";
 import BlogPage from "./pages/BlogPage";
 import PrivacyPage from "./pages/PrivacyPage";
@@ -78,7 +77,6 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/services" element={<ServicesPage />} />
-        <Route path="/contact" element={<ContactPage />} />
         <Route path="/products/:productId" element={<ProductPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:slug" element={<BlogPage />} />
