@@ -1,4 +1,5 @@
 import { Mail, Phone, MapPin, Linkedin, Twitter } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export function FooterSection() {
   return (
@@ -8,11 +9,13 @@ export function FooterSection() {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-                <span className="text-slate-900 text-sm">A</span>
+              <div className="w-10 h-10 rounded-lg flex items-center justify-center">
+                <span className="text-slate-900 text-sm">
+                  <img src="/angia-logo.png" alt="Logo" />
+                </span>
               </div>
               <div>
-                <div>Angia</div>
+                <div>ANGIA</div>
                 <div className="text-xs text-slate-400">The MVP Guys</div>
               </div>
             </div>
@@ -41,11 +44,18 @@ export function FooterSection() {
           <div>
             <h4 className="mb-4">Company</h4>
             <ul className="space-y-2 text-sm text-slate-300">
-              <li>About Us</li>
-              <li>Our Process</li>
-              <li>Case Studies</li>
-              <li>Careers</li>
-              <li>Blog</li>
+              <li>
+                <Link to="/about"> About Us</Link>
+              </li>
+              <li>
+                <Link to="/contact">Contact</Link>
+              </li>
+              <li>
+                <Link to="/blog"> Blog</Link>
+              </li>
+              <li>
+                <Link to="/privacy">Privacy</Link>
+              </li>
             </ul>
           </div>
 
