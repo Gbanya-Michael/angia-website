@@ -6,7 +6,6 @@ import StatsSection from "./Stats";
 import ServicesSection from "./Services";
 import PortfolioSection from "./Portfolio";
 import { TestimonialsSection } from "./Testimonials";
-import { FooterSection } from "./Footter";
 import { ContactSection } from "./ContactUs";
 
 export default function Home() {
@@ -51,7 +50,6 @@ export default function Home() {
       <PortfolioSection />
       <TestimonialsSection />
       <ContactSection />
-      <FooterSection />
       <Footer />
     </div>
   );

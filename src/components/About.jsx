@@ -15,7 +15,7 @@ import {
   Cloud,
 } from "lucide-react";
 
-import { FooterSection } from "./Footter";
+import Footer from "./Footer";
 
 export default function App() {
   return (
@@ -305,7 +305,7 @@ export default function App() {
         </div>
       </div>
 
-      <FooterSection />
+      <Footer />
     </div>
   );
 }
