@@ -169,7 +169,9 @@ export default function Sidebar({ content }) {
                               </Link>
                             </li>
                           ))}
-                          <li>
+
+                          {/* TODO */}
+                          {/* <li>
                             <Menu as="div" className="relative">
                               {({ open }) => (
                                 <>
@@ -250,7 +252,7 @@ export default function Sidebar({ content }) {
                                 </>
                               )}
                             </Menu>
-                          </li>
+                          </li> */}
                         </ul>
                       </li>
                       <li className="mt-auto">
@@ -351,7 +353,9 @@ export default function Sidebar({ content }) {
                       </Link>
                     </li>
                   ))}
-                  <li>
+
+                  {/* TODO */}
+                  {/* <li>
                     <Menu as="div" className="relative">
                       {({ open }) => (
                         <>
@@ -431,7 +435,7 @@ export default function Sidebar({ content }) {
                         </>
                       )}
                     </Menu>
-                  </li>
+                  </li> */}
                 </ul>
               </li>
               <li className="mt-auto">

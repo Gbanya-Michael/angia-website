@@ -8,7 +8,7 @@ export default function PortfolioSection() {
       description:
         "A comprehensive financial analytics platform for investment tracking and portfolio management.",
       type: "Web App",
-      icon: <Globe className="h-5 w-5" />,
+      icon: <Globe className="h-5 w-5 text-main1 dark:text-main2" />,
       image:
         "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
       tags: ["React", "Node.js", "PostgreSQL", "Chart.js"],
@@ -19,7 +19,7 @@ export default function PortfolioSection() {
       description:
         "On-demand delivery application connecting customers with local restaurants and stores.",
       type: "Mobile App",
-      icon: <Smartphone className="h-5 w-5" />,
+      icon: <Smartphone className="h-5 w-5 text-main2 dark:text-logo1" />,
       image:
         "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=400&fit=crop",
       tags: ["React Native", "Firebase", "Maps API", "Push Notifications"],
@@ -30,7 +30,7 @@ export default function PortfolioSection() {
       description:
         "Multi-vendor marketplace with advanced inventory management and AI-powered recommendations.",
       type: "E-Commerce",
-      icon: <ShoppingCart className="h-5 w-5" />,
+      icon: <ShoppingCart className="h-5 w-5 text-main3 dark:text-logo2" />,
       image:
         "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
       tags: ["Next.js", "Stripe", "AI/ML", "AWS"],
@@ -39,14 +39,19 @@ export default function PortfolioSection() {
   ];
 
   return (
-    <section id="portfolio" className="py-16">
+    <section
+      id="portfolio"
+      className="py-16 bg-gradient-to-br from-white to-gray-50 dark:from-bg1 dark:to-bg2 transition-colors duration-300"
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h1 className="mb-4 text-lg md:text-2xl text-gray-600">Our Work</h1>
-          <h2 className="text-3xl md:text-4xl mb-6">
+          <h1 className="mb-4 text-lg md:text-2xl text-main1 dark:text-main2 font-medium">
+            Our Work
+          </h1>
+          <h2 className="text-3xl md:text-4xl mb-6 font-bold text-gray-900 dark:text-white">
             Recent MVP Success Stories
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             See how we've helped businesses launch and scale their ideas with
             our proven 6-week MVP process.
           </p>
@@ -55,7 +60,7 @@ export default function PortfolioSection() {
           {projects.map((project, index) => (
             <li
               key={index}
-              className="group hover:shadow-xl transition-all duration-300 overflow-hidden border-0 shadow-md flex flex-col" // <-- added flex flex-col
+              className="group hover:shadow-xl transition-all duration-300 overflow-hidden border border-main2/20 dark:border-main2/30 shadow-md flex flex-col bg-white/80 dark:bg-bg1/80 backdrop-blur-sm rounded-xl hover:-translate-y-1"
             >
               <div className="relative overflow-hidden">
                 <ImageWithFallback
@@ -64,27 +69,32 @@ export default function PortfolioSection() {
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute top-4 right-4">
-                  <div className="bg-white/90 px-1 rounded-lg text-s text-gray-700 shadow-md">
+                  <div className="bg-white/90 dark:bg-bg1/90 px-3 py-1 rounded-lg text-sm text-gray-700 dark:text-gray-200 shadow-md border border-main2/20 dark:border-main2/30">
                     {project.timeline}
                   </div>
                 </div>
               </div>
 
-              <div className="px-2 pt-2 h-fit">
-                <div className="flex items-center space-x-2 mb-2">
+              <div className="px-6 pt-6 h-fit">
+                <div className="flex items-center space-x-2 mb-3">
                   {project.icon}
-                  <div variant="outline">{project.type}</div>
+                  <div className="px-3 py-1 bg-main2/10 dark:bg-main2/20 text-main1 dark:text-main2 rounded-full text-sm font-medium border border-main2/20 dark:border-main2/30">
+                    {project.type}
+                  </div>
                 </div>
-                <div className="text-xl">{project.title}</div>
-                <div>{project.description}</div>
+                <div className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                  {project.title}
+                </div>
+                <div className="text-gray-600 dark:text-gray-300 mb-4">
+                  {project.description}
+                </div>
 
                 <div className="pt-0">
-                  <div className="flex flex-wrap gap-1 mb-4">
+                  <div className="flex flex-wrap gap-2 mb-4">
                     {project.tags.map((tag, tagIndex) => (
                       <div
                         key={tagIndex}
-                        variant="secondary"
-                        className="text-xs"
+                        className="text-xs px-2 py-1 bg-main2/5 dark:bg-main2/10 text-main1 dark:text-main2 rounded-md border border-main2/20 dark:border-main2/30"
                       >
                         {tag}
                       </div>
@@ -92,18 +102,13 @@ export default function PortfolioSection() {
                   </div>
                 </div>
               </div>
-              {/* To */}
-              {/* <button className="mt-auto w-full group flex items-center justify-center gap-2 text-sm text-gray-700 hover:text-gray-900 transition-colors duration-300 px-4 py-2 border border-gray-300">
-                View Case Study
-                <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </button> */}
             </li>
           ))}
         </ul>
 
         <div className="text-center mt-12">
           <button
-            className="bg-indigo-600 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-indigo-700 transition-colors duration-300"
+            className="bg-main1 hover:bg-main2 dark:bg-main2 dark:hover:bg-logo1 text-white px-6 py-3 rounded-lg shadow-lg transition-all duration-300 hover:scale-105"
             onClick={() =>
               document
                 .getElementById("contact")
